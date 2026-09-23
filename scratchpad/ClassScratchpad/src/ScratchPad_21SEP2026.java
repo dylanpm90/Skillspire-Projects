@@ -3,12 +3,12 @@ public class ScratchPad_21SEP2026 {
     public static void main() {
         // variables
         int firstSampleNumber = 3;
-        int secondSampleNumber = 5;
-        int thirdSampleNumber = 15;
+        int secondSampleNumber = 10;
+        int thirdSampleNumber = 18;
         int fourthSampleNumber = 32;
         String firstFruit = "Apple";
-        String secondFruit = "Orange";
-        String thirdFruit = "Apple";
+        String secondFruit = "Apple";
+        String thirdFruit = "Orange";
 
         // store results of called methods
         boolean result = isEven(thirdSampleNumber);
