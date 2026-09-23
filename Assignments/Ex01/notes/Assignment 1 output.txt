@@ -1,0 +1,99 @@
+Assignment 1 output
+
+Ex01:
+
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59439" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex01
+Hello, Skillspire!
+My name is DD MacKay
+I am learning Java and Cloud Computing.
+
+Process finished with exit code 0
+
+Ex02:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59446" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex02
+First Name: DD
+City: Vancouver
+Years of experience: 4
+Hours per week: 18.0
+Enrolled: true
+First initial: D
+
+Process finished with exit code 0
+
+Ex03:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59448" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex03
+I am DD, I live in Vancouver, and I am studying Java and Cloud Computing.
+
+Process finished with exit code 0
+
+Ex04:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59451" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex04
+Sum: 22
+Difference: 12
+Product: 85
+Quotient: 3
+Remainder: 2
+
+Process finished with exit code 0
+
+Ex05:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59454" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex05
+Integer division: 3
+Remainder: 1
+Decimal division: 3.5
+Decimal division with a cast: 3.5
+
+Process finished with exit code 0
+
+Ex06:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59456" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex06
+Total: 270.0
+Average: 90.0
+
+Process finished with exit code 0
+
+Ex07:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59458" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex07
+Exact score: 87.9
+After casting to int: 87
+Student count as a double: 24.0
+The character A is 65
+
+Process finished with exit code 0
+
+Ex08:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59463" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex08
+Starting points: 100
+After += 50: 150
+After -= 20: 130
+After *= 2: 260
+After ++: 261
+
+Process finished with exit code 0
+
+
+Ex09:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59465" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex09
+Is class full? false
+Are there open seats? true
+Is enrollment different than capacity? true
+Is enrollment at least 30? false
+Do I have a laptop? true
+
+Process finished with exit code 0
+
+Ex10:
+"C:\Program Files\Java\jdk-27\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=59468" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\dylan\Documents\Personal documents\Skillspire\projects\Assignments\Ex01\out\production\Assignment01" Ex10
+===== SKILLSPIRE PAYMENT PLAN =====
+Student: DD
+Program: Java and Cloud Computing
+-----------------------------------
+Tuition: $6500.0
+Deposit paid: $500.0
+Balance due: $6000.0
+Payments: 5
+Monthly payment: $1200.0
+===================================
+
+Process finished with exit code 0
+

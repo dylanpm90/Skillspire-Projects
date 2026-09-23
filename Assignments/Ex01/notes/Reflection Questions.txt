@@ -1,0 +1,7 @@
+Reflection Questions
+
+1: I've encountered the idea of integer division before in a tutorial and the outcome was as I expected: integer division yields an integer quotient.
+
+2: A variable is a storage container for some sort of data. There are many data types, including int, Boolean, string, etc. One can take these variables and instruct the computer to do tasks with them, like arithmetic and exporting and display.
+
+3: Ex08 took the longest because writing point++ in the final println (line 19) was not yielding the results I expected. The context pop up in IntelliJ says "The value changed at 'points++' is never used". To resolve the issue, I wrote ++points and that performed the arithmetic and yielded the expected result. 
