@@ -1,0 +1,2 @@
+# Projects
+exercises, coursework, etc.
