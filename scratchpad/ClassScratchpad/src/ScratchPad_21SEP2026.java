@@ -20,7 +20,7 @@ public class ScratchPad_21SEP2026 {
         String adultOrMinor = determineAdultOrMinor(fourthSampleNumber);
 
         // print results
-        System.out.println(result);
+        System.out.println("Is " + thirdSampleNumber + " even? " + result);
         System.out.println(fruitComparisonResult);
         System.out.println(secondFruitComparisonResult);
         System.out.println(area);

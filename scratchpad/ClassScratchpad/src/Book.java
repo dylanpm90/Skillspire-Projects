@@ -65,19 +65,19 @@ public class Book {
 
         //print results
         System.out.println("_________ * BESTSELLER * _________");
-        System.out.println("Name:             " + bestseller.getBookName());
-        System.out.println("Author:           " + bestseller.getBookAuthor());
-        System.out.println("Year Published:   " + bestseller.getBookYear());
+        System.out.println("Name:           " + bestseller.getBookName());
+        System.out.println("Author:         " + bestseller.getBookAuthor());
+        System.out.println("Year Published: " + bestseller.getBookYear());
         System.out.println("__________________________________");
         System.out.println("_ * OLDEST BOOK IN COLLECTION * __");
-        System.out.println("Name:             " + firstMovableTypePrint.getBookName());
-        System.out.println("Author:           " + firstMovableTypePrint.getBookAuthor());
-        System.out.println("Year Published:   " + firstMovableTypePrint.getBookYear());
+        System.out.println("Name:           " + firstMovableTypePrint.getBookName());
+        System.out.println("Author:         " + firstMovableTypePrint.getBookAuthor());
+        System.out.println("Year Published: " + firstMovableTypePrint.getBookYear());
         System.out.println("__________________________________");
         System.out.println("________ * MOST POPULAR * ________");
-        System.out.println("Name:             " + mostPopular.getBookName());
-        System.out.println("Author:           " + mostPopular.getBookAuthor());
-        System.out.println("Year Published:   " + mostPopular.getBookYear());
+        System.out.println("Name:           " + mostPopular.getBookName());
+        System.out.println("Author:         " + mostPopular.getBookAuthor());
+        System.out.println("Year Published: " + mostPopular.getBookYear());
         System.out.println("__________________________________");
     }
 
