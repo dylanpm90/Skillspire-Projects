@@ -1,0 +1,45 @@
+Week 2 Worksheet: Clean Code Best Practices in Java
+
+    Why does clean code matter in professional software development?
+    What is the golden rule of naming conventions in Java?
+    Which of the following is a better variable name and why: x or studentAge?
+    Rewrite this messy code with better variable names:
+
+int a = 5; int b = 10; int c = a + b; System.out.println(c);
+
+    What is the recommended indentation size in Java?
+    Reformat the following code to follow clean formatting standards:
+
+if(age>=18){System.out.println("Eligible");}else{System.out.println("Not eligible");}
+
+    What should comments explain in code — the “what” or the “why”?
+    Write a JavaDoc comment for a method that calculates the area of a rectangle.
+    Why should methods be kept small and focused?
+    What does the DRY principle stand for?
+    What does the KISS principle stand for?
+    Rewrite this messy code into a clean version:
+
+if(u.equals("admin") && p.equals("1234")) { System.out.println("ok"); } else { System.out.println("no"); }
+
+    What is the Single Responsibility Principle (SRP) in your own words?
+    In clean code, should classes depend on abstractions or concrete classes?
+    What exception will occur if you divide a number by zero in Java?
+    Rewrite this code to handle division errors gracefully using try/catch:
+
+int result = a / b;
+
+    What is wrong with the following class name? Suggest a better one:
+
+public class MyClass { }
+
+    Write a class Book with variables title, author, and price. Include getter and setter methods using clean code best practices.
+    Refactor this messy code into clean code:
+
+public class c { int x; void m(int a, int b){ x = a + b; if (x > 10){ System.out.println("ok"); } else { System.out.println("no"); } } }
+
+    Why is code said to be “read 10x more often than it is written”?
+    Which naming style is preferred in Java: camelCase or snake_case?
+    What is a common mistake beginners make with comments?
+    What is the main benefit of meaningful names in methods and variables?
+    Write a program to calculate the average of three numbers using clean code best practices.
+    Why is clean code considered a career skill and not just an academic skill?

@@ -1,0 +1,69 @@
+Week 3 – Worksheet B: Parameters & Return Values 
+
+    Define “parameter” vs “argument” in one line each. 
+
+    Label the parameter and argument: 
+
+public static void greet(String name) { ... } greet("Alice"); 
+
+    Write a method add(int a, int b) that returns the sum. 
+
+    What will this print? 
+
+public static int add(int a, int b){ return a + b; } public static void main(String[] args){ System.out.println(add(10, 20)); } 
+
+    What keyword is required to send a value back from a method? 
+
+    Complete the return statement: 
+
+public static double half(int x){ ______ x / 2.0; } 
+
+    Java does not support default parameter values. What common technique is used instead? 
+
+    Overload greet() so that one version takes no parameters and prints “Hello, Guest” and another takes a String name. 
+
+    Primitive parameters are passed by ______ in Java (copy value or copy reference?). 
+
+    What will this print? 
+
+public static void inc(int x){ x = x + 1; System.out.println("Inside: " + x); } public static void main(String[] args){ int n = 5; inc(n); System.out.println("Outside: " + n); } 
+
+    Objects are passed by copying the ______ (value or reference?). 
+
+    What will this print? 
+
+public static void tag(StringBuilder s){ s.append("!"); } public static void main(String[] args){ StringBuilder sb = new StringBuilder("Hi"); tag(sb); System.out.println(sb); } 
+
+    Write divide(int a, int b) that returns a double and returns 0.0 if b == 0. 
+
+    Convert this to a method that returns a String instead of printing: 
+
+System.out.println("Welcome " + name); 
+
+    What is wrong? 
+
+public static int getName(){ return "Alice"; } 
+
+    Fill in a method that returns both sum and product using an int[]: 
+
+public static int[] calc(int a, int b){ // return new int[]{sum, product}; } 
+
+    Write grade(int score) that returns "A", "B", "C", or "F". 
+
+    Change this method to return a boolean value instead of printing: 
+
+public static void isEven(int n){ if(n % 2 == 0) System.out.println("true"); else System.out.println("false"); } 
+
+    What is “unreachable code after return”? Give a 1-line example. 
+
+    Complete the method header for a method that returns a Student and takes String name, int age. 
+
+    What does Optional<String> represent in Java? One sentence. 
+
+    Method overloading: write two sum methods—one for int, int and one for double, double. 
+
+    Why is it generally better to return values than to System.out.println inside business logic? 
+
+    Write max(int[] a) that returns the largest element (assume length ≥ 1). 
+
+    What happens if a non-void method reaches its end without a return statement? 
