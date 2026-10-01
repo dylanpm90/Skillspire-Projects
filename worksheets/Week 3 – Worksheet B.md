@@ -1,8 +1,8 @@
-**Week 3 – Worksheet B: Parameters \& Return Values** 
+**Week 3 – Worksheet B: Parameters \& Return Values**
 
 
 
-* Define “parameter” vs “argument” in one line each. 
+* Define “parameter” vs “argument” in one line each.
 
 
 
@@ -10,11 +10,11 @@
 
 
 
-* Label the parameter and argument: 
+* Label the parameter and argument:
 
 
 
-public static void greet(String name) { ... } greet("Alice"); 
+public static void greet(String name) { ... } greet("Alice");
 
 
 
@@ -22,7 +22,7 @@ public static void greet(String name) { ... } greet("Alice");
 
 
 
-* Write a method add(int a, int b) that returns the sum. 
+* Write a method add(int a, int b) that returns the sum.
 
 
 
@@ -34,11 +34,11 @@ public static void greet(String name) { ... } greet("Alice");
 
 
 
-* What will this print? 
+* What will this print?
 
 
 
-public static int add(int a, int b){ return a + b; } public static void main(String\[] args){ System.out.println(add(10, 20)); } 
+public static int add(int a, int b){ return a + b; } public static void main(String\[] args){ System.out.println(add(10, 20)); }
 
 
 
@@ -46,7 +46,7 @@ public static int add(int a, int b){ return a + b; } public static void main(Str
 
 
 
-* What keyword is required to send a value back from a method? 
+* What keyword is required to send a value back from a method?
 
 
 
@@ -54,15 +54,15 @@ public static int add(int a, int b){ return a + b; } public static void main(Str
 
 
 
-* Complete the return statement: 
+* Complete the return statement:
 
 
 
-public static double half(int x){ return x / 2.0; } 
+public static double half(int x){ return x / 2.0; }
 
 
 
-* Java does not support default parameter values. What common technique is used instead? 
+* Java does not support default parameter values. What common technique is used instead?
 
 
 
@@ -70,7 +70,7 @@ public static double half(int x){ return x / 2.0; }
 
 
 
-* Overload greet() so that one version takes no parameters and prints “Hello, Guest” and another takes a String name. 
+* Overload greet() so that one version takes no parameters and prints “Hello, Guest” and another takes a String name.
 
 
 
@@ -80,61 +80,63 @@ public static double half(int x){ return x / 2.0; }
 
 
 
-&#x20;   Primitive parameters are passed by copy value in Java (copy value or copy reference?). 
+&#x20;   Primitive parameters are passed by copy value in Java (copy value or copy reference?).
 
 
 
-* What will this print? 
+* What will this print?
 
 
 
-public static void inc(int x){ 
+public static void inc(int x){
 
-&#x09;x = x + 1; System.out.println("Inside: " + x); 
+&#x09;x = x + 1; 
 
-} 
+&#x09;System.out.println("Inside: " + x);
+
+}
 
 public static void main(String\[] args){
 
-&#x20;	int n = 5; 
+&#x20;	int n = 5;
 
-&#x09;inc(n); 
+&#x09;inc(n);
 
-&#x09;System.out.println("Outside: " + n); 
+&#x09;System.out.println("Outside: " + n);
 
-} 
+}
 
 
 
 &#x09;Inside: 6
 
-&#x09;Outside: 5	
+&#x09;Outside: 5
 
 
 
-&#x20;   Objects are passed by copying the reference (value or reference?). 
+&#x20;   Objects are passed by copying the reference (value or reference?).
 
 
 
-* What will this print? 
+* What will this print?
 
 
 
-public static void tag(StringBuilder s){ 
+public static void tag(StringBuilder s){
 
-&#x09;s.append("!"); 
+&#x09;s.append("!");
 
-} 
+}
 
-public static void main(String\[] args){ 
+public static void main(String\[] args){
 
-&#x09;StringBuilder sb = new StringBuilder("Hi"); 
+&#x09;StringBuilder sb = new StringBuilder("Hi");
 
-&#x09;tag(sb); 
+&#x09;tag(sb);
 
-&#x09;System.out.println(sb); 
+&#x09;System.out.println(sb);
 
-} 
+}
 
 
 
@@ -142,7 +144,7 @@ public static void main(String\[] args){
 
 
 
-* Write divide(int a, int b) that returns a double and returns 0.0 if b == 0. 
+* Write divide(int a, int b) that returns a double and returns 0.0 if b == 0.
 
 
 
@@ -150,7 +152,7 @@ public static void main(String\[] args){
 
 &#x09;	if (b == 0) {
 
-&#x09;		return 0.0 
+&#x09;		return 0.0
 
 &#x09;	}
 
@@ -158,11 +160,11 @@ public static void main(String\[] args){
 
 &#x09;}
 
-* Convert this to a method that returns a String instead of printing: 
+* Convert this to a method that returns a String instead of printing:
 
 
 
-System.out.println("Welcome " + name); 
+System.out.println("Welcome " + name);
 
 
 
@@ -170,11 +172,11 @@ System.out.println("Welcome " + name);
 
 
 
-* What is wrong? 
+* What is wrong?
 
 
 
-public static int getName(){ return "Alice"; } 
+public static int getName(){ return "Alice"; }
 
 
 
@@ -182,11 +184,11 @@ public static int getName(){ return "Alice"; }
 
 
 
-* Fill in a method that returns both sum and product using an int\[]: 
+* Fill in a method that returns both sum and product using an int\[]:
 
 
 
-public static int\[] calc(int a, int b){ // return new int\[]{sum, product}; } 
+public static int\[] calc(int a, int b){ // return new int\[]{sum, product}; }
 
 
 
@@ -202,7 +204,7 @@ public static int\[] calc(int a, int b){ // return new int\[]{sum, product}; }
 
 
 
-* **Write grade(int score) that returns "A", "B", "C", or "F".** 
+* Write grade(int score) that returns "A", "B", "C", or "F".
 
 
 
@@ -210,43 +212,59 @@ public static int\[] calc(int a, int b){ // return new int\[]{sum, product}; }
 
 &#x09;	if (score >= 90) {
 
-&#x09;		return "A"
+&#x09;		return "A";
+
+&#x09;	} else if (score >= 80) {
+
+&#x09;		return "B";
+
+&#x09;	} else if (score >= 70) {
+
+&#x09;		return "C";
+
+&#x09;	} else if (score >= 60) {
+
+&#x09;		return "F";
+
+&#x09;	} else {
+
+&#x09;		return "Not applicable";
 
 &#x09;	}
 
-&#x09;}	
+&#x09;}
 
 
 
-* **Change this method to return a boolean value instead of printing:** 
+* **Change this method to return a boolean value instead of printing:**
 
 
 
-public static void isEven(int n){ 
+public static boolean isEven(int n){
 
 &#x09;if(n % 2 == 0){
 
-&#x09;	System.out.println("true"); 
+&#x09;	return true;
 
-&#x09;} else { 
+&#x09;} else {
 
-&#x09;	System.out.println("false"); 
+&#x09;	return false;
 
-&#x09;} 
+&#x09;}
 
-&#x09;	
-
-
-
-* What is “unreachable code after return”? Give a 1-line example. 
+&#x09;
 
 
 
-&#x09;If a method is exited before a line of code is executed, it is unreachable code.	
+* What is “unreachable code after return”? Give a 1-line example.
 
 
 
-* Complete the method header for a method that returns a Student and takes String name, int age. 
+&#x09;If a method is exited before a line of code is executed, it is unreachable code.
+
+
+
+* Complete the method header for a method that returns a Student and takes String name, int age.
 
 
 
@@ -254,23 +272,23 @@ public static void isEven(int n){
 
 
 
-* What does Optional<String> represent in Java? One sentence. 
+* What does Optional<String> represent in Java? One sentence.
 
 
 
-&#x09;It is a placeholder in the circumstance that there might not be a String value.		
+&#x09;It is a placeholder in the circumstance that there might not be a String value.
 
 
 
-* **Method overloading: write two sum methods—one for int, int and one for double, double.** 
+* **\*\*\*\*Method overloading: write two sum methods—one for int, int and one for double, double.**
 
 
 
-&#x09;	
+&#x09;
 
 
 
-* Why is it generally better to return values than to System.out.println inside business logic? 
+* Why is it generally better to return values than to System.out.println inside business logic?
 
 
 
@@ -278,7 +296,7 @@ public static void isEven(int n){
 
 
 
-* **Write max(int\[] a) that returns the largest element (assume length ≥ 1).** 
+* Write max(int\[] a) that returns the largest element (assume length ≥ 1).
 
 &#x09;
 
@@ -290,7 +308,7 @@ public static void isEven(int n){
 
 &#x09;		if (n > max) {
 
-&#x09;			max = n;	
+&#x09;			max = n;
 
 &#x09;		}
 
@@ -298,17 +316,15 @@ public static void isEven(int n){
 
 &#x09;	}
 
-&#x09;	
+&#x09;
 
-&#x09;}	
-
-
-
-* **What happens if a non-void method reaches its end without a return statement?** 
+&#x09;}
 
 
 
-&#x09;It will send a compiler error. Non-void methods must return a value.	
+* What happens if a non-void method reaches its end without a return statement?
 
 
+
+&#x09;It will send a compiler error. Non-void methods must return a value.
 

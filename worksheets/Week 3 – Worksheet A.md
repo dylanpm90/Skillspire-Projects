@@ -1,8 +1,8 @@
-Week 3 – Worksheet A: Creating \& Calling Methods in Java 
+Week 3 – Worksheet A: Creating \& Calling Methods in Java
 
 
 
-* In one sentence, what is a method in Java? 
+* In one sentence, what is a method in Java?
 
 
 
@@ -10,7 +10,7 @@ Week 3 – Worksheet A: Creating \& Calling Methods in Java
 
 
 
-* Write the method header for a public static method named greet that takes no parameters and returns nothing. 
+* Write the method header for a public static method named greet that takes no parameters and returns nothing.
 
 
 
@@ -18,35 +18,35 @@ Week 3 – Worksheet A: Creating \& Calling Methods in Java
 
 
 
-* Where is a method called in this example, and where is it defined? 
+* Where is a method called in this example, and where is it defined?
 
 
 
-public class HelloWorld { public static void greet() { System.out.println("Hello, World!"); } public static void main(String\[] args) { greet(); } } 
+public class HelloWorld { public static void greet() { System.out.println("Hello, World!"); } public static void main(String\[] args) { greet(); } }
 
 
 
-* What will this program print? 
+* What will this program print?
 
 
 
-&#x09;public class Printer { 
+&#x09;public class Printer {
 
-&#x09;	public static void printWelcome() { 
+&#x09;	public static void printWelcome() {
 
-&#x09;		System.out.println("Welcome to Skillspire Academy!"); 
+&#x09;		System.out.println("Welcome to Skillspire Academy!");
 
-&#x09;	} 
+&#x09;	}
 
-&#x09;	public static void main(String\[] args) { 
+&#x09;	public static void main(String\[] args) {
 
-&#x09;		printWelcome(); 
+&#x09;		printWelcome();
 
-&#x09;		printWelcome(); 
+&#x09;		printWelcome();
 
-&#x09;	} 
+&#x09;	}
 
-&#x09;} 
+&#x09;}
 
 &#x09;
 
@@ -54,11 +54,11 @@ public class HelloWorld { public static void greet() { System.out.println("Hello
 
 
 
-* What is the difference between a method definition and a method call? 
+* What is the difference between a method definition and a method call?
 
 
 
-&#x09;When a method is defined, the modifier, return type, method name, parameters are written and then the code block is written inside the curly brackets. 
+&#x09;When a method is defined, the modifier, return type, method name, parameters are written and then the code block is written inside the curly brackets.
 
 
 
@@ -66,7 +66,7 @@ public class HelloWorld { public static void greet() { System.out.println("Hello
 
 
 
-* True/False: A method must always return a value. 
+* True/False: A method must always return a value.
 
 
 
@@ -74,15 +74,15 @@ public class HelloWorld { public static void greet() { System.out.println("Hello
 
 
 
-* Fill in the blanks: 
+* Fill in the blanks:
 
 &#x09;	public static void methodName(int argName) {
 
-&#x20;			int sampleNumber = argName;  
+&#x20;			int sampleNumber = argName;
 
 &#x09;		System.out.println(sampleNumber);
 
-&#x09;	} 
+&#x09;	}
 
 
 
@@ -90,15 +90,15 @@ public class HelloWorld { public static void greet() { System.out.println("Hello
 
 
 
-* Complete the method so it compiles: 
+* Complete the method so it compiles:
 
 
 
-public class Demo { public static void sayHi() { System.out.println("Hi!"); } } 
+public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* Which identifier is a better method name and why: doStuff() or printReceipt()? 
+* Which identifier is a better method name and why: doStuff() or printReceipt()?
 
 
 
@@ -106,7 +106,7 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* Write a method printLine() that prints 30 dashes ------------------------------. 
+* Write a method printLine() that prints 30 dashes ------------------------------.
 
 
 
@@ -120,7 +120,7 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* What keyword indicates that a method does not return any value? 
+* What keyword indicates that a method does not return any value?
 
 
 
@@ -128,7 +128,7 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* Where should methods be placed relative to main(String\[] args) in a class file? 
+* Where should methods be placed relative to main(String\[] args) in a class file?
 
 
 
@@ -140,19 +140,19 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-&#x09;It probably means that the method was not defined or a typo.	 
+&#x09;It probably means that the method was not defined or a typo.
 
 
 
-* Convert this single-line method to a multi-line formatted method: 
+* Convert this single-line method to a multi-line formatted method:
 
 
 
-&#x09;public static void yes(){System.out.println("Yes");} 
+&#x09;public static void yes(){System.out.println("Yes");}
 
 
 
-* Write a method printTitle(String title) that prints the title surrounded by === on both sides. Example: === Java ===. 
+* Write a method printTitle(String title) that prints the title surrounded by === on both sides. Example: === Java ===.
 
 
 
@@ -164,7 +164,7 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* Why is it cleaner to call a method multiple times than to copy-paste the same print statement? 
+* Why is it cleaner to call a method multiple times than to copy-paste the same print statement?
 
 
 
@@ -172,23 +172,23 @@ public class Demo { public static void sayHi() { System.out.println("Hi!"); } }
 
 
 
-* Fill in the blank: Methods help us achieve modularity, readability, and reusability. 
+* Fill in the blank: Methods help us achieve modularity, readability, and reusability.
 
 
 
-* Add a second call so this prints the message twice: 
+* Add a second call so this prints the message twice:
 
 
 
-public static void show(){ System.out.println("Ready"); } public static void main(String\[] args){ show(); show();} 
+public static void show(){ System.out.println("Ready"); } public static void main(String\[] args){ show(); show();}
 
 
 
-* What will the following print? 
+* What will the following print?
 
 
 
-public static void beep(){ System.out.println("Beep"); } public static void main(String\[] args){ for (int i = 0; i < 3; i++) { beep(); } } 
+public static void beep(){ System.out.println("Beep"); } public static void main(String\[] args){ for (int i = 0; i < 3; i++) { beep(); } }
 
 
 
@@ -196,7 +196,7 @@ public static void beep(){ System.out.println("Beep"); } public static void main
 
 
 
-* Write a method line(int n) that prints n asterisks on one line. No return value. 
+* Write a method line(int n) that prints n asterisks on one line. No return value.
 
 
 
@@ -208,19 +208,19 @@ public static void beep(){ System.out.println("Beep"); } public static void main
 
 
 
-* What is wrong here? 
+* What is wrong here?
 
 
 
-public class X { 
+public class X {
 
-&#x09;public static void hello() { 
+&#x09;public static void hello() {
 
-&#x09;	return "Hello"; 
+&#x09;	return "Hello";
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
 
 
@@ -228,7 +228,7 @@ public class X {
 
 
 
-* True/False: Methods can be defined inside other methods in Java. 
+* True/False: Methods can be defined inside other methods in Java.
 
 
 
@@ -236,11 +236,11 @@ public class X {
 
 
 
-* Fill in the blanks to match Java naming conventions: methods use camelCase (e.g., calculateTax). 
+* Fill in the blanks to match Java naming conventions: methods use camelCase (e.g., calculateTax).
 
 
 
-* Write a short method greetUser() that prints your name on one line. 
+* Write a short method greetUser() that prints your name on one line.
 
 
 
@@ -252,7 +252,7 @@ public class X {
 
 
 
-* Why should a method “do one thing well”? 
+* Why should a method “do one thing well”?
 
 &#x09;It's easier to maintain and test and call if the method has one specific functionality
 

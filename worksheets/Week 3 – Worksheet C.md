@@ -1,122 +1,284 @@
-**Week 3 – Worksheet C: Static vs Instance Methods** 
+**Week 3 – Worksheet C: Static vs Instance Methods**
 
 
 
-* Define “static method” in one sentence. 
+* Define “static method” in one sentence.
 
+&#x09;A method which is defined in the class.
 
+* Define “instance method” in one sentence.
 
-* Define “instance method” in one sentence. 
+&#x09;A method which has been instantiated.	
 
+* Which line correctly calls a static method from another class?
 
 
-* Which line correctly calls a static method from another class? 
 
+public class Utils { 
 
+&#x09;public static void sayHi() {
 
-public class Utils { public static void sayHi(){ System.out.println("Hi"); } } public class Main { public static void main(String\[] args){ // A) sayHi(); // B) Utils.sayHi(); // C) new Utils().sayHi(); } } 
+&#x09;	 System.out.println("Hi"); 
 
+&#x09;} 
 
+} 
 
-* Which line correctly calls an instance method? 
 
 
+public class Main { 
 
-public class Car { public void drive(){ System.out.println("Driving"); } } public class Main { public static void main(String\[] args){ // A) Car.drive(); // B) new Car().drive(); // C) drive(); } } 
+&#x09;public static void main(String\[] args) { 
 
+&#x09;// A) sayHi(); 
 
+&#x09;// B) Utils.sayHi(); 
 
-* What will this print? 
+&#x09;// C) new Utils().sayHi(); 
 
+&#x09;} 
 
+}
 
-public class MathUtil { public static int square(int n){ return n \* n; } } System.out.println(MathUtil.square(5)); 
 
 
+&#x09;Choice "B" calls the sayHi method from Utils.
 
-* Fill in the blanks: Static methods belong to the \_\_\_\_\_\_; instance methods belong to the \_\_\_\_\_\_. 
 
 
+* Which line correctly calls an instance method?
 
-* True/False: You must create an object to call a static method. 
 
 
+public class Car { 
 
-* True/False: Static methods can be called from main without creating an object. 
+&#x09;public void drive(){ 
 
+&#x09;	System.out.println("Driving"); 
 
+&#x09;} 
 
-* Convert this instance method to static (assume no instance fields used): 
+} 
 
+public class Main { 
 
+&#x09;public static void main(String\[] args){ 
 
-public int doubleIt(int x){ return x \* 2; } 
+&#x09;	// A) Car.drive(); 
 
+&#x09;	// B) new Car().drive(); 
 
+&#x09;	// C) drive(); 
 
-* Why might a utility class (e.g., Math) use static methods? 
+&#x09;} 
 
+}
 
 
-* What error occurs if you try to call an instance method without an object? 
 
+&#x09;"B" instances the drive method from class Car.
 
 
-* Write a tiny class Counter with an instance field count and an instance method inc() that adds 1. 
 
+* What will this print?
 
 
-* Can a static method directly access instance fields? Why/why not? 
 
+public class MathUtil { 
 
+&#x09;public static int square(int n){ 
 
-* How do you call length() on a specific String object? 
+&#x09;	return n \* n; 
 
+&#x09;} 
 
+} 
 
-* Provide one example where an instance method is more appropriate than a static method. 
 
 
+System.out.println(MathUtil.square(5));
 
-* Provide one example where a static method is more appropriate than an instance method. 
 
 
+&#x09;It should print 25.	
 
-* Complete the object creation and call: 
 
 
+* Fill in the blanks: Static methods belong to the \_\_\_\_\_\_; instance methods belong to the \_\_\_\_\_\_.
 
-public class Lamp { public void on(){ System.out.println("On"); } } public static void main(String\[] args){ \_\_\_\_\_\_ = new Lamp(); \_\_\_\_\_\_.on(); } 
 
 
+&#x09;1. class
 
-* Fill in: Use ClassName.method() for \_\_\_\_\_\_ methods; use object.method() for \_\_\_\_\_\_ methods. 
+&#x09;2. object	
 
 
 
-* Static or instance? Arrays.sort(...) 
+* True/False: You must create an object to call a static method.
 
 
 
-* Static or instance? "hello".toUpperCase() 
+&#x09;False. You only need to create an object for instance methods.
 
 
 
-* True/False: A static method can be called via an object reference (though discouraged). 
+* True/False: Static methods can be called from main without creating an object.
 
 
 
-* What access modifier is used most commonly for utility method libraries? 
+&#x09;True.
 
 
 
-* Should stateful behavior typically be static or instance? Why? 
+* Convert this instance method to static (assume no instance fields used):
 
 
 
-* What is a potential downside of overusing statics in large systems? 
+public int doubleIt(int x){ 
 
+&#x09;return x \* 2; 
 
+}
 
-* When designing an API, how do you decide between static vs. instance? 
+
+
+&#x09;public static int doubleIt(int x) {...}
+
+
+
+* **Why might a utility class (e.g., Math) use static methods?**
+
+
+
+&#x09;Utility classes are stateless and an object does not have to be created.
+
+&#x09;Note: This question's material was not adequately explained in the module material.
+
+
+
+* What error occurs if you try to call an instance method without an object?
+
+
+
+&#x09;Compiler error.
+
+
+
+* Write a tiny class Counter with an instance field count and an instance method inc() that adds 1.
+
+
+
+&#x09;public class Counter {
+
+&#x09;	int x = 0;
+
+&#x09;	public static return int inc(int x) {
+
+&#x09;		return x++;
+
+&#x09;	}
+
+&#x09;
+
+&#x09;}
+
+
+
+* Can a static method directly access instance fields? Why/why not?
+
+
+
+&#x09;No, static methods run without an object.
+
+
+
+* How do you call length() on a specific String object?
+
+
+
+&#x09;Add .length() at the end of the String variable.
+
+
+
+* Provide one example where an instance method is more appropriate than a static method.
+
+
+
+&#x09;Having an AccountBalance instance object for each account.
+
+
+
+* **Provide one example where a static method is more appropriate than an instance method.**
+
+
+
+&#x09;If something relies on an input, it may be a better idea to have a static.
+
+
+
+* Complete the object creation and call:
+
+
+
+public class Lamp { 
+
+&#x09;public void on(){ 
+
+&#x09;System.out.println("On"); } } public static void main(String\[] args){ bigLamp = new Lamp(); bigLamp.on(); }
+
+
+
+* Fill in: Use ClassName.method() for Static methods; use object.method() for Instance methods.
+
+
+
+* Static or instance? Arrays.sort(...)
+
+
+
+&#x09;Static
+
+
+
+* Static or instance? "hello".toUpperCase()
+
+
+
+&#x09;Instance
+
+
+
+* True/False: A static method can be called via an object reference (though discouraged).
+
+
+
+&#x09;It can be done but the compiler will give you a warning.
+
+
+
+* What access modifier is used most commonly for utility method libraries?
+
+
+
+&#x09;
+
+
+
+* Should stateful behavior typically be static or instance? Why?
+
+
+
+&#x09;
+
+
+
+* What is a potential downside of overusing statics in large systems?
+
+
+
+&#x09;
+
+
+
+* When designing an API, how do you decide between static vs. instance?
 
