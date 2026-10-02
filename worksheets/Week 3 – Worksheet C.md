@@ -4,39 +4,47 @@
 
 * Define “static method” in one sentence.
 
+
+
 &#x09;A method which is defined in the class.
+
+
 
 * Define “instance method” in one sentence.
 
-&#x09;A method which has been instantiated.	
+
+
+&#x09;A method which has been instantiated.
+
+
 
 * Which line correctly calls a static method from another class?
 
 
 
-public class Utils { 
+public class Utils {
 
 &#x09;public static void sayHi() {
 
-&#x09;	 System.out.println("Hi"); 
+&#x09;	 System.out.println("Hi");
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
 
 
-public class Main { 
+public class Main {
 
-&#x09;public static void main(String\[] args) { 
+&#x09;public static void main(String\[] args) {
 
-&#x09;// A) sayHi(); 
+&#x09;// A) sayHi();
 
-&#x09;// B) Utils.sayHi(); 
+&#x09;// B) Utils.sayHi();
 
-&#x09;// C) new Utils().sayHi(); 
+&#x09;// C) new Utils().sayHi();
 
-&#x09;} 
+&#x09;}
 
 }
 
@@ -50,27 +58,27 @@ public class Main {
 
 
 
-public class Car { 
+public class Car {
 
-&#x09;public void drive(){ 
+&#x09;public void drive(){
 
-&#x09;	System.out.println("Driving"); 
+&#x09;	System.out.println("Driving");
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
-public class Main { 
+public class Main {
 
-&#x09;public static void main(String\[] args){ 
+&#x09;public static void main(String\[] args){
 
-&#x09;	// A) Car.drive(); 
+&#x09;	// A) Car.drive();
 
-&#x09;	// B) new Car().drive(); 
+&#x09;	// B) new Car().drive();
 
-&#x09;	// C) drive(); 
+&#x09;	// C) drive();
 
-&#x09;} 
+&#x09;}
 
 }
 
@@ -84,15 +92,15 @@ public class Main {
 
 
 
-public class MathUtil { 
+public class MathUtil {
 
-&#x09;public static int square(int n){ 
+&#x09;public static int square(int n){
 
-&#x09;	return n \* n; 
+&#x09;	return n \* n;
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
 
 
@@ -100,7 +108,7 @@ System.out.println(MathUtil.square(5));
 
 
 
-&#x09;It should print 25.	
+&#x09;It should print 25.
 
 
 
@@ -110,7 +118,7 @@ System.out.println(MathUtil.square(5));
 
 &#x09;1. class
 
-&#x09;2. object	
+&#x09;2. object
 
 
 
@@ -134,9 +142,9 @@ System.out.println(MathUtil.square(5));
 
 
 
-public int doubleIt(int x){ 
+public int doubleIt(int x){
 
-&#x09;return x \* 2; 
+&#x09;return x \* 2;
 
 }
 
@@ -146,7 +154,7 @@ public int doubleIt(int x){
 
 
 
-* **Why might a utility class (e.g., Math) use static methods?**
+* Why might a utility class (e.g., Math) use static methods?
 
 
 
@@ -208,7 +216,7 @@ public int doubleIt(int x){
 
 
 
-* **Provide one example where a static method is more appropriate than an instance method.**
+* Provide one example where a static method is more appropriate than an instance method.
 
 
 
@@ -220,11 +228,25 @@ public int doubleIt(int x){
 
 
 
-public class Lamp { 
+public class Lamp {
 
-&#x09;public void on(){ 
+&#x09;public void on(){
 
-&#x09;System.out.println("On"); } } public static void main(String\[] args){ bigLamp = new Lamp(); bigLamp.on(); }
+&#x09;	System.out.println("On"); 
+
+&#x09;} 
+
+} 
+
+
+
+public static void main(String\[] args){ 
+
+&#x09;bigLamp = new Lamp(); 
+
+&#x09;bigLamp.on(); 
+
+}
 
 
 
@@ -260,25 +282,37 @@ public class Lamp {
 
 
 
-&#x09;
+&#x09;Public.
 
 
 
-* Should stateful behavior typically be static or instance? Why?
+* **Should stateful behavior typically be static or instance? Why?**
 
 
 
-&#x09;
+&#x09;Stateful implies there is session data being stored and objects being instanced, so I believe it would typically be instance.
 
 
 
-* What is a potential downside of overusing statics in large systems?
+&#x09;Discussion of stateful or stateless architecture was not present in the course material we have in our modules.
 
 
 
-&#x09;
+* **What is a potential downside of overusing statics in large systems?**
 
 
 
-* When designing an API, how do you decide between static vs. instance?
+&#x09;Again, not really discussed in this week's material so far.
+
+&#x09;According to [dantweb.dev](https://dantweb.dev/2025/02/static-methods-in-complex-software-sytems-pitfalls-logical-principles-and-cost-efficiency/), they can be harder to test, be less flexible in evolving systems and can present maintenance challenges.	
+
+
+
+* **When designing an API, how do you decide between static vs. instance?**
+
+
+
+&#x09;Also, not in this weeks course material so far.
+
+
 

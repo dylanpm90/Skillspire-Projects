@@ -90,7 +90,7 @@ public static double half(int x){ return x / 2.0; }
 
 public static void inc(int x){
 
-&#x09;x = x + 1; 
+&#x09;x = x + 1;
 
 &#x09;System.out.println("Inside: " + x);
 
@@ -236,7 +236,7 @@ public static int\[] calc(int a, int b){ // return new int\[]{sum, product}; }
 
 
 
-* **Change this method to return a boolean value instead of printing:**
+* Change this method to return a boolean value instead of printing:
 
 
 
@@ -280,11 +280,23 @@ public static boolean isEven(int n){
 
 
 
-* **\*\*\*\*Method overloading: write two sum methods—one for int, int and one for double, double.**
+* Method overloading: write two sum methods—one for int, int and one for double, double.
 
 
 
-&#x09;
+&#x09;public static int add(int a, int b){
+
+&#x09;	return a + b;
+
+&#x09;}
+
+
+
+&#x09;public static double add(double a, double b){
+
+&#x09;	return a + b;
+
+&#x09;}
 
 
 
