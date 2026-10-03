@@ -286,7 +286,7 @@ public static void main(String\[] args){
 
 
 
-* **Should stateful behavior typically be static or instance? Why?**
+* Should stateful behavior typically be static or instance? Why?
 
 
 
@@ -294,25 +294,17 @@ public static void main(String\[] args){
 
 
 
-&#x09;Discussion of stateful or stateless architecture was not present in the course material we have in our modules.
+* What is a potential downside of overusing statics in large systems?
 
 
-
-* **What is a potential downside of overusing statics in large systems?**
-
-
-
-&#x09;Again, not really discussed in this week's material so far.
 
 &#x09;According to [dantweb.dev](https://dantweb.dev/2025/02/static-methods-in-complex-software-sytems-pitfalls-logical-principles-and-cost-efficiency/), they can be harder to test, be less flexible in evolving systems and can present maintenance challenges.	
 
 
 
-* **When designing an API, how do you decide between static vs. instance?**
+* When designing an API, how do you decide between static vs. instance?
 
 
 
-&#x09;Also, not in this weeks course material so far.
-
-
+&#x09;If it is using one-off operations and not storing things or requiring instanced objects, static can work well, otherwise use instance.
 

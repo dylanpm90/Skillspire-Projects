@@ -31,5 +31,25 @@ public class ArrayPractice {
         Arrays.sort(maxHP);
         System.out.println(Arrays.toString(maxHP));
         System.out.println("-----------------------------");
+
+        // sumMatrix
+        int[][] mat = {{1, 2, 3}, {4, 5, 6}};
+
+        int sumMatrixResult = sumMatrix(mat);
+        System.out.println(sumMatrixResult);
+
+
+    }
+
+    public static int sumMatrix(int[][] matrix) {
+        int sum = 0;
+        for (int[] row : matrix) {
+            for (int num : row) {
+                sum += num;
+                System.out.print(sum + " ");
+            }
+        }
+        System.out.println(" ");
+        return sum;
     }
 }

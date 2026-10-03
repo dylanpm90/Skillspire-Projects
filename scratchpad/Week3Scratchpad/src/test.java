@@ -4,8 +4,6 @@ public class test {
             if (i == 3) continue;
             System.out.print(i + " ");
         }
-
-
     }
 }
 
