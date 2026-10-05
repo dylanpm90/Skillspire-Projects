@@ -1,8 +1,8 @@
-Week 3 – Worksheet D: Loops in Java 
+Week 3 – Worksheet D: Loops in Java
 
 
 
-* What are the three parts of a for loop header (in order)? 
+* What are the three parts of a for loop header (in order)?
 
 
 
@@ -10,7 +10,7 @@ Week 3 – Worksheet D: Loops in Java
 
 
 
-* Write a for loop that prints numbers 1 to 5 inclusive. 
+* Write a for loop that prints numbers 1 to 5 inclusive.
 
 
 
@@ -18,19 +18,19 @@ Week 3 – Worksheet D: Loops in Java
 
 &#x09;	System.out.println("Count: " + i);
 
-&#x09;}	
+&#x09;}
 
 
 
-* Convert this for loop to a while loop: 
+* Convert this for loop to a while loop:
 
 
 
 for (int i = 0; i < 3; i++) {
 
-&#x09;System.out.println(i); 
+&#x09;System.out.println(i);
 
-} 
+}
 
 
 
@@ -48,33 +48,33 @@ while (	i < 3 ){
 
 
 
-* What type of loop guarantees the body runs at least once? 
+* What type of loop guarantees the body runs at least once?
 
 
 
-Do while loops run at least once.	
+Do while loops run at least once.
 
 
 
-* Fill in: 
+* Fill in:
 
 
 
-int i = 1; 
+int i = 1;
 
-do { 
+do {
 
-&#x09;System.out.println(i); 
+&#x09;System.out.println(i);
 
-&#x09;i++; 
+&#x09;i++;
 
-&#x09;} 
+&#x09;}
 
-while ( i <= 5 ); 
+while ( i <= 5 );
 
 
 
-* Write an enhanced for-each loop to print all elements of int\[] a. 
+* Write an enhanced for-each loop to print all elements of int\[] a.
 
 
 
@@ -84,47 +84,47 @@ while ( i <= 5 );
 
 &#x09;	System.out.println(num);
 
-&#x09;}	
+&#x09;}
 
 
 
-* What will this print? 
+* What will this print?
 
 
 
-for (int i = 2; i <= 8; i += 2) { 
+for (int i = 2; i <= 8; i += 2) {
 
-&#x09;System.out.print(i + " "); 
+&#x09;System.out.print(i + " ");
 
-} 
+}
 
 
 
 It should print out:
 
-2 4 6 8	
+2 4 6 8
 
 
 
-* What is an “off-by-one” error? One sentence. 
+* What is an “off-by-one” error? One sentence.
 
 
 
-It's when the code doesn't account for the array length by one.	
+It's when the code doesn't account for the array length by one.
 
 
 
-* Add a break to stop when i == 5: 
+* Add a break to stop when i == 5:
 
 
 
-for (int i = 1; i <= 10; i++) { 
+for (int i = 1; i <= 10; i++) {
 
-&#x09;if (i == 5) break; 
+&#x09;if (i == 5) break;
 
-&#x09;System.out.println(i); 
+&#x09;System.out.println(i);
 
-} 
+}
 
 
 
@@ -132,15 +132,15 @@ for (int i = 1; i <= 10; i++) {
 
 
 
-* What does continue do in a loop? 
+* What does continue do in a loop?
 
 
 
-&#x09;It skips the current iteration.	
+&#x09;It skips the current iteration.
 
 
 
-* Print all odd numbers from 1 to 9 using a loop. 
+* Print all odd numbers from 1 to 9 using a loop.
 
 
 
@@ -160,23 +160,23 @@ for (int i = 1; i <= 10; i++) {
 
 
 
-* What is wrong here? 
+* What is wrong here?
 
 
 
-while (true) { 
+while (true) {
 
-&#x09;System.out.println("Go"); 
+&#x09;System.out.println("Go");
 
-} 
-
-
-
-It's an infinite loop.	
+}
 
 
 
-* Write a loop that sums the numbers in int\[] nums into total. 
+It's an infinite loop.
+
+
+
+* Write a loop that sums the numbers in int\[] nums into total.
 
 &#x09;
 
@@ -192,7 +192,7 @@ It's an infinite loop.
 
 
 
-* Turn this nested loop into formatted output of a 3×3 multiplication table: 
+* Turn this nested loop into formatted output of a 3×3 multiplication table:
 
 
 
@@ -212,7 +212,7 @@ It's an infinite loop.
 
 
 
-* Which loop is best when you don’t know the number of iterations ahead of time? 
+* Which loop is best when you don’t know the number of iterations ahead of time?
 
 
 
@@ -220,7 +220,7 @@ It's an infinite loop.
 
 
 
-* Which loop is best for iterating arrays when you don’t need the index? 
+* Which loop is best for iterating arrays when you don’t need the index?
 
 
 
@@ -228,7 +228,7 @@ It's an infinite loop.
 
 
 
-* Write a loop to find whether target exists in int\[] a. Print “Found” or “Not Found”. 
+* Write a loop to find whether target exists in int\[] a. Print “Found” or “Not Found”.
 
 
 
@@ -266,49 +266,85 @@ It's an infinite loop.
 
 
 
-&#x20;   } 
+&#x20;   }
 
 
 
-* Convert this infinite while into a finite loop that runs 5 times: 
+* Convert this infinite while into a finite loop that runs 5 times:
 
 
 
 int i = 1;
 
-while (i <= 5) { 
+while (i <= 5) {
 
 &#x09;i++;
 
-&#x09;System.out.println("Hello"); 
+&#x09;System.out.println("Hello");
+
+}
+
+
+
+&#x09;
+
+
+
+* What will this print?
+
+
+
+for (int i = 1; i <= 5; i++) {
+
+&#x09;if (i == 3) continue;
+
+&#x09;System.out.print(i + " ");
+
+}
+
+
+
+1 2 4 5
+
+
+
+* Why should extremely deep nested loops be avoided?
+
+
+
+&#x09;They decrease readability and can be inefficient.
+
+
+
+* Write a loop to reverse-print an array int\[] a from last to first index.
+
+
+
+public static void reverse(int\[] arr) { 
+
+&#x20;   int start = 0, end = arr.length - 1; 
+
+&#x20;   while (start < end) { 
+
+&#x20;       int temp = arr\[start]; 
+
+&#x20;       arr\[start] = arr\[end]; 
+
+&#x20;       arr\[end] = temp; 
+
+&#x20;       start++; 
+
+&#x20;       end--; 
+
+&#x20;   } 
 
 } 
 
 
 
-&#x09;
 
 
-
-* What will this print? 
-
-
-
-for (int i = 1; i <= 5; i++) { 
-
-&#x09;if (i == 3) continue; 
-
-&#x09;System.out.print(i + " "); 
-
-} 
-
-
-
-1 2 4 5	
-
-
-
-* **Why should extremely deep nested loops be avoided?** 
+* Fill in the blanks: Initialization → Condition → Iteration.
 
 
 
@@ -316,47 +352,49 @@ for (int i = 1; i <= 5; i++) {
 
 
 
-* **Write a loop to reverse-print an array int\[] a from last to first index.** 
+* Create a loop to compute factorial of n = 5.
 
 
 
-&#x09;
+&#x09;int n = 5; 
+
+int fact = 1; 
+
+for (int i = 1; i <= n; i++) { 
+
+&#x20;   fact \*= i; 
+
+}
 
 
 
-* Fill in the blanks: Initialization → Condition → Iteration. 
+* Write a while loop that keeps asking for input until the user enters 0 (pseudocode acceptable).
 
 
 
-&#x09;
+Scanner scanner = new Scanner(System.in);
 
 
 
-* Create a loop to compute factorial of n = 5. 
+int targetNumber = 0;
 
 
 
-&#x09;
+int userNumber = scanner.nextLine;
 
 
 
-* Write a while loop that keeps asking for input until the user enters 0 (pseudocode acceptable). 
+while the userNumber != target number prompt user for new number.
 
 
 
-&#x09;
+if userNumber == target number, break.	
 
 
 
-* One sentence: how do loops + arrays + methods work together in real programs? 
+* One sentence: how do loops + arrays + methods work together in real programs?
 
 
 
-&#x09;
-
-
-
-
-
-
+The take information, like items and balance numbers and stats, and perform computations and store and return the adjusted values to the user.	
 
