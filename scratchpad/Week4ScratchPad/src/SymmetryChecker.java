@@ -5,8 +5,7 @@ public class SymmetryChecker {
 
     // Method to check whether the matrix is
     // symmetric or asymmetric
-    static void checkSymmetric(int mat[][], int row,
-                               int col) {
+    static void checkSymmetric(int mat[][], int row, int col) {
         int i, j, flag = 1;
 
         // Display message
@@ -64,8 +63,7 @@ public class SymmetryChecker {
                 if (flag == 0) {
 
                     // Display message
-                    System.out.print(
-                            "\nThe matrix is not symmetrical.");
+                    System.out.print("\nThe matrix is not symmetrical.");
                     break;
                 }
             }
@@ -75,8 +73,7 @@ public class SymmetryChecker {
             if (flag == 1) {
 
                 // Display message
-                System.out.print(
-                        "\nThe matrix is symmetrical.");
+                System.out.print("\nThe matrix is symmetrical.");
             }
         }
 
@@ -85,52 +82,7 @@ public class SymmetryChecker {
         else {
 
             // Display message
-            System.out.print(
-                    "\nThe matrix is not symmetric");
+            System.out.print("\nThe matrix is not symmetric");
         }
-    }
-
-    // Main driver method
-    public static void main(String args[]) {
-        // Taking input from the user
-        Scanner sc = new Scanner(System.in);
-
-        // Declaring variables and setting flag to 1
-        int i, j, row, col, flag = 1;
-
-        // Taking input from the user
-        System.out.print("Enter the number of rows:");
-        row = sc.nextInt();
-
-        // Display message
-        System.out.print("Enter the number of columns:");
-
-        // Reading matrix elements individually using
-        // nextInt() method
-        col = sc.nextInt();
-
-        // Declaring a 2D array(matrix)
-        int[][] mat = new int[row][col];
-
-        // Display message
-        System.out.println("Enter the matrix elements:");
-
-        // Nested for loop for traversing matrix
-
-        // Outer loop for rows
-        for (i = 0; i < row; i++) {
-
-            // Inner loop for columns
-            for (j = 0; j < col; j++) {
-
-                // Print matrix element
-                System.out.println("Row: " + i + ", Col: " + j + ".");
-                mat[i][j] = sc.nextInt();
-            }
-        }
-
-        // calling function made above to check
-        // whether matrix is symmetric or not
-        checkSymmetric(mat, row, col);
     }
 }

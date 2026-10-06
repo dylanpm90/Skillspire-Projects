@@ -22,15 +22,17 @@ Week 4 Worksheet: Scope in Java
 
 
 
+public static void main(String\[] args){ 
+
+&#x09;int x = 10; 
+
+} 
+
+System.out.println(x); 
 
 
 
-
-public static void main(String\[] args){ int x = 10; } System.out.println(x); 
-
-
-
-
+x is outside the scope of the method.
 
 
 
