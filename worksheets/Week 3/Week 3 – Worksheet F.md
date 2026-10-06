@@ -4,15 +4,15 @@
 
 &#x20;   Write printArray(int\[] arr) that prints elements on one line separated by spaces.
 
-public static void printArray(int\[] arr) { 
+public static void printArray(int\[] arr) {
 
-&#x20;       for (int num : arr) { 
+&#x20;       for (int num : arr) {
 
-&#x20;           System.out.print(num + " "); 
+&#x20;           System.out.print(num + " ");
 
-&#x20;       } 
+&#x20;       }
 
-&#x20;       System.out.println(); 
+&#x20;       System.out.println();
 
 }
 
@@ -24,17 +24,17 @@ public static void printArray(int\[] arr) {
 
 
 
-public static int sumArray(int\[] arr) { 
+public static int sumArray(int\[] arr) {
 
-&#x20;   int sum = 0; 
+&#x20;   int sum = 0;
 
-&#x20;   for (int num : arr) { 
+&#x20;   for (int num : arr) {
 
-&#x20;       sum += num; 
+&#x20;       sum += num;
 
-&#x20;   } 
+&#x20;   }
 
-&#x20;   return sum; 
+&#x20;   return sum;
 
 }
 
@@ -172,25 +172,25 @@ public static void main(String\[] args) {
 
 
 
-public static void reverse(int\[] arr) { 
+public static void reverse(int\[] arr) {
 
-&#x20;   int start = 0, end = arr.length - 1; 
+&#x20;   int start = 0, end = arr.length - 1;
 
-&#x20;   while (start < end) { 
+&#x20;   while (start < end) {
 
-&#x20;       int temp = arr\[start]; 
+&#x20;       int temp = arr\[start];
 
-&#x20;       arr\[start] = arr\[end]; 
+&#x20;       arr\[start] = arr\[end];
 
-&#x20;       arr\[end] = temp; 
+&#x20;       arr\[end] = temp;
 
-&#x20;       start++; 
+&#x20;       start++;
 
-&#x20;       end--; 
+&#x20;       end--;
 
-&#x20;   } 
+&#x20;   }
 
-} 
+}
 
 
 
@@ -202,21 +202,21 @@ public static void reverse(int\[] arr) {
 
 
 
-for (int i = 0; i < arr.length - 1; i++) { 
+for (int i = 0; i < arr.length - 1; i++) {
 
-&#x09;for (int j = 0; j < arr.length - i - 1; j++) { 
+&#x09;for (int j = 0; j < arr.length - i - 1; j++) {
 
-&#x09;	if (arr\[j] > arr\[j + 1]) { 
+&#x09;	if (arr\[j] > arr\[j + 1]) {
 
 &#x09;		int temp = arr\[j];
 
 &#x20;                   	arr\[j] = arr\[j + 1];
 
-&#x20;                   	arr\[j + 1] = temp; 
+&#x20;                   	arr\[j + 1] = temp;
 
-&#x09;	} 
+&#x09;	}
 
-&#x09;} 
+&#x09;}
 
 }
 
@@ -262,15 +262,15 @@ int\[] a = {9,4,7,1}; Arrays.sort(a);
 
 
 
-public static int findIndex(int\[] arr, int target) { 
+public static int findIndex(int\[] arr, int target) {
 
-&#x20;   for (int i = 0; i < arr.length; i++) { 
+&#x20;   for (int i = 0; i < arr.length; i++) {
 
-&#x20;       if (arr\[i] == target) return i; 
+&#x20;       if (arr\[i] == target) return i;
 
-&#x20;   } 
+&#x20;   }
 
-&#x20;   return -1; // not found 
+&#x20;   return -1; // not found
 
 }
 
@@ -694,7 +694,7 @@ public static ArrayList<Integer> dedupe(int\[] arr) {
 
 
 
-&#x20;   Why should you validate inputs like null or empty arrays at the top of methods?
+Why should you validate inputs like null or empty arrays at the top of methods?
 
 
 
@@ -788,7 +788,7 @@ Arrays.equals is used to check whether two arrays, whether single-dimensional or
 
 
 
-&#x20;   Write toString(int\[] arr) that returns a comma-separated string (no Arrays.toString).
+Write toString(int\[] arr) that returns a comma-separated string (no Arrays.toString).
 
 
 
@@ -803,10 +803,4 @@ I don't understand the question.
 
 
 It makes your code more readable and it looks cleaner and more professional.
-
-
-
-
-
-
 

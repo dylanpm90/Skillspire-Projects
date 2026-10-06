@@ -1,8 +1,7 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    // nested loop
-    System.out.println("1. Multiplication table");
+public class NestedLoops {
+    public static void main() {
+        // nested loop
+        System.out.println("1. Multiplication table");
 //    for (int i = 1; i <= 3; i++) { // outer loop controls the "rows"
 //        for (int j = 1; j <= 3; j++) { // inner loop controls the "columns"
 //            System.out.print(i * j + " ");
@@ -16,8 +15,8 @@ void main() {
 //    }
 
 
-    // while nested loop
-    System.out.println("2. While loop");
+        // while nested loop
+        System.out.println("2. While loop");
 //    int i = 1;
 //    while (i <= 3) {
 //        int j = 1;
@@ -36,8 +35,8 @@ void main() {
 //    }
 
 
-    //Nested Loop with Arrays
-    System.out.println("3. Nested Loop with Arrays");
+        //Nested Loop with Arrays
+        System.out.println("3. Nested Loop with Arrays");
 //    int[][] matrix = {
 //            {1, 2, 3},
 //            {4, 5, 6},
@@ -52,20 +51,23 @@ void main() {
 //    }
 
 
-    System.out.println("4. right triangle");
-    for (int i = 1; i <= 5; i++) {
-        for (int j = 1; j <= i; j++) { // the bigger the value of i gets, the more asterisks
-            System.out.print("* ");
+        System.out.println("4. right triangle");
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) { // the bigger the value of i gets, the more asterisks
+                System.out.print("* ");
+            }
+            System.out.println();
         }
-        System.out.println();
+
+        System.out.println("5. inverted triangle");
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 1; j <= i; j++) { // the smaller the value of i gets, the fewer asterisks
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
     }
 
-    System.out.println("5. inverted triangle");
-    for (int i = 5; i >= 0; i--) {
-        for (int j = 1; j <= i; j++) { // the smaller the value of i gets, the fewer asterisks
-            System.out.print("* ");
-        }
-        System.out.println();
-    }
 
 }
