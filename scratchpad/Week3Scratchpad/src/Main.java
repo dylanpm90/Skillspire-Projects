@@ -1,27 +1,18 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public static void main(String[] args) {
-// print 1-100 with a for loop
-//    for (int i = 1; i <= 100; i++) {
-//        System.out.println(i);
-//    }
-//
+    // nested loop
 
-
-//  print all odd numbers with a loop
-
-    System.out.println("odd numbers between 1 and 50: ");
-    int i = 0;
-    while (i < 50) {
-        i++;
-        //check if odd
-        if (i % 2 == 0) continue;
-        System.out.println(i);
+    for (int i = 1; i <= 3; i++) { // outer loop controls the "rows"
+        for (int j = 1; j <= 3; j++) { // inner loop controls the "columns"
+            System.out.print(i * j + " ");
+        }
+        System.out.println();
+        /*  output:
+            1 2 3 // this is printed first - three interations. New line is printed in the outer loop.
+            2 4 6 // i = 2, and j is multiplied against i three times.
+            3 6 9 // i = 3, i * j
+        */
     }
-
-
-
-
 }
 
 
