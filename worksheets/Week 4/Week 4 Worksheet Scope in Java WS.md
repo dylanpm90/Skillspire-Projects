@@ -62,15 +62,15 @@ x is being referenced outside the scope of the method in which it was declared.
 
 
 
-int x = 5; 
+int x = 5;
 
-if (x > 0) { 
+if (x > 0) {
 
-&#x09;int y = 10; 
+&#x09;int y = 10;
 
-&#x09;System.out.println(x + y); 
+&#x09;System.out.println(x + y);
 
-} 
+}
 
 // System.out.println(y);
 
@@ -98,7 +98,7 @@ for (int i = 0; i < 3; i++) {
 
 &#x09;**System.out.println(i);**
 
-} 
+}
 
 
 
@@ -130,7 +130,7 @@ Local variables → created when method runs, destroyed when method ends.
 
 
 
-Static variables → exist as long as the program runs. 
+Static variables → exist as long as the program runs.
 
 
 
@@ -140,15 +140,15 @@ Static variables → exist as long as the program runs.
 
 
 
-class Student { 
+class Student {
 
-&#x09;String name = "Default"; 
+&#x09;String name = "Default";
 
-&#x09;void setName(String name) { 
+&#x09;void setName(String name) {
 
-&#x09;	**this.**name = name;	
+&#x09;	\*\*this.\*\*name = name;
 
-&#x09;} 
+&#x09;}
 
 }
 
@@ -182,11 +182,11 @@ It helps with maintenance if there isn't a cumbersome and confusing amount of gl
 
 
 
-if (true) { 
+if (true) {
 
-&#x09;**int z = 7;** 
+&#x09;**int z = 7;**
 
-} 
+}
 
 int z = z + 1;
 
@@ -252,15 +252,15 @@ Public
 
 
 
-class C { 
+class C {
 
-&#x09;static int s = 1; int i = 2; 
+&#x09;static int s = 1; int i = 2;
 
-&#x09;static void f(){ 
+&#x09;static void f(){
 
-&#x09;/\* can we use i here? \*/ 
+&#x09;/\* can we use i here? \*/
 
-&#x09;} 
+&#x09;}
 
 }
 
@@ -288,9 +288,9 @@ Instance fields require the instance object to be created.
 
 
 
-for (int k = 0; k < 2; k++) { 
+for (int k = 0; k < 2; k++) {
 
-&#x09;int temp = 100; 
+&#x09;int temp = 100;
 
 } // here?
 
@@ -331,12 +331,4 @@ Narrowing the scope of discounts for a particular vendor, so that it doesn't ble
 
 
 Variable shadowing happens when a local variable has the same name as an instance variable.
-
-
-
-
-
-
-
-
 

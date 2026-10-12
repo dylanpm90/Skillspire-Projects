@@ -1,8 +1,8 @@
-Week 4 Worksheet: Classes and Objects in Java 
+Week 4 Worksheet: Classes and Objects in Java
 
 
 
-* &#x20;   In one line: What is a class? What is an object? 
+* &#x20;   In one line: What is a class? What is an object?
 
 
 
@@ -12,15 +12,15 @@ A class defines properties and behaviors for an object, which is the actual thin
 
 
 
-* &#x20;   Fill in class vs object: 
+* &#x20;   Fill in class vs object:
 
 
 
-&#x20;   Car blueprint →  model, year and a drive() method
+&#x20;   Car blueprint →  model, year and a drive() method - **CLASS**
 
 
 
-&#x20;   new Car() → Hyundai Sonata is driving.
+&#x20;   new Car() → Hyundai Sonata is driving. - **OBJECT**
 
 
 
@@ -30,43 +30,43 @@ A class defines properties and behaviors for an object, which is the actual thin
 
 
 
-* &#x20;   Complete the class and method call: 
+* &#x20;   Complete the class and method call:
 
 
 
-class Car { 
+class Car {
 
-&#x09;String model; 
+&#x09;String model;
 
-&#x09;int year; 
+&#x09;int year;
 
-&#x09;void drive(){ 
+&#x09;void drive(){
 
-&#x09;	System.out.println(model + " driving"); 
+&#x09;	System.out.println(model + " driving");
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
 
 
 
 
-public class Main { 
+public class Main {
 
-&#x09;public static void main(String\[] args){ 
+&#x09;public static void main(String\[] args){
 
-&#x09;	Car c = **new** Car(); 
+&#x09;	Car c = **new** Car();
 
-&#x09;	c.model = "Civic"; 
+&#x09;	c.model = "Civic";
 
-&#x09;	c.year = 2022; 
+&#x09;	c.year = 2022;
 
-&#x09;	c**.drive();** 
+&#x09;	c.drive();
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
 
 
@@ -76,7 +76,7 @@ public class Main {
 
 
 
-* &#x20;   **True**/~~False~~: Fields are also called attributes or instance variables. 
+* &#x20;   **True**/~~False~~: Fields are also called attributes or instance variables.
 
 
 
@@ -86,47 +86,63 @@ public class Main {
 
 
 
-* &#x20;   Add a parameterized constructor to set model and year. 
+* &#x20;   Add a parameterized constructor to set model and year.
 
 
 
+class Car {
 
+&#x09;String model;
 
+&#x09;int year;
 
+&#x09;
 
+&#x09;Car(String m, int y){
 
+&#x09;	m = "Toyota";
 
-* &#x20;   What will this print? 
+&#x09;	y = 2001;
 
+&#x09;}
 
+}
 
-class Student { 
 
-&#x09;String name; 
 
-&#x09;void introduce(){ 
 
-&#x09;	System.out.println("I am " + name); 
 
-&#x09;} 
+* &#x20;   What will this print?
 
-} 
 
-Student s = new Student(); 
 
-s.name = "Alex"; 
+class Student {
 
-s.introduce(); 
+&#x09;String name;
 
+&#x09;void introduce(){
 
+&#x09;	System.out.println("I am " + name);
 
+&#x09;}
 
+}
 
+Student s = new Student();
 
+s.name = "Alex";
 
+s.introduce();
 
 
-* &#x20;   Why use private fields and public getters/setters? One sentence. 
+
+I am Alex
+
+
+
+
+
+* &#x20;   Why use private fields and public getters/setters? One sentence.
 
 
 
@@ -136,27 +152,27 @@ It can help protect sensitive information with access control.
 
 
 
-* &#x20;   Implement getters/setters for private double balance. 
+* &#x20;   Implement getters/setters for private double balance.
 
 
 
-class Account { 
+class Account {
 
-&#x20;   private double balance; 
+&#x20;   private double balance;
 
 &#x20;
 
-&#x20;   public void deposit(double amount) { 
+&#x20;   public void deposit(double amount) {
 
-&#x20;       balance += amount; 
+&#x20;       balance += amount;
 
-&#x20;   } 
+&#x20;   }
 
-&#x20;   public double getBalance() { 
+&#x20;   public double getBalance() {
 
-&#x20;       return balance; 
+&#x20;       return balance;
 
-&#x20;   } 
+&#x20;   }
 
 }
 
@@ -164,25 +180,23 @@ class Account {
 
 
 
-* &#x20;   Fix the constructor using this: 
+* &#x20;   Fix the constructor using this:
 
 
 
-class Book { 
+class Book {
 
-&#x09;String title; 
+&#x09;String title;
 
-&#x09;Book(String title){ 
+&#x09;Book(String title){
 
-&#x09;	**this.**title = title; 	// refers to the title in 
+&#x09;	this.title = title; 	// refers to the title in
 
 &#x09;				// this constructor block.
 
-&#x09;} 
+&#x09;}
 
-} 
-
-
+}
 
 
 
@@ -190,7 +204,9 @@ class Book {
 
 
 
-* &#x20;   What is the default value of an object field (e.g., String title) if not initialized? 
+
+
+* &#x20;   What is the default value of an object field (e.g., String title) if not initialized?
 
 
 
@@ -200,7 +216,7 @@ null
 
 
 
-* &#x20;   Which access modifier allows use only within the same class? 
+* &#x20;   Which access modifier allows use only within the same class?
 
 
 
@@ -210,37 +226,27 @@ private
 
 
 
-* &#x20;   Complete encapsulation: 
+* &#x20;   Complete encapsulation:
 
 
 
-class Account { 
+class Account {
 
-&#x09;private double balance; 
+&#x09;private double balance;
 
-&#x09;public void deposit(double amt){ 
+&#x09;public void deposit(double amt){
 
-&#x09;	balance += amount; 
+&#x09;	balance += amount;
 
-&#x09;} 
+&#x09;}
 
-&#x09;public double getBalance(){ 
+&#x09;public double getBalance(){
 
-&#x09;	return balance; 
+&#x09;	return balance;
 
-&#x09;} 
+&#x09;}
 
-} 
-
-
-
-
-
-
-
-
-
-* &#x20;   Create two Car objects and show they don’t share instance state. 
+}
 
 
 
@@ -250,7 +256,25 @@ class Account {
 
 
 
-* &#x20;   True/False: You can call instance methods without creating an object. 
+* &#x20;   Create two Car objects and show they don’t share instance state.
+
+
+
+Car c1 = new Car(); 
+
+Car c2 = new Car(); 
+
+c1.model = "BMW"; 
+
+c2.model = "Audi"; 
+
+
+
+
+
+
+
+* &#x20;   ~~True~~/**False**: You can call instance methods without creating an object.
 
 
 
@@ -260,7 +284,9 @@ class Account {
 
 
 
-* &#x20;   When might a static method be appropriate in a class? (Give one example.) 
+* &#x20;   When might a static method be appropriate in a class? (Give one example.)
+
+It makes sense to use statics for situations where it is unnecessary to use "this" pointers or for invoking math methods. 
 
 
 
@@ -268,29 +294,27 @@ class Account {
 
 
 
-
-
-* &#x20;   What does this print and why? 
+* &#x20;   What does this print and why?
 
 
 
-class Counter { 
+class Counter {
 
-&#x09;static int total = 0; 
+&#x09;static int total = 0;
 
-&#x09;Counter(){ 
+&#x09;Counter(){
 
-&#x09;	total++; 
+&#x09;	total++;
 
-&#x09;} 
+&#x09;}
 
-} 
+}
 
-new Counter(); 
+new Counter();
 
-new Counter(); 
+new Counter();
 
-System.out.println(Counter.total); 
+System.out.println(Counter.total);
 
 
 
@@ -300,7 +324,33 @@ System.out.println(Counter.total);
 
 
 
-* &#x20;   Add a no-arg constructor that sets defaults and a second constructor that takes all fields. 
+* &#x20;   Add a no-arg constructor that sets defaults and a second constructor that takes all fields.
+
+
+
+class Car {
+
+&#x09;String model;
+
+&#x09;int year;
+
+&#x09;void drive(){
+
+&#x09;	System.out.println(model + " driving");
+
+&#x09;}
+
+}
+
+
+
+
+
+
+
+* &#x20;   Which line is correct to call display() on Product p?
+
+&#x20;  ~~a) Product.display();~~ **b) p.display();**
 
 
 
@@ -310,39 +360,27 @@ System.out.println(Counter.total);
 
 
 
-* &#x20;   Which line is correct to call display() on Product p? 
-
-&#x20;  ~~a) Product.display();~~ **b) p.display();** 
+* &#x20;   Complete:
 
 
 
+class Server {
 
+&#x09;String region;
 
+&#x09;void deploy(String app){
 
+&#x09;	System.out.println("Deploy " + app + " in " + region);
 
+&#x09;}
 
+}
 
-* &#x20;   Complete: 
+Server s = new Server();
 
+s.region = "eu-west";
 
-
-class Server { 
-
-&#x09;String region; 
-
-&#x09;void deploy(String app){ 
-
-&#x09;	System.out.println("Deploy " + app + " in " + region); 
-
-&#x09;} 
-
-} 
-
-Server s = new Server(); 
-
-s.region = "eu-west"; 
-
-s.**deploy**("api"); 
+s.**deploy**("api");
 
 
 
@@ -352,7 +390,7 @@ s.**deploy**("api");
 
 
 
-* &#x20;   Why should class names use PascalCase and methods use camelCase? 
+* &#x20;   Why should class names use PascalCase and methods use camelCase?
 
 
 
@@ -362,7 +400,53 @@ It helps with readability when using this convention in collaboration with other
 
 
 
-* &#x20;   One sentence: What is a constructor used for? 
+* &#x20;   One sentence: What is a constructor used for?
+
+
+
+It is used to initialize a new object's state and set default or user-defined values for the object's attributes.
+
+
+
+
+
+* &#x20;   Write a toString() method for a Student(name, age).
+
+
+
+class Student {
+
+&#x20;   String name;
+
+
+
+&#x20;   // Constructor
+
+&#x20;   Student(String name) {
+
+&#x20;       this.name = name;
+
+&#x20;   }
+
+
+
+&#x20;   void toString() {
+
+&#x20;       System.out.println("Name: " + name);
+
+&#x20;   }
+
+
+
+&#x20;   public static void main(String\[] args) {
+
+&#x20;       Student s1 = new Student("Vishnu");
+
+&#x20;       s1.toString();
+
+&#x20;   }
+
+}
 
 
 
@@ -370,21 +454,7 @@ It helps with readability when using this convention in collaboration with other
 
 
 
-
-
-* &#x20;   Write a toString() method for a Student(name, age). 
-
-
-
-
-
-
-
-
-
-
-
-* &#x20;   What error do you get calling a method on a null reference? 
+* &#x20;   What error do you get calling a method on a null reference?
 
 
 
@@ -396,7 +466,11 @@ NullPointerException
 
 
 
-* &#x20;   Show one advantage of modeling with classes vs using only functions \& arrays. 
+* &#x20;   Show one advantage of modeling with classes vs using only functions \& arrays.
+
+
+
+Modeling with classes is better when one needs to create several objects of the same class and control their information.
 
 
 
@@ -404,15 +478,23 @@ NullPointerException
 
 
 
+* &#x20;   Small design prompt: Sketch fields and one method for a Product class.
 
 
 
+class Product{
 
-* &#x20;   Small design prompt: Sketch fields and one method for a Product class. 
+&#x09;String name;
 
+&#x09;boolean isInStock;
 
+&#x09;void display(String name, boolean isInStock){
 
+&#x09;	System.out.println("Product: " + name + "." In stock: " 					+ isInStock);
 
+&#x09;}
+
+}
 
 
 
