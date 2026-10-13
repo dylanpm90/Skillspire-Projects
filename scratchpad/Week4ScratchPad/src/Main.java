@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Book b1 = new Book("1984", "Penguin Books", 1948);
-        System.out.println( b1.title + ", " +
-                            b1.publisher + ", " +
-                            b1.yearPublished + ".");
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("Paris");
+        cities.add("Prague");
+        cities.add(1, "Berlin");
+        System.out.println(cities);
+
     }
 }
