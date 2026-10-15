@@ -1,12 +1,12 @@
-Week 5 Worksheet: ArrayList Data Structures in Java 
+Week 5 Worksheet 
+
+
+
+**ArrayList Data Structures in Java** 
 
 
 
 * &#x20;   In one sentence, what is an ArrayList in Java and where does it live (which package)? 
-
-
-
-An ArrayList is a resizable array implementation provided by the Java Collections Framework in java.util.
 
 
 
@@ -18,9 +18,7 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-**import** java.util.**ArrayList;**
-
-**ArrayList**<String> names = new **ArrayList**<>(); 
+\_\_\_\_\_\_ java.util.\_\_\_\_\_\_\_\_; \_\_\_\_\_\_<String> names = new \_\_\_\_\_\_<>(); 
 
 
 
@@ -28,13 +26,7 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-
-
-
-
-* &#x20;   **True**/~~False~~: ArrayList can grow and shrink automatically at runtime. 
-
-
+* &#x20;   True/False: ArrayList can grow and shrink automatically at runtime. 
 
 
 
@@ -46,7 +38,7 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 * &#x20;   Which is valid for ArrayList<Integer>? (Circle one) 
 
-&#x20;   ~~a) add(42) b) add(0, 42)~~ **c) both** 
+&#x20;   a) add(42) b) add(0, 42) c) both 
 
 
 
@@ -54,29 +46,13 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-
-
-
-
-Creating \& Adding 
+**Creating \& Adding** 
 
 
 
 * &#x20;   Write code to create ArrayList<Integer> nums and add 10, 15 at index 0, then 20. 
 
 
-
-ArrayList<Integer> numbers = new ArrayList<>(); 
-
-numbers.add(10); 
-
-numbers.add(0, 15);
-
-numbers.add(20); 
-
-&#x20;
-
-System.out.println(numbers);
 
 
 
@@ -100,35 +76,15 @@ System.out.println(cities);
 
 
 
-\[Paris, Berlin, Prague]
-
-
-
-
-
 * &#x20;   Fill in to add three names, then print the list: 
 
 
 
 ArrayList<String> names = new ArrayList<>(); 
 
-names.add("Alice"); 
-
-names.add("Bob"); 
-
-names.add("Charlie"); 
-
-
-
 // add "Alice", "Bob", "Charlie" 
 
 System.out.println(names); 
-
-
-
-
-
-
 
 
 
@@ -144,8 +100,6 @@ Accessing \& Updating
 
 
 
-System.out.println(names.get(0));
-
 
 
 
@@ -156,13 +110,9 @@ System.out.println(names.get(0));
 
 
 
-ArrayList<String> names = new ArrayList<>(List.of("Alice","Bob","Charlie")); // write one line here 
+ArrayList<String> names = new ArrayList<>(List.of("Alice","Bob","Charlie")); 
 
-
-
-names.set(1, "David");  
-
-
+// write one line here 
 
 
 
@@ -170,17 +120,11 @@ names.set(1, "David");
 
 
 
-Index out of bounds error
-
-
-
-
-
 &#x20;
 
 
 
-Removing 
+**Removing** 
 
 
 
@@ -188,17 +132,7 @@ Removing
 
 
 
-names.remove("Alice");
-
-
-
-
-
 * &#x20;   Remove by index the first element from names. 
-
-
-
-names.remove(0);
 
 
 
@@ -206,25 +140,23 @@ names.remove(0);
 
 
 
-ArrayList<Integer> nums = new ArrayList<>(List.of(1, 2, 3)); nums.remove(1); System.out.println(nums); 
+ArrayList<Integer> nums = new ArrayList<>(List.of(1, 2, 3)); 
+
+nums.remove(1); 
+
+System.out.println(nums); 
 
 
 
 * What is printed and why? (Value vs index?) 
 
-\[1,3] is printed because the value at index 1 is removed.
+
 
 &#x20;
 
 
 
-
-
-
-
-
-
-Size \& Contains 
+**Size \& Contains** 
 
 
 
@@ -232,27 +164,25 @@ Size \& Contains
 
 
 
-ArrayList<String> items = new ArrayList<>(List.of("pen","pad")); System.out.println(items.\_\_\_\_()); // number of elements System.out.println(items.\_\_\_\_\_\_\_\_("pad")); // check membership 
+ArrayList<String> items = new ArrayList<>(List.of("pen","pad"));
+
+System.out.println(items.\_\_\_\_()); 
+
+// number of elements 
+
+System.out.println(items.\_\_\_\_\_\_\_\_("pad")); 
+
+// check membership 
 
 
 
-* &#x20;   **True**/~~False:~~ ArrayList preserves insertion order. 
-
-
-
-
-
-
-
-
-
-* &#x20;   **True**/~~False~~: ArrayList allows duplicate values. 
+* &#x20;   True/False: ArrayList preserves insertion order. 
 
 
 
 
 
-
+* &#x20;   True/False: ArrayList allows duplicate values. 
 
 
 
@@ -260,13 +190,11 @@ ArrayList<String> items = new ArrayList<>(List.of("pen","pad")); System.out.prin
 
 
 
-Iteration 
+**Iteration** 
 
 
 
 * &#x20;   Write a for-index loop to print each element of names on its own line. 
-
-
 
 
 
@@ -286,17 +214,7 @@ Iteration
 
 
 
-
-
 * &#x20;   Using an Iterator<String> it = names.iterator();, write a while loop to print all elements. 
-
-
-
-
-
-
-
-
 
 
 
@@ -308,21 +226,11 @@ Iteration
 
 
 
-
-
-
-
-
-
-ArrayList vs Array 
+**ArrayList vs Array** 
 
 
 
 * &#x20;   Fill in the table (write Array or ArrayList): 
-
-
-
-
 
 
 
@@ -338,13 +246,7 @@ ArrayList vs Array
 
 
 
-
-
-
-
 * &#x20;   Stores primitives directly: \_\_\_\_\_\_ 
-
-
 
 
 
@@ -360,11 +262,7 @@ ArrayList vs Array
 
 
 
-
-
 * &#x20;   Better when size changes a lot: \_\_\_\_\_\_ 
-
-
 
 
 
@@ -376,7 +274,9 @@ ArrayList vs Array
 
 
 
-String\[] arr = {"A","B","C"}; // make ArrayList<String> list from arr 
+String\[] arr = {"A","B","C"}; 
+
+// make ArrayList<String> list from arr 
 
 
 
@@ -384,11 +284,11 @@ String\[] arr = {"A","B","C"}; // make ArrayList<String> list from arr
 
 
 
-Sorting \& Utilities 
+**Sorting \& Utilities** 
 
 
 
-* &#x20;   Import and call sort to alphabetically sort names. 
+&#x20;   Import and call sort to alphabetically sort names. 
 
 
 
@@ -396,21 +296,11 @@ Sorting \& Utilities
 
 
 
+&#x20;   After names.clear();, what will names.isEmpty() return? 
 
 
 
-
-* &#x20;   After names.clear();, what will names.isEmpty() return? 
-
-
-
-
-
-
-
-
-
-* &#x20;   Write a line that finds the first index of "Bob" and the last index of "Bob" in names. 
+&#x20;   Write a line that finds the first index of "Bob" and the last index of "Bob" in names. 
 
 
 
@@ -418,15 +308,11 @@ Sorting \& Utilities
 
 
 
-
-
-Real-World Scenarios 
+**Real-World Scenarios** 
 
 
 
 * &#x20;   Shopping cart: Create ArrayList<String> cart, add "Laptop", "Mouse", remove "Mouse", print the cart. 
-
-
 
 
 
@@ -442,8 +328,6 @@ Real-World Scenarios
 
 
 
-
-
 * &#x20;   Playlist: Add three songs to ArrayList<String> playlist and print them one per line (choose any loop). 
 
 
@@ -452,13 +336,7 @@ Real-World Scenarios
 
 
 
-
-
-
-
-
-
-Common Mistakes 
+**Common Mistakes** 
 
 
 
@@ -470,23 +348,11 @@ ArrayList<int> list = new ArrayList<>();
 
 
 
-
-
-
-
-
-
 * &#x20;   Explain why this throws an error and how to prevent it: 
 
 
 
 ArrayList<String> names = new ArrayList<>(List.of("A","B")); System.out.println(names.get(2)); 
-
-
-
-
-
-
 
 
 
@@ -502,13 +368,7 @@ nums.remove(1); nums.remove(Integer.valueOf(1));
 
 
 
-
-
-
-
-
-
-Best Practices 
+**Best Practices** 
 
 
 
@@ -520,15 +380,7 @@ ArrayList<String> logs = new ArrayList<>();
 
 
 
-
-
-
-
-
-
 * &#x20;   Why should you check isEmpty() (or size() > 0) before calling get(0)? 
-
-
 
 
 
@@ -546,7 +398,7 @@ ArrayList<String> logs = new ArrayList<>();
 
 
 
-Applied / Mini-Tasks 
+**Applied / Mini-Tasks** 
 
 
 
@@ -580,8 +432,6 @@ Applied / Mini-Tasks
 
 
 
-
-
 * &#x20;   Unique filter: Using an auxiliary HashSet<String> seen, write code to build a new ArrayList<String> unique that keeps first occurrences only (preserve order). 
 
 
@@ -602,15 +452,17 @@ Applied / Mini-Tasks
 
 
 
+* &#x20;   Roster with objects: 
 
 
-&#x20;   Roster with objects: 
+
+
+
+
 
 
 
 * &#x20;   Define a simple Student class with fields name and age and a constructor. 
-
-
 
 
 
@@ -640,7 +492,11 @@ Applied / Mini-Tasks
 
 
 
-Bonus: Iterator Removal Safety 
+
+
+
+
+**Bonus: Iterator Removal Safety** 
 
 
 
@@ -648,7 +504,13 @@ Bonus: Iterator Removal Safety
 
 
 
-ArrayList<String> list = new ArrayList<>(List.of("keep","drop","keep")); for (String s : list) { if (s.equals("drop")) list.remove(s); // BUG: fix this loop } 
+ArrayList<String> list = new ArrayList<>(List.of("keep","drop","keep"));
+
+for (String s : list) { 
+
+&#x09;if (s.equals("drop")) list.remove(s); // BUG: fix this loop 
+
+} 
 
 
 
@@ -656,33 +518,18 @@ ArrayList<String> list = new ArrayList<>(List.of("keep","drop","keep")); for (St
 
 
 
-
-
-
-
-
-
-Challenge 
+**Challenge** 
 
 
 
 * &#x20;   Inventory system: 
-
-&#x20;   Define a Product(String name, double price). 
-
-&#x20;   Create ArrayList<Product> inventory. 
-
-&#x20;   Add at least four products. 
-
-
-
-
-
-
-
-
-
-* &#x20;   Print the average price. 
+1. Define a Product(String name, double price). 
+2. Create ArrayList<Product> inventory. 
+3. Add at least four products. 
+4. Print the average price. 
+5. Remove any product with price < 10. 
+6. Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class). 
+7. Print the final list. 
 
 
 
@@ -690,23 +537,13 @@ Challenge
 
 
 
-* &#x20;   Remove any product with price < 10. 
 
 
 
-&#x20;   Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class). 
 
 
 
-* &#x20;   Print the final list. 
-
-
-
-&#x20;
-
-
-
-Reflection (1–2 lines each) 
+**Reflection (1–2 lines each)** 
 
 
 
@@ -731,6 +568,8 @@ Reflection (1–2 lines each)
 
 
 * &#x20;   Name one Collections utility (other than sort) that you’d try next and why. 
+
+
 
 
 
