@@ -1,12 +1,12 @@
-Week 5 Worksheet 
+Week 5 Worksheet
 
 
 
-**ArrayList Data Structures in Java** 
+**ArrayList Data Structures in Java**
 
 
 
-* &#x20;   In one sentence, what is an ArrayList in Java and where does it live (which package)? 
+* &#x20;   In one sentence, what is an ArrayList in Java and where does it live (which package)?
 
 
 
@@ -16,7 +16,7 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-* &#x20;   Fill in the import and declaration to create an empty ArrayList<String> named names. 
+* &#x20;   Fill in the import and declaration to create an empty ArrayList<String> named names.
 
 
 
@@ -30,7 +30,7 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-* &#x20;   **True**/~~False~~: ArrayList can grow and shrink automatically at runtime. 
+* &#x20;   **True**/~~False~~: ArrayList can grow and shrink automatically at runtime.
 
 
 
@@ -40,9 +40,9 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-* &#x20;   Which is valid for ArrayList<Integer>? (Circle one) 
+* &#x20;   Which is valid for ArrayList<Integer>? (Circle one)
 
-&#x20;   ~~a) add(42) b) add(0, 42)~~ **c) both** 
+&#x20;   ~~a) add(42) b) add(0, 42)~~ **c) both**
 
 
 
@@ -50,11 +50,11 @@ An ArrayList is a resizable array implementation provided by the Java Collection
 
 
 
-**Creating \& Adding** 
+**Creating \& Adding**
 
 
 
-* &#x20;   Write code to create ArrayList<Integer> nums and add 10, 15 at index 0, then 20. 
+* &#x20;   Write code to create ArrayList<Integer> nums and add 10, 15 at index 0, then 20.
 
 ArrayList<Integer> nums = new ArrayList<>();
 
@@ -72,19 +72,19 @@ System.out.println(nums);
 
 
 
-* &#x20;   What will this print? 
+* &#x20;   What will this print?
 
 
 
-ArrayList<String> cities = new ArrayList<>(); 
+ArrayList<String> cities = new ArrayList<>();
 
-cities.add("Paris"); 
+cities.add("Paris");
 
-cities.add("Prague"); 
+cities.add("Prague");
 
-cities.add(1, "Berlin"); 
+cities.add(1, "Berlin");
 
-System.out.println(cities); 
+System.out.println(cities);
 
 
 
@@ -92,13 +92,13 @@ System.out.println(cities);
 
 
 
-* &#x20;   Fill in to add three names, then print the list: 
+* &#x20;   Fill in to add three names, then print the list:
 
 
 
-ArrayList<String> names = new ArrayList<>(); 
+ArrayList<String> names = new ArrayList<>();
 
-// add "Alice", "Bob", "Charlie" 
+// add "Alice", "Bob", "Charlie"
 
 names.add("Alice");
 
@@ -106,7 +106,7 @@ names.add("Bob");
 
 names.add("Charlie");
 
-System.out.println(names); 
+System.out.println(names);
 
 
 
@@ -114,11 +114,11 @@ System.out.println(names);
 
 
 
-Accessing \& Updating 
+Accessing \& Updating
 
 
 
-* &#x20;   How do you get the first element of names? (Write the exact statement.) 
+* &#x20;   How do you get the first element of names? (Write the exact statement.)
 
 
 
@@ -128,17 +128,17 @@ names.get(0);
 
 
 
-* &#x20;   Replace the element at index 1 with "David": 
+* &#x20;   Replace the element at index 1 with "David":
 
 
 
-ArrayList<String> names = new ArrayList<>(List.of("Alice","Bob","Charlie")); 
+ArrayList<String> names = new ArrayList<>(List.of("Alice","Bob","Charlie"));
 
 names.add(1, "David");
 
 
 
-* &#x20;   What exception could be thrown by names.get(5) if names.size() is 3? 
+* &#x20;   What exception could be thrown by names.get(5) if names.size() is 3?
 
 Out of Bounds exception
 
@@ -146,11 +146,11 @@ Out of Bounds exception
 
 
 
-**Removing** 
+**Removing**
 
 
 
-* &#x20;   Remove by value the string "Alice" from names. 
+* &#x20;   Remove by value the string "Alice" from names.
 
 
 
@@ -162,7 +162,7 @@ names.remove("Alice");
 
 
 
-* &#x20;   Remove by index the first element from names. 
+* &#x20;   Remove by index the first element from names.
 
 names.remove(0);
 
@@ -172,21 +172,21 @@ names.remove(0);
 
 
 
-* &#x20;   Given: 
+* &#x20;   Given:
 
 
 
-ArrayList<Integer> nums = new ArrayList<>(List.of(1, 2, 3)); 
+ArrayList<Integer> nums = new ArrayList<>(List.of(1, 2, 3));
 
-nums.remove(1); 
+nums.remove(1);
 
-System.out.println(nums); 
-
-
+System.out.println(nums);
 
 
 
-* What is printed and why? (Value vs index?) 
+
+
+* What is printed and why? (Value vs index?)
 
 
 
@@ -198,33 +198,33 @@ System.out.println(nums);
 
 
 
-**Size \& Contains** 
+**Size \& Contains**
 
 
 
-* &#x20;   Complete: 
+* &#x20;   Complete:
 
 
 
 ArrayList<String> items = new ArrayList<>(List.of("pen","pad"));
 
-System.out.println(items**.size());** 
+System.out.println(items\*\*.size());\*\*
 
-// number of elements 
+// number of elements
 
-System.out.println(items**.contains("**pad")); 
+System.out.println(items\*\*.contains("\*\*pad"));
 
-// check membership 
-
-
-
-* &#x20;   **True**/~~False~~: ArrayList preserves insertion order. 
+// check membership
 
 
 
+* &#x20;   **True**/~~False~~: ArrayList preserves insertion order.
 
 
-* &#x20;   **True**/~~False~~: ArrayList allows duplicate values. 
+
+
+
+* &#x20;   **True**/~~False~~: ArrayList allows duplicate values.
 
 
 
@@ -232,11 +232,11 @@ System.out.println(items**.contains("**pad"));
 
 
 
-**Iteration** 
+**Iteration**
 
 
 
-* &#x20;   Write a for-index loop to print each element of names on its own line. 
+* &#x20;   Write a for-index loop to print each element of names on its own line.
 
 
 
@@ -250,7 +250,7 @@ for (i = 0; i < names.size(); i++){
 
 
 
-* &#x20;   Write an enhanced for-each loop to do the same. 
+* &#x20;   Write an enhanced for-each loop to do the same.
 
 
 
@@ -266,7 +266,7 @@ for (String name : names) {
 
 
 
-* &#x20;   Using an Iterator<String> it = names.iterator();, write a while loop to print all elements. 
+* &#x20;   Using an Iterator<String> it = names.iterator();, write a while loop to print all elements.
 
 
 
@@ -288,7 +288,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   Why should you prefer enhanced for-each over repeated get(i) calls in large lists? 
+* &#x20;   Why should you prefer enhanced for-each over repeated get(i) calls in large lists?
 
 
 
@@ -302,11 +302,11 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-**ArrayList vs Array** 
+**ArrayList vs Array**
 
 
 
-* &#x20;   Fill in the table (write Array or ArrayList): 
+* &#x20;   Fill in the table (write Array or ArrayList):
 
 
 
@@ -314,7 +314,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   Fixed size: **ARRAY** 
+* &#x20;   Fixed size: **ARRAY**
 
 
 
@@ -330,7 +330,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   Has methods like add/remove/contains: **ARRAYLIST** 
+* &#x20;   Has methods like add/remove/contains: **ARRAYLIST**
 
 
 
@@ -338,7 +338,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   Better when size changes a lot**: ARRAYLIST** 
+* &#x20;   Better when size changes a lot\*\*: ARRAYLIST\*\*
 
 
 
@@ -346,7 +346,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   Convert an array to an ArrayList (any valid approach): 
+* &#x20;   Convert an array to an ArrayList (any valid approach):
 
 
 
@@ -368,15 +368,15 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-**Sorting \& Utilities** 
+**Sorting \& Utilities**
 
 
 
-* &#x20;   Import and call sort to alphabetically sort names. 
+* &#x20;   Import and call sort to alphabetically sort names.
 
 
 
-**import** java.util.**Collections**; Collections**.sort(**names); 
+**import** java.util.**Collections**; Collections\*\*.sort(\*\*names);
 
 
 
@@ -384,7 +384,7 @@ ArrayList<String> names = new ArrayList<>(List.of("Alice", "Bob", "Jane"));
 
 
 
-* &#x20;   After names.clear();, what will names.isEmpty() return? 
+* &#x20;   After names.clear();, what will names.isEmpty() return?
 
 
 
@@ -394,7 +394,7 @@ true
 
 
 
-* &#x20;   Write a line that finds the first index of "Bob" and the last index of "Bob" in names. 
+* &#x20;   Write a line that finds the first index of "Bob" and the last index of "Bob" in names.
 
 
 
@@ -406,11 +406,11 @@ lastIndexOf("Bob);
 
 
 
-**Real-World Scenarios** 
+**Real-World Scenarios**
 
 
 
-* &#x20;   Shopping cart: Create ArrayList<String> cart, add "Laptop", "Mouse", remove "Mouse", print the cart. 
+* &#x20;   Shopping cart: Create ArrayList<String> cart, add "Laptop", "Mouse", remove "Mouse", print the cart.
 
 
 
@@ -432,7 +432,7 @@ lastIndexOf("Bob);
 
 
 
-* &#x20;   Student management: Create ArrayList<Student> students and add two Student objects (constructor Student(String, int) assumed). 
+* &#x20;   Student management: Create ArrayList<Student> students and add two Student objects (constructor Student(String, int) assumed).
 
 
 
@@ -492,7 +492,7 @@ class Student {
 
 
 
-* &#x20;   Playlist: Add three songs to ArrayList<String> playlist and print them one per line (choose any loop). 
+* &#x20;   Playlist: Add three songs to ArrayList<String> playlist and print them one per line (choose any loop).
 
 
 
@@ -526,23 +526,23 @@ public class Playlist {
 
 
 
-**Common Mistakes** 
+**Common Mistakes**
 
 
 
-* &#x20;   What is wrong here? Fix it. 
+* &#x20;   What is wrong here? Fix it.
 
 
 
-ArrayList<**Integer**> list = new ArrayList<>(); 
+ArrayList<**Integer**> list = new ArrayList<>();
 
 
 
-* &#x20;   Explain why this throws an error and how to prevent it: 
+* &#x20;   Explain why this throws an error and how to prevent it:
 
 
 
-ArrayList<String> names = new ArrayList<>(List.of("A","B")); System.out.println(names.get(2)); 
+ArrayList<String> names = new ArrayList<>(List.of("A","B")); System.out.println(names.get(2));
 
 
 
@@ -550,11 +550,11 @@ Out of Bounds exception, the size of the arraylist is smaller than what is being
 
 
 
-* &#x20;   What is the difference between these two removes? 
+* &#x20;   What is the difference between these two removes?
 
 
 
-nums.remove(1); nums.remove(Integer.valueOf(1)); 
+nums.remove(1); nums.remove(Integer.valueOf(1));
 
 
 
@@ -562,19 +562,15 @@ nums.remove(1); nums.remove(Integer.valueOf(1));
 
 
 
-**Best Practices** 
+**Best Practices**
 
 
 
-* &#x20;   **Rewrite this declaration to program to the interface:** 
+* &#x20;   **Rewrite this declaration to program to the interface:**
 
 
 
-ArrayList<String> logs = new ArrayList<>(); 
-
-
-
-This declaration, as is, is using generics, encouraging type safety.
+List<String> logs = new ArrayList<>();
 
 
 
@@ -582,7 +578,7 @@ This declaration, as is, is using generics, encouraging type safety.
 
 
 
-* &#x20;   Why should you check isEmpty() (or size() > 0) before calling get(0)? 
+* &#x20;   Why should you check isEmpty() (or size() > 0) before calling get(0)?
 
 
 
@@ -592,11 +588,11 @@ To prevent a divide by zero error
 
 
 
-* &#x20;   Which loop style is safest when removing items during iteration: for-each or Iterator + remove()? (Explain briefly.) 
+* &#x20;   Which loop style is safest when removing items during iteration: for-each or Iterator + remove()? (Explain briefly.)
 
 
 
-Using for-each instead of Iterator + remove can lead to ConcurrentModificationException. 
+Using for-each instead of Iterator + remove can lead to ConcurrentModificationException.
 
 
 
@@ -608,11 +604,11 @@ The Iterator + remove() approach "ensures the iterator’s internal state remain
 
 
 
-**Applied / Mini-Tasks** 
+**Applied / Mini-Tasks**
 
 
 
-* &#x20;   Sum of list: Given ArrayList<Integer> scores, write code to compute and print the sum. 
+* &#x20;   Sum of list: Given ArrayList<Integer> scores, write code to compute and print the sum.
 
 
 
@@ -632,7 +628,7 @@ ArrayList<Integer> scores = new ArrayList<>(List.of(1, 2, 3, 4, 5));
 
 
 
-* &#x20;   Max value: Write a method static int max(ArrayList<Integer> a) that returns the largest element (assume non-empty). 
+* &#x20;   Max value: Write a method static int max(ArrayList<Integer> a) that returns the largest element (assume non-empty).
 
 
 
@@ -672,7 +668,7 @@ static int max(ArrayList<Integer> a) {
 
 
 
-* &#x20;   Reverse print: Print names in reverse order without modifying the list. 
+* &#x20;   Reverse print: Print names in reverse order without modifying the list.
 
 
 
@@ -706,7 +702,7 @@ public class ReverseNameWorksheetEx {
 
 
 
-* &#x20;   **Unique filter: Using an auxiliary HashSet<String> seen, write code to build a new ArrayList<String> unique that keeps first occurrences only (preserve order).** 
+* &#x20;   **Unique filter: Using an auxiliary HashSet<String> seen, write code to build a new ArrayList<String> unique that keeps first occurrences only (preserve order).**
 
 &#x09;
 
@@ -758,7 +754,7 @@ public class ReverseNameWorksheetEx {
 
 
 
-* &#x20;   Cities sort: Create ArrayList<String> cities with at least five names (mixed case) and print them sorted case-insensitively (hint: sort(String.CASE\_INSENSITIVE\_ORDER)). 
+* &#x20;   Cities sort: Create ArrayList<String> cities with at least five names (mixed case) and print them sorted case-insensitively (hint: sort(String.CASE\_INSENSITIVE\_ORDER)).
 
 
 
@@ -792,7 +788,7 @@ static void main(String\[] args) {
 
 
 
-* &#x20;   Roster with objects: 
+* &#x20;   Roster with objects:
 
 
 
@@ -852,7 +848,7 @@ class Student {
 
 
 
-* &#x20;   Define a simple Student class with fields name and age and a constructor. 
+* &#x20;   Define a simple Student class with fields name and age and a constructor.
 
 
 
@@ -912,7 +908,7 @@ class Student {
 
 
 
-* &#x20;   Create ArrayList<Student> roster and add three students. 
+* &#x20;   Create ArrayList<Student> roster and add three students.
 
 
 
@@ -976,7 +972,7 @@ class Student {
 
 
 
-* &#x20;   Loop and print each as name (age). 
+* &#x20;   Loop and print each as name (age).
 
 
 
@@ -1040,11 +1036,11 @@ class Student {
 
 
 
-**Bonus: Iterator Removal Safety** 
+**Bonus: Iterator Removal Safety**
 
 
 
-* &#x20;   Fix the bug (concurrent modification) by using the iterator’s remove(): 
+* &#x20;   Fix the bug (concurrent modification) by using the iterator’s remove():
 
 
 
@@ -1070,7 +1066,7 @@ public class IteratorRemoval {
 
 &#x20;   }
 
-} 
+}
 
 
 
@@ -1078,36 +1074,28 @@ public class IteratorRemoval {
 
 
 
-**Challenge** 
+**Challenge**
 
 
 
-* &#x20;   Inventory system: 
-1. Define a Product(String name, double price). 
-2. Create ArrayList<Product> inventory. 
-3. Add at least four products. 
-4. Print the average price. 
-5. Remove any product with price < 10. 
-6. Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class). 
-7. Print the final list. 
-
-
-
-
+* &#x20;   Inventory system:
+1. Define a Product(String name, double price).
+2. Create ArrayList<Product> inventory.
+3. Add at least four products.
+4. Print the average price.
+5. Remove any product with price < 10.
+6. Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class).
+7. Print the final list.
 
 
 
 
 
+**Reflection (1–2 lines each)**
 
 
 
-
-**Reflection (1–2 lines each)** 
-
-
-
-* &#x20;   When would you choose an array over an ArrayList? 
+* &#x20;   When would you choose an array over an ArrayList?
 
 
 
@@ -1117,7 +1105,7 @@ public class IteratorRemoval {
 
 
 
-* &#x20;   What’s one bug you’ve seen today that ArrayList’s API helps you avoid? 
+* &#x20;   What’s one bug you’ve seen today that ArrayList’s API helps you avoid?
 
 
 
@@ -1127,15 +1115,5 @@ public class IteratorRemoval {
 
 
 
-* &#x20;   Name one Collections utility (other than sort) that you’d try next and why. 
-
-
-
-
-
-
-
-
-
-
+* &#x20;   Name one Collections utility (other than sort) that you’d try next and why.
 
