@@ -1078,14 +1078,14 @@ public class IteratorRemoval {
 
 
 
-* &#x20;   Inventory system:
+* &#x20;   **Inventory system:**
 1. Define a Product(String name, double price).
 2. Create ArrayList<Product> inventory.
 3. Add at least four products.
 4. Print the average price.
-5. Remove any product with price < 10.
-6. Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class).
-7. Print the final list.
+5. **Remove any product with price < 10.**
+6. **Sort remaining by price ascending (you may use a lambda with Comparator.comparing(p -> p.price) or write a comparator class).**
+7. **Print the final list.**
 
 
 
@@ -1099,7 +1099,7 @@ public class IteratorRemoval {
 
 
 
-
+&#x09;Arrays are faster and more memory efficient and support primitive data types.
 
 
 
@@ -1107,7 +1107,7 @@ public class IteratorRemoval {
 
 * &#x20;   What’s one bug you’ve seen today that ArrayList’s API helps you avoid?
 
-
+&#x09;It helps with avoiding the Out of Bounds error a little, since the size of the array list is flexible.
 
 
 
@@ -1116,4 +1116,12 @@ public class IteratorRemoval {
 
 
 * &#x20;   Name one Collections utility (other than sort) that you’d try next and why.
+
+&#x09;	
+
+&#x09;I've seen Map used in an interesting gaming context, so I'm curious to see how it's used in other areas.
+
+
+
+
 
