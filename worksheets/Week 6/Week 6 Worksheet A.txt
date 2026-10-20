@@ -1,0 +1,250 @@
+Week 6 Worksheet A: Composition vs Inheritance in Java
+
+1. Define inheritance in one sentence and give a quick example name pair (Parent → Child).
+	
+	Inheritance allows a subclass to reuse fields and methods from a super class.
+	A car extends (or "is-a") vehicle.
+
+
+2. Define composition in one sentence and give a quick example field (Container has-a Part).
+	
+	One class contains another as a field or a "has-a" component defined else where in code as a certain class.
+
+
+3. Fill in the blanks:
+
+    Inheritance models “is-a”.
+    Composition models “has-a”.
+
+
+4. Which is a better relationship and why (1–2 lines)?
+
+    Car extends Engine vs Car has Engine.
+
+Car has an engine is a better relationship. Cars have components (or fields) which Engines do not have, like seat capacity or doors or windows, etc.
+
+
+5. What will this print?
+
+class Vehicle {
+    void start(){ System.out.println("Vehicle started"); }
+}
+class Car extends Vehicle {
+    void honk(){ System.out.println("Car honks"); }
+}
+public class Main {
+    public static void main(String[] args){
+        Car c = new Car();
+        c.start();
+        c.honk();
+    }
+}
+
+	Prints:
+	Vehicle started
+	Car honks
+
+6. Convert the previous inheritance example into a composition example by giving Car a private Engine with start() and printing both start + “Car ready”. (Write class headers + key methods only.)
+
+class Horn {
+    void honk() {
+        System.out.println("Car honks");
+    }
+}
+
+class Engine {
+    void start() {
+        System.out.println("Car is ready to drive");
+    }
+}
+
+class Vehicle {
+    Engine engine;
+}
+
+class Car extends Vehicle {
+    private Engine engine;
+    Horn horn;
+
+    Car() {
+        this.engine = new Engine();
+        this.horn = new Horn();
+    }
+
+    void start(){
+        engine.start();
+
+    }
+    void honk(){
+        horn.honk();
+    }
+}
+
+
+public class Main {
+    static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.honk();
+    }
+}
+
+
+7. True/False: With composition, you can swap an Engine for ElectricMotor with fewer ripple effects than with inheritance.
+
+True.
+
+8. Complete: Choose inheritance when the relationship is naturally ____; choose composition when you need ____.
+
+"is-a", "has-a".
+
+9. Implement a minimal Engine class with a start() method (one print line).
+public class CarComposition {
+    class Vehicle {
+        Engine engine = new Engine();
+        void move(){
+            System.out.println("moving");
+        }
+    }
+
+    class Car extends Vehicle {
+        void drive(){
+            System.out.println("driving");
+        }
+    }
+
+    class Engine{
+        void start(){
+            System.out.println("engine started");
+        }
+    }
+
+    void main(String[] args) {
+        Car c = new Car();
+        c.move();
+        c.drive();
+        c.engine.start();
+    }
+}
+
+10. In the code below, why is this a design smell?
+
+class Button extends ClickHandler { /* ... */ }
+
+Write a better alternative using composition.
+
+class Button{
+	ClickHandler cH1 = new Clickhandler();
+	void clickHandling(){
+		// cH1 click method
+	}
+}
+
+class ClickHandler{
+	// click method
+}
+
+11. What is tight coupling, and which approach (inheritance/composition) tends to increase it?
+
+Using Inheritance tends to increase coupling, or that a subclass depends on a super class.
+
+
+12. Which one tends to keep hierarchies shallow and systems modular: inheritance or composition?
+
+Composition oriented design schemes tend to have shallower hierarchies and modular systems.
+
+
+13. Fill in the table (write “Inheritance” or “Composition”):
+
+    Easier to replace parts at runtime: COMPOSITION
+    Natural use of polymorphism along a hierarchy: INHERITANCE
+    More risk from parent changes cascading: INHERITANCE
+    Promotes “has-a” structure: COMPOSITION
+
+
+!!!!!!!!! REDO !!!!!!!
+14. Write a Customer class and an Account class where Account has a Customer. Show fields + a constructor linking them.
+
+public class AccountComposition {
+    class Customer{
+        String customerName;
+        int accountNumber;
+        double accountBalance;
+        Account account = new Account(accountBalance);
+
+
+        Customer(String customerName, int accountNumber, double accountBalance){
+            this.accountBalance = accountBalance;
+            this.customerName = customerName;
+            this.accountNumber = accountNumber;
+
+        }
+
+        void displayInfo(){
+            System.out.println("Name: " + customerName + " | AcctNumber: " +  accountNumber + " | AcctBalance: $" + accountBalance);
+        }
+
+    }
+
+    class Account{
+        double accountBalance;
+
+        Account(double accountBalance){
+        }
+
+        void newAccountAlert(){
+            System.out.println("New account created!");
+        }
+    }
+
+
+    void main(String[] args) {
+        Customer c1 = new Customer("David", 123435, 1332.22);
+        c1.account.newAccountAlert();
+        c1.displayInfo();
+    }
+}
+
+
+
+15. Convert the prior #14 to a poor inheritance version and state why it’s wrong.
+
+16. Given:
+
+class Server { String region; }
+class Cluster { /* fill */ }
+
+Compose Cluster so it holds many Servers (field + add method).
+
+17. Fill blanks for a hybrid design:
+
+class Vehicle { void start(){} }
+class Car extends Vehicle { /* ... */ }   // inheritance
+class Car { private Engine engine; }      // composition
+
+Explain why both together may be useful (1–2 lines).
+
+18. Write code to delegate: Car.start() should internally call engine.start().
+
+19. You see class Report extends ArrayList<String>. Name two risks of extending concrete collections.
+
+20. Replace #19 with a safer composition: class Report has a private List<String> and forwards add + size.
+
+21. True/False: Use inheritance to reuse state from a specific utility class (like ArrayList) whenever possible.
+
+22. Inheritance or composition?
+
+    Student vs Person → ______
+    Order vs List<Product> → ______
+    Dog vs Animal → ______
+    Car vs Wheel → ______
+
+23. Identify the bug (design, not syntax):
+
+class ElectricCar extends Battery { /* ... */ }
+
+Fix the relationship briefly.
+
+24. Explain “favor composition over inheritance” in your own words.
+
+25. Short case: You need two payment engines (Card, Crypto) with the same API and hot-swappable at runtime. Choose inheritance or composition + interface? Sketch the approach.

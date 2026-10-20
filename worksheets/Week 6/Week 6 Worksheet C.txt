@@ -1,0 +1,68 @@
+Week 6 Worksheet C: Modeling Tesla’s Back-End with OOP Concepts
+
+1. Identify three top-level domains in a Tesla-like backend (e.g., Vehicles, Charging, Users).
+
+2. Create an abstract Vehicle with fields vin, model, year and abstract diagnostics(). Provide a protected constructor.
+
+3. Implement TeslaCar extends Vehicle with a composed Battery. Show constructor wiring and diagnostics() printing VIN and calling battery.healthCheck().
+
+4. Write a minimal Battery with fields capacity (kWh) and health (%), a constructor, and healthCheck() printing health.
+
+5. Add an interface Updatable with installUpdate(String version). Implement SoftwareUpdate that stores the version and prints when installed.
+
+6. Compose TeslaCar with a SoftwareUpdate field and call its installUpdate("2025.9"). Where would you call it (method name of your choice)?
+
+7. Abstract User with fields name, email and abstract accessSystem(). Implement Driver and Technician with different prints.
+
+8. Show polymorphism by creating an array/list of User containing both Driver and Technician and iterating to call accessSystem().
+
+9. Build ChargingStation with location and a boolean available defaulting to true. Implement startCharging(TeslaCar) and stopCharging() such that only one car can charge at a time.
+
+10. Why should ChargingStation.available be private? (1–2 lines on encapsulation.)
+
+11. Create a Payment interface with process(double amount). Implement CreditCardPayment and CryptoPayment.
+
+12. Write a payForCharge(Payment p, double amount) method that works regardless of which payment type is passed. (Polymorphism.)
+
+13. Create FleetManager that holds ArrayList<TeslaCar> fleet, with addCar(TeslaCar) and runDiagnostics() (iterate and call diagnostics() on each).
+
+14. Why is FleetManager using composition instead of inheritance?
+
+15. Add a final getter getVin() to Vehicle and explain in one line why VIN should not be mutable.
+
+16. Write a Server class with region and active. Add start() only if active is true (print status).
+
+17. Model a Telemetry class that logs trip distances for a TeslaCar. Would you use composition or inheritance? Implement a simple composition field and a log(double km) method.
+
+18. Add a PaymentFactory with a static of(String type) that returns a Payment. Show how to request "credit" or "crypto".
+
+19. Show how to use a Comparator<TeslaCar> (lambda) to sort a fleet by year ascending.
+
+20. Given:
+
+class SoftwareUpdate implements Updatable { /* ... */ }
+class OverTheAirUpdate extends SoftwareUpdate { /* ... */ }
+
+Explain how inheritance + interface together enable extensible update strategies.
+
+21. Add validation: Modify Battery so health is clamped to [0,100] inside the constructor (encapsulation).
+
+22. Write a toString() for TeslaCar that includes VIN, model, and year. State why toString() helps logging.
+
+23. Where would you use an interface instead of inheritance in this domain to avoid deep trees? Give one concrete interface and two implementers.
+
+24. Identify and fix the design smell:
+
+class ElectricCar extends Battery { /* ... */ }
+
+25. Briefly describe a unit test you would write for ChargingStation.startCharging to verify exclusive access.
+
+26. Add a Schedule class (date/time, slot length) and compose it into ChargingStation. Which class should validate overlaps and why?
+
+27. Add a SecurityAudit class with method record(User u, String action); show calling it when Technician.accessSystem() runs diagnostics.
+
+28. Suppose we need to add ApplePayPayment. What must change with the interface-based design? (1–2 lines.)
+
+29. Write an enum Region { US, EU, APAC } and update Server to use it. Why are enums better than free-form strings here?
+
+30. Reflection: Choose one place where you “favored composition over inheritance” and justify the decision in 2–3 lines.

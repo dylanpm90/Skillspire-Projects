@@ -1,0 +1,72 @@
+Week 6 Worksheet B: Abstract Classes & Interfaces in Java
+
+1. What does abstract mean for a class? Can you instantiate it?
+
+2. Fill in the blanks:
+
+abstract class Shape {
+    abstract double area();                                       // ______ method
+    void describe(){ System.out.println("This is a shape."); }    // ______ method
+}
+
+3. Create Circle extends Shape with field r and implement area() as Math.PI * r * r.
+
+4. What is an interface? In one sentence.
+
+5. Define an interface Playable with method play(). Implement it in Guitar and Piano (print a line in each).
+
+6. True/False: A class can extend multiple abstract classes in Java.
+
+7. True/False: A class can implement multiple interfaces in Java.
+
+8. Which is a better fit for “can-do capability” across unrelated types: abstract class or interface? Why?
+
+9. Fill in:
+
+interface Payment { void process(double amount); }
+class CreditCardPayment implements Payment {
+    public void process(double amount){ System.out.println("CC " + amount); }
+}
+
+10. Show how to use #9 with polymorphism to process both CreditCardPayment and PayPalPayment in the same method checkout(Payment p).
+
+11. Add a default method to Payment named receipt() that prints “Thank you”. Show one class using it without overriding.
+
+12. Abstract vs Interface: Complete the table (write “Abstract Class” or “Interface”):
+
+    Can have instance fields: ______
+    Can provide multiple inheritance of type: ______
+    Best for shared base with partial implementation: ______
+    Best for cross-cutting capability: ______
+
+13. Why add @Override on methods in subclasses/implementations?
+
+14. What error occurs if a class declares implements Payment but omits process?
+
+15. Write an abstract class Vehicle with abstract start() and concrete info(). Implement Car extends Vehicle.
+
+16. Add an interface GPS with navigate(). Make Car from #15 also implement GPS.
+
+17. What will this print?
+
+abstract class Animal { abstract void sound(); }
+class Dog extends Animal { void sound(){ System.out.println("Bark"); } }
+
+Animal a = new Dog();
+a.sound();
+
+18. Provide a one-line reason why you cannot instantiate new Animal() directly.
+
+19. Write a functional interface Converter<F,T> with one abstract method T convert(F f).
+
+20. Show a lambda using Converter<String,Integer> that parses an int.
+
+21. Marker interface: give one example in Java and what it “marks”.
+
+22. Add a static method to an interface Util named join(List<String>) that returns a single joined string with commas; call it without an instance.
+
+23. True/False: Interfaces can have private helper methods (Java 9+).
+
+24. Design prompt: When would you pick an abstract base class and interfaces together? Give a 1–2 line scenario.
+
+25. Briefly explain why excessive tiny interfaces (“interface pollution”) can harm code readability.

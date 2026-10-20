@@ -1,0 +1,7 @@
+Week 6 Discussion
+
+1. Even though Student itself doesn't have an introduce(), the parent Person should have introduce and therefore, it should work just fine.
+
+2. Overriding has the same name and same parameters of a parent method, but the code block is replaced with some specific to the child class
+
+Overloading has the same name but different parameters.
