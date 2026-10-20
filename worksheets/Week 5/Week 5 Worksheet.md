@@ -1089,6 +1089,112 @@ public class IteratorRemoval {
 
 
 
+import java.util.ArrayList;
+
+import java.util.Collection;
+
+import java.util.Collections;
+
+import java.util.Iterator;
+
+import java.util.Comparator;
+
+
+
+public class ProductChallenge {
+
+&#x20;   void main(String\[] args) {
+
+&#x20;       ArrayList<Product> inventory = new ArrayList<>();
+
+&#x20;       inventory.add(new Product("Laptop", 1200.00));
+
+&#x20;       inventory.add(new Product("Mouse", 100.00));
+
+&#x20;       inventory.add(new Product("Portable Hard Drive", 150.00));
+
+&#x20;       inventory.add(new Product("HDMI Cable", 9.99));
+
+
+
+&#x20;       double sum = 0f;
+
+
+
+&#x20;       for (int i = 0; i < inventory.size(); i++) {
+
+&#x20;           sum += inventory.get(i).price;
+
+&#x20;       }
+
+
+
+&#x20;       System.out.println("Sum: $" + sum);
+
+&#x20;       double average = sum / inventory.size();
+
+&#x20;       System.out.println("Average: $" + average);
+
+
+
+&#x20;       Iterator<Product> it = inventory.iterator();
+
+&#x20;       while (it.hasNext()){
+
+&#x20;           Product product = it.next();
+
+&#x20;           if (product.price < 10){
+
+&#x20;               it.remove();
+
+&#x20;           };
+
+&#x20;       }
+
+&#x20;       inventory.sort((o1, o2) -> Double.compare(o2.price, o1.price));
+
+&#x20;       System.out.println(inventory);
+
+
+
+
+
+&#x20;   }
+
+
+
+&#x20;   class Product {
+
+&#x20;       String name;
+
+&#x20;       double price;
+
+
+
+
+
+&#x20;       Product(String name, double price){
+
+&#x20;           this.name = name;
+
+&#x20;           this.price =price;
+
+&#x20;       }
+
+&#x20;       @Override
+
+&#x20;       public String toString() {
+
+&#x20;           return "Price: " + name + " Price: (" + price + ")";
+
+&#x20;       }
+
+&#x20;   }
+
+}
+
+
+
 
 
 **Reflection (1–2 lines each)**
@@ -1117,11 +1223,7 @@ public class IteratorRemoval {
 
 * &#x20;   Name one Collections utility (other than sort) that you’d try next and why.
 
-&#x09;	
+&#x09;
 
 &#x09;I've seen Map used in an interesting gaming context, so I'm curious to see how it's used in other areas.
-
-
-
-
 
