@@ -1,39 +1,29 @@
 public class AccountComposition {
-    class Customer{
-        String customerName;
+    class Account {
+        Customer customer;
+
+        Account(Customer customer) {
+            this.customer = customer;
+        }
+
+        void displayInfo() {
+            System.out.println("Name: " + customer.name + " | Acct#: "
+                    + customer.accountNumber + " | ");
+        }
+    }
+
+    class Customer {
+        String name;
         int accountNumber;
-        double accountBalance;
-        Account account = new Account(accountBalance);
-
-
-        Customer(String customerName, int accountNumber, double accountBalance){
-            this.accountBalance = accountBalance;
-            this.customerName = customerName;
+        Customer(String name, int accountNumber){
+            this.name = name;
             this.accountNumber = accountNumber;
 
         }
-
-        void displayInfo(){
-            System.out.println("Name: " + customerName + " | AcctNumber: " +  accountNumber + " | AcctBalance: $" + accountBalance);
-        }
-
     }
-
-    class Account{
-        double accountBalance;
-
-        Account(double accountBalance){
-        }
-
-        void newAccountAlert(){
-            System.out.println("New account created!");
-        }
-    }
-
 
     void main(String[] args) {
-        Customer c1 = new Customer("David", 123435, 1332.22);
-        c1.account.newAccountAlert();
-        c1.displayInfo();
+        Account a1 = new Account(new Customer("David", 123456));
+        a1.displayInfo();
     }
 }

@@ -5,3 +5,19 @@ Week 6 Discussion
 2. Overriding has the same name and same parameters of a parent method, but the code block is replaced with some specific to the child class
 
 Overloading has the same name but different parameters.
+
+
+Practice EX Comp over Inheritance:
+    Create a Person superclass, and extend it into Student and Teacher. 
+
+    Model a Car that inherits from Vehicle but also has an Engine object. 
+
+    Implement a Product hierarchy (Electronics, Books) and an Order class that uses composition. 
+
+    Create a Cluster class that holds multiple Server objects. 
+
+    Show an example where overusing inheritance causes problems, then fix it with composition. 
+
+    Build a Patient class that has a MedicalRecord object and compare it to an inheritance-based version. 
+
+    Demonstrate polymorphism using inheritance and flexibility using composition. 

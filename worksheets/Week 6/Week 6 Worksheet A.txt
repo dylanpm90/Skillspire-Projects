@@ -162,52 +162,68 @@ Composition oriented design schemes tend to have shallower hierarchies and modul
     Promotes “has-a” structure: COMPOSITION
 
 
-!!!!!!!!! REDO !!!!!!!
+
 14. Write a Customer class and an Account class where Account has a Customer. Show fields + a constructor linking them.
 
 public class AccountComposition {
-    class Customer{
-        String customerName;
+    class Account {
+        Customer customer;
+
+        Account(Customer customer) {
+            this.customer = customer;
+        }
+
+        void displayInfo() {
+            System.out.println("Name: " + customer.name + " | Acct#: "
+                    + customer.accountNumber + " | ");
+        }
+    }
+
+    class Customer {
+        String name;
         int accountNumber;
-        double accountBalance;
-        Account account = new Account(accountBalance);
-
-
-        Customer(String customerName, int accountNumber, double accountBalance){
-            this.accountBalance = accountBalance;
-            this.customerName = customerName;
+        Customer(String name, int accountNumber){
+            this.name = name;
             this.accountNumber = accountNumber;
 
         }
-
-        void displayInfo(){
-            System.out.println("Name: " + customerName + " | AcctNumber: " +  accountNumber + " | AcctBalance: $" + accountBalance);
-        }
-
     }
-
-    class Account{
-        double accountBalance;
-
-        Account(double accountBalance){
-        }
-
-        void newAccountAlert(){
-            System.out.println("New account created!");
-        }
-    }
-
 
     void main(String[] args) {
-        Customer c1 = new Customer("David", 123435, 1332.22);
-        c1.account.newAccountAlert();
-        c1.displayInfo();
+        Account a1 = new Account(new Customer("David", 123456));
+        a1.displayInfo();
     }
 }
 
 
 
 15. Convert the prior #14 to a poor inheritance version and state why it’s wrong.
+
+public class AccountInheritance {
+    class Account {
+        String name;
+        int accountNumber;
+
+        void displayInfo() {
+            System.out.println("Name: " + name +
+                    " | Acct#: " + accountNumber + " | ");
+        }
+    }
+
+    class Customer extends Account {
+        Customer(String name, int accountNumber) {
+            this.name = name;
+            this.accountNumber = accountNumber;
+        }
+    }
+
+    void main(String[] args) {
+        Customer c1 = new Customer("David", 123456);
+        c1.displayInfo();
+    }
+}
+
+The design scheme is less modular and doesn't make intuitive sense. This scenario makes more sense with a composition "has-a" relationship.
 
 16. Given:
 
@@ -216,35 +232,191 @@ class Cluster { /* fill */ }
 
 Compose Cluster so it holds many Servers (field + add method).
 
+import java.util.ArrayList;
+
+public class ServerClusterComposition {
+
+    class Server {
+        int serverNumber;
+
+        void ping() {
+            System.out.println("Server ID#:" + serverNumber + " - Pinged!");
+        }
+
+        Server(int serverNumber) {
+            this.serverNumber = serverNumber;
+        }
+    }
+
+    class Cluster {
+        String regionName;
+        ArrayList<Server> serverCluster = new ArrayList<>();
+
+        Cluster(String regionName) {
+            this.regionName = regionName;
+        }
+
+        void addServer(Server server) {
+            serverCluster.add(server);
+        }
+
+        void pingServers() {
+            for (Server server : serverCluster) {
+                server.ping();
+            }
+        }
+    }
+    
+    void main(String[] args) {
+        System.out.println("New Server Cluster:");
+        Cluster cluster = new Cluster("PNW");
+        cluster.addServer(new Server(123));
+        cluster.addServer(new Server(456));
+        cluster.addServer(new Server(789));
+        cluster.addServer(new Server(101112));
+        cluster.pingServers();
+    }
+}
+
+
+
 17. Fill blanks for a hybrid design:
 
 class Vehicle { void start(){} }
 class Car extends Vehicle { /* ... */ }   // inheritance
 class Car { private Engine engine; }      // composition
 
+public class CarComposition {
+    class Vehicle {
+
+        void start(){
+            System.out.println("moving");
+        }
+    }
+
+    class Car extends Vehicle {
+        private Engine engine = new Engine();
+        void drive(){
+            System.out.println("driving");
+        }
+
+        public Engine getEngine() {
+            return engine;
+        }
+    }
+
+    class Engine{
+        void sound(){
+            System.out.println("vroom");
+        }
+    }
+
+    void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.drive();
+        c.engine.sound();
+
+    }
+}
+
+
 Explain why both together may be useful (1–2 lines).
+
+The relationships make intuitive sense and are practical. Another programmer understands a Car "is-a" type of Vehicle, but a Vehicle doesn't necessarily "have-an" Engine.
 
 18. Write code to delegate: Car.start() should internally call engine.start().
 
+class Car extends Vehicle {
+        private Engine engine = new Engine();
+        void drive(){
+            System.out.println("driving");
+        }
+
+        public Engine getEngine() {
+            return engine;
+        }
+
+        void start(){
+            engine.start();
+        }
+    }
+
+
 19. You see class Report extends ArrayList<String>. Name two risks of extending concrete collections.
+	These extensions are fragile, because Collections can be updated externally.
+	It exposes methods in the ArrayList collections class.
+
 
 20. Replace #19 with a safer composition: class Report has a private List<String> and forwards add + size.
 
+import java.util.*;
+
+public class ReportComposition {
+
+    class Report{
+        private ReportList reportList = new ReportList();
+
+        void addToReportList(String listItem){
+            this.reportList = reportList;
+            reportList.addToReportList(listItem);
+        }
+        int reportListSize(ReportList reportList){
+            this.reportList = reportList;
+            int reportListSize = reportList.listSize;
+            return reportListSize;
+        }
+    }
+
+    class ReportList{
+        String listItem;
+
+        List<String> list = new ArrayList<>();
+        int listSize = list.size();
+
+        void addToReportList(String listItem){
+            this.listItem = listItem;
+            list.add(listItem);
+        }
+    }
+
+    void main(String[] args) {
+        Report report1 = new Report();
+        report1.addToReportList("Laptop");
+
+        System.out.println(report1.reportList.listItem);
+    }
+}
+
+
 21. True/False: Use inheritance to reuse state from a specific utility class (like ArrayList) whenever possible.
+
+FALSE
 
 22. Inheritance or composition?
 
-    Student vs Person → ______
-    Order vs List<Product> → ______
-    Dog vs Animal → ______
-    Car vs Wheel → ______
+    Student vs Person → INHERITANCE
+    Order vs List<Product> → COMPOSITION
+    Dog vs Animal → INHERITANCE
+    Car vs Wheel → COMPOSITION
 
 23. Identify the bug (design, not syntax):
 
 class ElectricCar extends Battery { /* ... */ }
 
+This relationship doesn't make intuitive sense, an Electric Car isn't a type of battery, it has a battery.
+
 Fix the relationship briefly.
+
+class ElectricCar { private Battery battery; }
 
 24. Explain “favor composition over inheritance” in your own words.
 
+With good decision making, prefering composition over inheritance can lead to more modular, maintainable, intuitive structure in your code. 
+
+
 25. Short case: You need two payment engines (Card, Crypto) with the same API and hot-swappable at runtime. Choose inheritance or composition + interface? Sketch the approach.
+
+Composition is prefered. There are two classes, one for each payment option. When the user chooses an option, the methods from the respective class is invoked. Inheritance wouldn't make as much sense here although it is conceivable to have a broader abstract parent "Payment" class from which some basic structure derives, like account numbers and balance variables or saved profile information, since both Crypto and Card may or may not have that information. 
+
+
