@@ -412,11 +412,11 @@ class ElectricCar { private Battery battery; }
 
 24. Explain “favor composition over inheritance” in your own words.
 
-With good decision making, prefering composition over inheritance can lead to more modular, maintainable, intuitive structure in your code. 
+With good decision making, preferring composition over inheritance can lead to more modular, maintainable, intuitive structure in your code. 
 
 
 25. Short case: You need two payment engines (Card, Crypto) with the same API and hot-swappable at runtime. Choose inheritance or composition + interface? Sketch the approach.
 
-Composition is prefered. There are two classes, one for each payment option. When the user chooses an option, the methods from the respective class is invoked. Inheritance wouldn't make as much sense here although it is conceivable to have a broader abstract parent "Payment" class from which some basic structure derives, like account numbers and balance variables or saved profile information, since both Crypto and Card may or may not have that information. 
+Composition is preferred. There are two classes, one for each payment option. When the user chooses an option, the methods from the respective class is invoked. Inheritance wouldn't make as much sense here although it is conceivable to have a broader abstract parent "Payment" class from which some basic structure derives, like account numbers and balance variables or saved profile information, since both Crypto and Card may or may not have that information. 
 
 

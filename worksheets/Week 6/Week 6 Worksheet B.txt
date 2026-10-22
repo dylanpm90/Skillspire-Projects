@@ -2,24 +2,96 @@ Week 6 Worksheet B: Abstract Classes & Interfaces in Java
 
 1. What does abstract mean for a class? Can you instantiate it?
 
+	Abstract classes are classes which have abstract methods without a body or can have concrete methods with a body which can serve as base classes for subclasses. You cannot instantiate abstract classes.
+
+
 2. Fill in the blanks:
 
 abstract class Shape {
-    abstract double area();                                       // ______ method
-    void describe(){ System.out.println("This is a shape."); }    // ______ method
+    abstract double area();                                       // abstract method
+    void describe(){ System.out.println("This is a shape."); }    // concrete method
 }
+
 
 3. Create Circle extends Shape with field r and implement area() as Math.PI * r * r.
 
+public class AbstractShapes {
+    abstract class Shape {
+        abstract double area();
+        void describe(){
+            System.out.println("This is a shape");
+        }
+    }
+
+    class Circle extends Shape{
+        double r;
+
+        @Override
+        double area() {
+            return Math.PI * r * r;
+        }
+    }
+
+    void main(String[] args) {
+        Circle circle = new Circle();
+        circle.r = 3;
+        double circleArea = circle.area();
+
+        System.out.println(circleArea);
+    }
+}
+
+
 4. What is an interface? In one sentence.
+
+	An interface is like a contract which promises the methods within will be filled out.
 
 5. Define an interface Playable with method play(). Implement it in Guitar and Piano (print a line in each).
 
+public class InstrumentPlayability {
+    interface Playable{
+        void play();
+    }
+
+    class Piano implements Playable{
+        @Override
+        public void play() {
+            System.out.println("Playing 'Fur Elise'.");
+        }
+    }
+
+    class Guitar implements Playable{
+        @Override
+        public void play() {
+            System.out.println("Playing 'Stairway to Heaven'.");
+        }
+    }
+
+    void main(String[] args) {
+        Guitar guitar = new Guitar();
+        guitar.play();
+
+        Piano piano = new Piano();
+        piano.play();
+    }
+}
+
+
+
 6. True/False: A class can extend multiple abstract classes in Java.
+
+	FALSE
+
 
 7. True/False: A class can implement multiple interfaces in Java.
 
+	TRUE
+
+
 8. Which is a better fit for “can-do capability” across unrelated types: abstract class or interface? Why?
+
+	An interface fits the "can-do" capability rather than an abstract class.
+
 
 9. Fill in:
 
@@ -28,7 +100,18 @@ class CreditCardPayment implements Payment {
     public void process(double amount){ System.out.println("CC " + amount); }
 }
 
+!!!!!!REDO!!!!!!!
 10. Show how to use #9 with polymorphism to process both CreditCardPayment and PayPalPayment in the same method checkout(Payment p).
+
+interface Payment { void process(double amount); }
+class CreditCardPayment implements Payment {
+    public void process(double amount){ System.out.println("CC " + amount); }
+}
+
+class PayPalPayment implements Payment {
+    public void process(double amount){ System.out.println("PayPal " + amount); }
+}
+
 
 11. Add a default method to Payment named receipt() that prints “Thank you”. Show one class using it without overriding.
 
