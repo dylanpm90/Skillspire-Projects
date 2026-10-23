@@ -100,35 +100,151 @@ class CreditCardPayment implements Payment {
     public void process(double amount){ System.out.println("CC " + amount); }
 }
 
-!!!!!!REDO!!!!!!!
+
 10. Show how to use #9 with polymorphism to process both CreditCardPayment and PayPalPayment in the same method checkout(Payment p).
 
-interface Payment { void process(double amount); }
+interface Payment {
+    void process();
+}
+
 class CreditCardPayment implements Payment {
-    public void process(double amount){ System.out.println("CC " + amount); }
+    @Override
+    public void process() {
+        System.out.println("Processing credit card payment...");
+    }
 }
 
 class PayPalPayment implements Payment {
-    public void process(double amount){ System.out.println("PayPal " + amount); }
+    @Override
+    public void process() {
+        System.out.println("Processing PayPal payment...");
+    }
 }
 
+public class Main {
+    public static void main(String[] args) {
+        Payment p = new CreditCardPayment();
+        p.process(); 
+    }
+}
 
 11. Add a default method to Payment named receipt() that prints “Thank you”. Show one class using it without overriding.
 
+interface Payment {
+    void process();
+    default void receipt() {
+        System.out.println("Thank you!");
+
+    }
+}
+
+class CreditCardPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing credit card payment...");
+    }
+
+}
+
+class PayPalPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing PayPal payment...");
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Payment p = new PayPalPayment();
+        p.process();
+        p.receipt();
+    }
+}
+
+
 12. Abstract vs Interface: Complete the table (write “Abstract Class” or “Interface”):
 
-    Can have instance fields: ______
-    Can provide multiple inheritance of type: ______
-    Best for shared base with partial implementation: ______
-    Best for cross-cutting capability: ______
+    Can have instance fields: ABSTRACT CLASS
+    Can provide multiple inheritance of type: INTERFACE
+    Best for shared base with partial implementation: ABSTRACT CLASS
+    Best for cross-cutting capability: INTERFACE
 
 13. Why add @Override on methods in subclasses/implementations?
 
+@Override allows for more specific responses for a subclass/implementation within it.
+
+
 14. What error occurs if a class declares implements Payment but omits process?
+
+It warns you the class is not abstract and does not override process().
+
 
 15. Write an abstract class Vehicle with abstract start() and concrete info(). Implement Car extends Vehicle.
 
+public class VehicleExercise {
+
+    abstract class Vehicle{
+        abstract void start();
+
+        void info(){
+            System.out.println("Display info.");
+        }
+    }
+    class Car extends Vehicle{
+        @Override
+        void start() {
+            System.out.println("Car starting...");
+        }
+    }
+
+    void main(String[] args){
+        Car c = new Car();
+        c.start();
+        c.info();
+    }
+
+}
+
+
+
 16. Add an interface GPS with navigate(). Make Car from #15 also implement GPS.
+
+public class VehicleExercise {
+
+    interface GPS {
+        void navigate();
+    }
+
+    abstract class Vehicle{
+        abstract void start();
+
+        void info(){
+            System.out.println("Display info.");
+        }
+    }
+    class Car extends Vehicle implements GPS{
+        @Override
+        void start() {
+            System.out.println("Car starting...");
+        }
+
+        @Override
+        public void navigate(){
+            System.out.println("Navigating to destination.");
+        }
+
+    }
+
+    void main(String[] args){
+        Car c = new Car();
+        c.start();
+        c.info();
+        c.navigate();
+    }
+
+}
+
 
 17. What will this print?
 
@@ -138,18 +254,68 @@ class Dog extends Animal { void sound(){ System.out.println("Bark"); } }
 Animal a = new Dog();
 a.sound();
 
+
+Bark
+
 18. Provide a one-line reason why you cannot instantiate new Animal() directly.
 
+Abstract classes cannot be instantiated directly, they serve as a base for sub-classes.
+
+!!! ASK SEAN !!!
 19. Write a functional interface Converter<F,T> with one abstract method T convert(F f).
 
+@FunctionalInterface
+public interface Converter<F,T>{
+	T convert(F f);
+
+}
+
+
+!!! ASK SEAN !!!
 20. Show a lambda using Converter<String,Integer> that parses an int.
+
+Converter<String, Integer> toInt = s -> Integer.parseInt(s);
+
 
 21. Marker interface: give one example in Java and what it “marks”.
 
+If a class implements the Serializable interface, it "marks" it with an ability to have its state saved into a file.
+
+!!! ASK SEAN !!!
 22. Add a static method to an interface Util named join(List<String>) that returns a single joined string with commas; call it without an instance.
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StringJoinerUtilExercise {
+
+    interface Util{
+        static String join(List<String> sInput){
+            return sInput +",";
+        }
+    }
+
+    void main(String[] args){
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Example");
+        String result = Util.join(stringList);
+        System.out.println(result);
+    }
+}
+
 
 23. True/False: Interfaces can have private helper methods (Java 9+).
 
+FALSE
+
+
 24. Design prompt: When would you pick an abstract base class and interfaces together? Give a 1–2 line scenario.
 
+It's a good idea to use abstract base classes and interfaces when the object you're trying to put together has an "is-a" relationship with a superclass and a "can-do" relationship with an interface.
+A car inherits from an abstract Vehicle class, which has driving and sound methods because a car "is-a" vehicle. The car can implement a GPS interface and horn interface for its methods, because the car object "can-do" navigation with the GPS and "can-do" a honk with the horn.
+
+
 25. Briefly explain why excessive tiny interfaces (“interface pollution”) can harm code readability.
+
+Too many small interfaces clutter the file structure and can muddy the waters on their purpose and usage.
+
