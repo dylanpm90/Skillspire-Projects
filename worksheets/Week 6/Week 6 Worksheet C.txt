@@ -2,40 +2,267 @@ Week 6 Worksheet C: Modeling Tesla’s Back-End with OOP Concepts
 
 1. Identify three top-level domains in a Tesla-like backend (e.g., Vehicles, Charging, Users).
 
+Vehicles, Users, Charging, Cloud
+
 2. Create an abstract Vehicle with fields vin, model, year and abstract diagnostics(). Provide a protected constructor.
+
+abstract class Vehicle { 
+    private String vin; 
+    private String model; 
+    private int year; 
+ 
+    Vehicle(String vin, String model, int year) { 
+        this.vin = vin; 
+        this.model = model; 
+        this.year = year; 
+    } 
+ 
+    public String getVin() { return vin; } 
+    public abstract void diagnostics(); 
+} 
+class TeslaCar extends Vehicle { 
+    private Battery battery; 
+    private SoftwareUpdate update; 
+ 
+    TeslaCar(String vin, String model, int year, Battery battery) { 
+        super(vin, model, year); 
+        this.battery = battery; 
+    } 
+ 
+    @Override 
+    protected void diagnostics() { 
+        System.out.println("Running diagnostics on Tesla " + getVin()); 
+        battery.healthCheck(); 
+    } 
+}
+
 
 3. Implement TeslaCar extends Vehicle with a composed Battery. Show constructor wiring and diagnostics() printing VIN and calling battery.healthCheck().
 
+class TeslaCar extends Vehicle { 
+    private Battery battery; 
+    private SoftwareUpdate update; 
+ 
+    TeslaCar(String vin, String model, int year, Battery battery) { 
+        super(vin, model, year); 
+        this.battery = battery; 
+    } 
+ 
+    @Override 
+    public void diagnostics() { 
+        System.out.println("Running diagnostics on Tesla " + getVin()); 
+        battery.healthCheck(); 
+    } 
+}
+
+
+
 4. Write a minimal Battery with fields capacity (kWh) and health (%), a constructor, and healthCheck() printing health.
+
+class Battery { 
+    private int capacity; // kWh 
+    private int health;   // % 
+ 
+    Battery(int capacity, int health) { 
+        this.capacity = capacity; 
+        this.health = health; 
+    } 
+ 
+    void healthCheck() { 
+        System.out.println("Battery health: " + health + "%"); 
+    } 
+ 
+    int getCapacity() { return capacity; } 
+} 
+
 
 5. Add an interface Updatable with installUpdate(String version). Implement SoftwareUpdate that stores the version and prints when installed.
 
+interface Updatable { 
+    void installUpdate(String version); 
+} 
+ 
+class SoftwareUpdate implements Updatable { 
+    private String version; 
+ 
+    public void installUpdate(String version) { 
+        this.version = version; 
+        System.out.println("Installing Tesla software update: " + version); 
+    } 
+} 
+
+
 6. Compose TeslaCar with a SoftwareUpdate field and call its installUpdate("2025.9"). Where would you call it (method name of your choice)?
+
+class TeslaCar extends Vehicle {
+private SoftwareUpdate update;
+
+// code block
+
+}
+
+void main(String[] args){
+	TeslaCar t1 = new TeslaCar(//args);
+	t1.installUpdate("2025.9")
+}
+
+You can call the install update method in main after creating your Tesla car object.
+
 
 7. Abstract User with fields name, email and abstract accessSystem(). Implement Driver and Technician with different prints.
 
+abstract class User { 
+    String name; 
+    String email; 
+ 
+    User(String name, String email) { 
+        this.name = name; 
+        this.email = email; 
+    } 
+ 
+    abstract void accessSystem(); 
+} 
+ 
+class Driver extends User { 
+    Driver(String name, String email) { super(name, email); } 
+ 
+    @Override 
+    void accessSystem() { 
+        System.out.println(name + " is driving with personalized settings."); 
+    } 
+} 
+ 
+class Technician extends User { 
+    Technician(String name, String email) { super(name, email); } 
+ 
+    @Override 
+    void accessSystem() { 
+        System.out.println(name + " is performing diagnostics."); 
+    } 
+}
+
 8. Show polymorphism by creating an array/list of User containing both Driver and Technician and iterating to call accessSystem().
 
+class UserManager{
+	private ArrayList<User> accessFleet = new ArrayList<>();
+	// add users - drivers or technician
+	for (User user : accessFleet) {
+		user.accessSystem();
+}
+
+}
 9. Build ChargingStation with location and a boolean available defaulting to true. Implement startCharging(TeslaCar) and stopCharging() such that only one car can charge at a time.
 
+class ChargingStation {
+String location;
+boolean available = true;
+
+if (available){
+	startCharging(teslaCar1);
+	available = false;
+} else {
+	stopCharging();
+	available = true;
+}
+
+}
+
+
 10. Why should ChargingStation.available be private? (1–2 lines on encapsulation.)
+	
+	Having available being public would open it to being altered, which would be physically unintuitive and also open up the battery to charging issues.
 
 11. Create a Payment interface with process(double amount). Implement CreditCardPayment and CryptoPayment.
 
+interface Payment { 
+    void process(double amount); 
+} 
+ 
+class CreditCardPayment implements Payment { 
+    public void process(double amount) { 
+        System.out.println("Processing credit card payment of $" + amount); 
+    } 
+} 
+ 
+class CryptoPayment implements Payment { 
+    public void process(double amount) { 
+        System.out.println("Processing crypto payment of $" + amount); 
+    } 
+} 
+
 12. Write a payForCharge(Payment p, double amount) method that works regardless of which payment type is passed. (Polymorphism.)
+
+public void payForCharge(Payment p, double amount){
+
+	p.process(double amount);
+}
+
 
 13. Create FleetManager that holds ArrayList<TeslaCar> fleet, with addCar(TeslaCar) and runDiagnostics() (iterate and call diagnostics() on each).
 
 14. Why is FleetManager using composition instead of inheritance?
 
+class FleetManager { 
+    private ArrayList<TeslaCar> fleet = new ArrayList<>(); 
+ 
+    void addCar(TeslaCar car) { 
+        fleet.add(car); 
+    } 
+ 
+    void runDiagnostics() { 
+        for (TeslaCar car : fleet) { 
+            car.diagnostics(); 
+        } 
+    } 
+} 
+
+
 15. Add a final getter getVin() to Vehicle and explain in one line why VIN should not be mutable.
+
+public String getVin() { return vin; }
+
+VIN is information assigned to a car at the time of its manufacture, not something which can be altered realistically. It can result in bad data and potentially misused.
+
 
 16. Write a Server class with region and active. Add start() only if active is true (print status).
 
+class Server{
+
+String region;
+boolean active;
+
+if(active){
+	start();
+	System.out.println("Start: " + active);
+}
+
+
+}
+
+
 17. Model a Telemetry class that logs trip distances for a TeslaCar. Would you use composition or inheritance? Implement a simple composition field and a log(double km) method.
 
+This would make more sense as a composition situation.
+
+interface Telemetry{
+	double log(double km);
+}
+
+class TeslaCar implements Telemetry {
+double km;
+
+log(double km);
+
+}
+
+
+
+!!!!!!!
 18. Add a PaymentFactory with a static of(String type) that returns a Payment. Show how to request "credit" or "crypto".
 
+
+
+!!!!!!!!!
 19. Show how to use a Comparator<TeslaCar> (lambda) to sort a fleet by year ascending.
 
 20. Given:
@@ -44,6 +271,9 @@ class SoftwareUpdate implements Updatable { /* ... */ }
 class OverTheAirUpdate extends SoftwareUpdate { /* ... */ }
 
 Explain how inheritance + interface together enable extensible update strategies.
+
+SoftwareUpdate can be updated, hence the "can-do" interface Updatable. OverTheAirUpdate "is-a" type of software update, so inheritance makes sense as "extends SoftwareUpdate".
+
 
 21. Add validation: Modify Battery so health is clamped to [0,100] inside the constructor (encapsulation).
 
