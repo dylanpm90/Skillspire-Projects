@@ -6,42 +6,28 @@ Vehicles, Users, Charging, Cloud
 
 2. Create an abstract Vehicle with fields vin, model, year and abstract diagnostics(). Provide a protected constructor.
 
-abstract class Vehicle { 
-    private String vin; 
-    private String model; 
-    private int year; 
- 
-    Vehicle(String vin, String model, int year) { 
-        this.vin = vin; 
-        this.model = model; 
-        this.year = year; 
-    } 
- 
-    public String getVin() { return vin; } 
-    public abstract void diagnostics(); 
-} 
-class TeslaCar extends Vehicle { 
-    private Battery battery; 
-    private SoftwareUpdate update; 
- 
-    TeslaCar(String vin, String model, int year, Battery battery) { 
-        super(vin, model, year); 
-        this.battery = battery; 
-    } 
- 
-    @Override 
-    protected void diagnostics() { 
-        System.out.println("Running diagnostics on Tesla " + getVin()); 
-        battery.healthCheck(); 
-    } 
-}
+abstract class Vehicle {
+    private final String vin;           // final: set once in the constructor, never changed
+    private String model;
+    private int year;
+
+    protected Vehicle(String vin, String model, int year) {   // protected: children and the same package can call it
+        this.vin = vin;
+        this.model = model;
+        this.year = year;
+    }
+
+    public String getVin() { return vin; }
+    public String getModel() { return model; }
+    public int getYear() { return year; }
+
+    public abstract void diagnostics();
 
 
 3. Implement TeslaCar extends Vehicle with a composed Battery. Show constructor wiring and diagnostics() printing VIN and calling battery.healthCheck().
 
 class TeslaCar extends Vehicle { 
     private Battery battery; 
-    private SoftwareUpdate update; 
  
     TeslaCar(String vin, String model, int year, Battery battery) { 
         super(vin, model, year); 
@@ -60,8 +46,8 @@ class TeslaCar extends Vehicle {
 4. Write a minimal Battery with fields capacity (kWh) and health (%), a constructor, and healthCheck() printing health.
 
 class Battery { 
-    private int capacity; // kWh 
-    private int health;   // % 
+    private int capacity; 
+    private int health;  
  
     Battery(int capacity, int health) { 
         this.capacity = capacity; 
@@ -95,18 +81,41 @@ class SoftwareUpdate implements Updatable {
 6. Compose TeslaCar with a SoftwareUpdate field and call its installUpdate("2025.9"). Where would you call it (method name of your choice)?
 
 class TeslaCar extends Vehicle {
-private SoftwareUpdate update;
+            private Battery battery;
+            private Updatable updater;         
+    TeslaCar(String vin, String model, int year, Battery battery) {
+        super(vin, model, year);        
+        this.battery = battery;
+        this.updater = new SoftwareUpdate();                                                  
+    }
 
-// code block
+    @Override
+    public void diagnostics() {
+        System.out.println("Running diagnostics on Tesla " + getVin());
+        battery.healthCheck();          
+    }
 
+    void updateSoftware(String version) {
+        updater.installUpdate(version);     }
+
+    @Override
+    public String toString() {
+        return getModel() + " " + getYear() + " (" + getVin() + ")";
+    }
 }
 
-void main(String[] args){
-	TeslaCar t1 = new TeslaCar(//args);
-	t1.installUpdate("2025.9")
+// include the other classes and interfaces
+
+public class TeslaVehicles {
+    public static void main(String[] args) {
+
+	TeslaCar tesla = new TeslaCar("VIN001", "Model 3", 2019, new Battery(75, 92));        
+
+	tesla.updateSoftware("2025.9");
+    }
 }
 
-You can call the install update method in main after creating your Tesla car object.
+You can call the install update method in main after creating your Tesla car object in main.
 
 
 7. Abstract User with fields name, email and abstract accessSystem(). Implement Driver and Technician with different prints.
@@ -143,28 +152,38 @@ class Technician extends User {
 
 8. Show polymorphism by creating an array/list of User containing both Driver and Technician and iterating to call accessSystem().
 
-class UserManager{
-	private ArrayList<User> accessFleet = new ArrayList<>();
-	// add users - drivers or technician
-	for (User user : accessFleet) {
-		user.accessSystem();
+//in main 
+
+ArrayList<User> users = new ArrayList<>();
+        users.add(new Driver("Alice", "alice@example.com"));
+        users.add(new Technician("Bob", "bob@example.com"));
+        for (User u : users) {
+            u.accessSystem();           
+        }
 }
 
-}
 9. Build ChargingStation with location and a boolean available defaulting to true. Implement startCharging(TeslaCar) and stopCharging() such that only one car can charge at a time.
 
 class ChargingStation {
-String location;
-boolean available = true;
+    private String location;
+    private boolean available = true;   // private: only startCharging and stopCharging change it
 
-if (available){
-	startCharging(teslaCar1);
-	available = false;
-} else {
-	stopCharging();
-	available = true;
-}
+    ChargingStation(String location) {
+        this.location = location;
+    }
 
+    void startCharging(TeslaCar car) {
+        if (available) {
+            System.out.println("Charging Tesla " + car.getVin() + " at " + location);
+            available = false;
+        } else {
+            System.out.println("Station busy at " + location);
+        }
+    }
+
+    void stopCharging() {
+        available = true;
+    }
 }
 
 
@@ -192,15 +211,13 @@ class CryptoPayment implements Payment {
 
 12. Write a payForCharge(Payment p, double amount) method that works regardless of which payment type is passed. (Polymorphism.)
 
-public void payForCharge(Payment p, double amount){
+void payForCharge(Payment p, double amount){
 
-	p.process(double amount);
+	p.process(amount);
 }
 
 
 13. Create FleetManager that holds ArrayList<TeslaCar> fleet, with addCar(TeslaCar) and runDiagnostics() (iterate and call diagnostics() on each).
-
-14. Why is FleetManager using composition instead of inheritance?
 
 class FleetManager { 
     private ArrayList<TeslaCar> fleet = new ArrayList<>(); 
@@ -215,6 +232,11 @@ class FleetManager {
         } 
     } 
 } 
+
+
+14. Why is FleetManager using composition instead of inheritance?
+
+The FleetManager has many cars, and is not a car.
 
 
 15. Add a final getter getVin() to Vehicle and explain in one line why VIN should not be mutable.
@@ -251,19 +273,22 @@ interface Telemetry{
 class TeslaCar implements Telemetry {
 double km;
 
-log(double km);
+void log(double km){
+// adds to log
+}
 
 }
 
 
-
-!!!!!!!
+!!!
 18. Add a PaymentFactory with a static of(String type) that returns a Payment. Show how to request "credit" or "crypto".
 
 
 
-!!!!!!!!!
 19. Show how to use a Comparator<TeslaCar> (lambda) to sort a fleet by year ascending.
+
+fleet.sort((a, b) -> Integer.compare(a.getYear(), b.getYear()));
+
 
 20. Given:
 
@@ -277,22 +302,138 @@ SoftwareUpdate can be updated, hence the "can-do" interface Updatable. OverTheAi
 
 21. Add validation: Modify Battery so health is clamped to [0,100] inside the constructor (encapsulation).
 
+Battery(int capacity, int health) {
+        this.capacity = capacity;
+        this.health = health;
+
+	if (health > 100 || health < 0){
+		System.out.println("Error: Invalid charge. Contact a technician.");	
+
+    }
+
 22. Write a toString() for TeslaCar that includes VIN, model, and year. State why toString() helps logging.
+
+@Override
+    public String toString() {
+        return getModel() + " " + getYear() + " (" + getVin() + ")";
+    }
+
+Modifying the print toString method helps with human readability. Otherwise, it will return unreadable memory location info.
 
 23. Where would you use an interface instead of inheritance in this domain to avoid deep trees? Give one concrete interface and two implementers.
 
+By using interfaces for updates and classes for aspects such as the battery, deep hierarchies can be avoided, since not everything will be inherited and then inherited again, instead, the vehicles will be composed with good specificity.
+
+
 24. Identify and fix the design smell:
 
-class ElectricCar extends Battery { /* ... */ }
+class ElectricCar {
+private Battery battery;
+
+ /* ... */ 
+}
+
+No inheritance necessary. The electric car has a battery, not is-a battery.
 
 25. Briefly describe a unit test you would write for ChargingStation.startCharging to verify exclusive access.
 
+The charging station could use some sort of vin verification to make sure the vehicle is compatible with the charger.
+
+
 26. Add a Schedule class (date/time, slot length) and compose it into ChargingStation. Which class should validate overlaps and why?
 
+class Schedule{
+	LocalDate date;
+	Localtime time;
+	int slotLength;
+	Schedule(LocalDate date, LocalTime time, int slotLength){
+		// calculates charge time	
+	}
+
+}
+
+class ChargingStation{
+    	private String location;
+   	private boolean available = true;
+	// grab information from TeslaCar objects for scheduling
+	Schedule schedule = new Schedule(LocalDate date, LocalTime time, int slotLength)	{
+	//...
+	}
+	//{...}
+
+}
+
+Comparing TeslaCar object scheduling information with Schedule information could help things run smoothly.
+
+
+
+!!!!!!
 27. Add a SecurityAudit class with method record(User u, String action); show calling it when Technician.accessSystem() runs diagnostics.
+
+class SecurityAudit{
+	void record(User u, String action) {
+	System.out.println(getName() + " is performing " + action + ".");
+}
+
+}
+
+class Technician extends User{
+SecurityAudit securityAudit = new SecurityAudit();    
+
+Technician(String name, String email) {
+        super(name, email);
+    }
+
+    @Override
+    void accessSystem(String name, String action) {
+        record(name, action);
+    }
+
+}
 
 28. Suppose we need to add ApplePayPayment. What must change with the interface-based design? (1–2 lines.)
 
+Not much other than make a new class which implments Payment and tailor it such that it uses ApplePay instead of Credit card or Crypto.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!
 29. Write an enum Region { US, EU, APAC } and update Server to use it. Why are enums better than free-form strings here?
 
+enum Region { US, EU, APAC }
+
+class Server{
+
+Region currentRegion = Region.US;
+String stringRegionName = " ";
+
+
+boolean active;
+
+switch(currentRegion) {
+	case US:
+		stringRegionName = "US";
+		break;
+	case EU:
+		stringRegionName = "EU";
+		break;
+	case APAC:
+		stringRegionName = "APAC";
+		break;
+
+}
+
+
+if(active){
+	start();
+	System.out.println("Start: " + active + " in " + stringRegionName);
+}
+
+}
+
+using enums and a switch statement can increase readbility and utility for the user and other programmers.
+
+
 30. Reflection: Choose one place where you “favored composition over inheritance” and justify the decision in 2–3 lines.
+
+In a game I'm making, I'm trying to implement composition over inheritance using state machines. Characters and enemies and the players can share states such as Idle, Jump or Running and I have classes which reflect as much. Rather than having Characters and the Player inherit all those capabilities from a larger abstract class (though that's useful in other situations, such as health or stamina or other stats), it's more practical to implement a state machine for all those abilities.
+
+
