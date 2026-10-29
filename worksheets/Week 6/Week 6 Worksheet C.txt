@@ -280,9 +280,21 @@ void log(double km){
 }
 
 
-!!!
+
 18. Add a PaymentFactory with a static of(String type) that returns a Payment. Show how to request "credit" or "crypto".
 
+public static PaymentFactory {
+
+	switch(type){
+		case "credit":
+		// use process from credit and print confirmation
+		break;
+		case "crypto":
+		// use process from crypto and print confirmation
+		break;
+}
+
+}
 
 
 19. Show how to use a Comparator<TeslaCar> (lambda) to sort a fleet by year ascending.
@@ -367,7 +379,7 @@ Comparing TeslaCar object scheduling information with Schedule information could
 
 
 
-!!!!!!
+
 27. Add a SecurityAudit class with method record(User u, String action); show calling it when Technician.accessSystem() runs diagnostics.
 
 class SecurityAudit{
@@ -395,7 +407,7 @@ Technician(String name, String email) {
 
 Not much other than make a new class which implments Payment and tailor it such that it uses ApplePay instead of Credit card or Crypto.
 
-!!!!!!!!!!!!!!!!!!!!!!!!!
+
 29. Write an enum Region { US, EU, APAC } and update Server to use it. Why are enums better than free-form strings here?
 
 enum Region { US, EU, APAC }

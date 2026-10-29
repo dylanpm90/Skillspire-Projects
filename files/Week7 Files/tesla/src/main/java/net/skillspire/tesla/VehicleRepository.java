@@ -52,13 +52,15 @@ public class VehicleRepository {
     //   b. return jdbcTemplate.update(sql, ...);                the values in the same order as the ?s
     //   c. delete the  return 0;  line.   Pattern: addVehicle above.
     public int updateVehicle(Vehicle v) {
-        return 0;   // placeholder until TODO 1: "0 rows changed"
+        String sql = "UPDATE vehicles SET model = ?, year = ? WHERE id = ?";
+        return jdbcTemplate.update(sql, v.getModel(), v.getYear(), v.getId()); // TODO 1: "0 rows changed"
     }
 
     // ===== DELETE =====
     // TODO 2: delete the car with this id. Same steps as TODO 1, with one ?.
     //   Careful: a DELETE without WHERE deletes every row.
     public int deleteVehicle(int id) {
-        return 0;   // placeholder until TODO 2
+        String sql = "DELETE FROM vehicles WHERE id = ?";
+        return jdbcTemplate.update(sql, id);
     }
 }
