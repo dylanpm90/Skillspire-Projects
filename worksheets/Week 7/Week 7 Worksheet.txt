@@ -1,0 +1,287 @@
+Week 7 Worksheet 
+
+Week 7 Worksheet: Spring JDBC — Transactions with Spring JDBC 
+
+Concepts & Basics 
+
+    In one sentence, define a database transaction and why it matters (use the bank transfer example). 
+
+
+
+
+    Expand ACID (A, C, I, D) and give a one-line explanation for each. 
+
+
+
+
+    In raw JDBC, which line disables auto-commit before a multi-statement unit of work? 
+
+
+
+
+    Why is manual commit/rollback in raw JDBC considered error-prone? Give two reasons. 
+
+
+
+
+    Fill in: Spring provides transaction management via __________ (manager), @____________ (annotation), and ____________Template (programmatic helper). 
+
+ 
+
+Spring Boot Setup 
+
+    True/False: If your project includes spring-boot-starter-jdbc, basic transaction infrastructure is auto-configured. 
+
+
+
+
+    Annotate a configuration class to enable proxies that interpret @Transactional. 
+
+
+
+
+@Configuration @Enable____________________ public class TxConfig {} 
+
+    Where should @Transactional typically live: controller, service, or repository layer? Why? 
+
+ 
+
+Declarative Transactions with @Transactional 
+
+    Consider: 
+
+@Service public class BankService { @Autowired JdbcTemplate jdbc; @Transactional public void transfer(long from, long to, double amt) { jdbc.update("UPDATE accounts SET balance = balance - ? WHERE id = ?", amt, from); if (amt > 1000) throw new RuntimeException("Amount too large!"); jdbc.update("UPDATE accounts SET balance = balance + ? WHERE id = ?", amt, to); } } 
+
+If amt = 1500, what happens to both accounts and why? 
+
+    Add rollback on checked exceptions to the method above (edit annotation only). 
+
+
+
+
+    True/False: By default, Spring rolls back on unchecked exceptions but not on checked ones. 
+
+
+
+
+    Convert the method in #9 to read-only = true. What optimization hint does that give to the platform? 
+
+ 
+
+Rollback Rules 
+
+    Write a @Transactional attribute that rolls back on any exception and never rolls back on IllegalArgumentException. 
+
+
+
+
+    Explain what happens if you catch an exception inside a @Transactional method and don’t rethrow it. Does rollback occur? 
+
+
+ 
+
+Propagation 
+
+    Fill in the blank with the default propagation: @Transactional(propagation = Propagation._________). 
+
+
+
+    What’s the effect of REQUIRES_NEW when called from within an existing transaction? 
+
+
+
+    Write a logger method that always runs in a new transaction: 
+
+@Transactional(propagation = Propagation._____________) public void audit(String msg) { /* insert log */ } 
+
+
+
+    Briefly describe NESTED. When might it be helpful? 
+
+ 
+
+
+Isolation 
+
+    Match isolation to anomaly prevented: 
+
+    READ_COMMITTED → prevents ______ reads 
+
+    REPEATABLE_READ → prevents ______-repeatable reads 
+
+    SERIALIZABLE → prevents ______ reads 
+
+    Annotate a method to run at the highest isolation level. 
+
+    Why is SERIALIZABLE often slower? One line. 
+
+ 
+
+Programmatic Transactions 
+
+    Fill in a TransactionTemplate example: 
+
+@Autowired TransactionTemplate txTemplate; @Autowired JdbcTemplate jdbc; public void pay(long id, double amt) { txTemplate.execute(status -> { jdbc.update("UPDATE users SET credits = credits - ? WHERE id = ?", amt, id); // more steps... return null; }); } 
+
+What advantage does this confer over manual conn.setAutoCommit(false)? 
+
+
+
+
+How would you mark for rollback using the status object inside the lambda? 
+
+ 
+
+
+
+Self-Invocation & Proxies 
+
+    True/False: Calling a @Transactional method from another method in the same class will apply the transaction semantics. 
+
+
+    Why/why not? (Explain the proxy-based mechanism in one or two lines.) 
+
+
+
+    Given this pitfall, provide a pattern to ensure transactions do apply for a helper method (hint: move to another bean or inject self-proxy). 
+
+ 
+
+Real-World Example — Charging Credits (Tesla) 
+
+    Predict outcome for this service: 
+
+@Service public class ChargingService { @Autowired JdbcTemplate jdbc; @Transactional public void processCharging(long userId, double cost) { jdbc.update("UPDATE users SET credits = credits - ? WHERE id = ?", cost, userId); if (cost > 500) throw new RuntimeException("Cost exceeds limit!"); jdbc.update("INSERT INTO charging_history(user_id, amount) VALUES (?, ?)", userId, cost); } } 
+
+If cost = 600, what is the final state of credits and charging_history, and why? 
+
+
+Modify the annotation so that checked exceptions also trigger rollback. 
+
+
+Add a separate audit method that should never affect the main transaction even on failure. Which propagation should it use and why? 
+
+ 
+
+
+Putting It Together 
+
+
+Complete the following service with proper imports and annotations to transfer money safely: 
+
+@Service public class BankService { private final JdbcTemplate jdbc; public BankService(JdbcTemplate jdbc){ this.jdbc = jdbc; } // annotate here public void transfer(long from, long to, double amount) { jdbc.update("UPDATE accounts SET balance = balance - ? WHERE id = ?", amount, from); // TODO: validate (throw if amount <= 0) jdbc.update("UPDATE accounts SET balance = balance + ? WHERE id = ?", amount, to); } } 
+
+
+Add a validation line that throws IllegalArgumentException if amount <= 0. With default rules, will this cause rollback? 
+
+
+
+Change the annotation so that IllegalArgumentException does not cause rollback. 
+
+ 
+
+Isolation Scenarios 
+
+
+Two concurrent transactions read and update the same row. With READ_COMMITTED, can a transaction see an uncommitted change? 
+
+
+
+Name an anomaly that REPEATABLE_READ prevents but READ_COMMITTED does not. 
+
+
+
+Give a case where SERIALIZABLE is worth the cost (1–2 lines). 
+
+ 
+
+Testing & Troubleshooting 
+
+    In an integration test with @SpringBootTest, how do you keep DB clean after each test automatically? (Annotation on test methods/class.) 
+
+
+
+    You catch an exception inside a @Transactional method and log it. The method returns normally. Later, you find partial updates. Explain what went wrong and how to fix. 
+
+
+
+    You call a transactional repository method from a service method without @Transactional. Does Spring still open a transaction? (Assume repository uses JdbcTemplate and the DB needs a transaction.) Explain. 
+
+ 
+
+Best Practices 
+
+    Choose the correct statements (T/F, briefly justify): 
+    a) Put @Transactional on repositories. 
+    b) Prefer @Transactional on service layer. 
+    c) Use programmatic transactions only for edge cases. 
+    d) Set readOnly = true for queries. 
+
+    State one reason to annotate interfaces (service interface) vs classes with @Transactional. When might annotation on the class be required? 
+
+ 
+
+Fill-in-the-Code Mini Tasks 
+
+    Rollback for checked: 
+
+@Transactional(rollbackFor = _______________.class) public void doWork() throws IOException { /* ... */ } 
+
+    Propagation nested: 
+
+@Transactional(propagation = Propagation.________) public void partialStep() { /* ... */ } 
+
+    Isolation level: 
+
+@Transactional(isolation = Isolation.__________) public void strictRead() { /* ... */ } 
+
+    Requires new: 
+
+@Transactional(propagation = Propagation.___________) public void audit(String msg) { /* insert */ } 
+
+    No rollback for: 
+
+@Transactional(noRollbackFor = { _________.class }) public void riskyButKeep() { /* ... */ } 
+
+ 
+
+Challenge (Design & Code) 
+
+    End-to-end flow: Build a mini TransferController with an endpoint /transfer?from=1&to=2&amount=... that calls BankService.transfer(...). Ensure: 
+
+
+
+    The controller has no transaction annotation. 
+
+
+
+    The service handles transactionality and validation. 
+
+
+
+    Add an AuditService.log(...) with REQUIRES_NEW that records success/failure independent of transfer outcome. 
+
+
+
+    Concurrent anomaly lab: Write two methods t1() and t2() that run concurrently against the same account row. Execute under READ_COMMITTED and REPEATABLE_READ, and log the different observations. Summarize your findings in 3–5 lines. 
+
+
+
+    Programmatic rollback: Using TransactionTemplate, show how to conditionally call status.setRollbackOnly() if a business rule fails after the first SQL update. 
+
+ 
+
+
+Reflection (1–2 lines each) 
+
+    What’s the biggest foot-gun you learned to avoid when using @Transactional? 
+
+
+
+    Which combination of propagation and isolation would you choose for a reporting query invoked from within a larger write transaction, and why? 
+
+
+
+
+
+
