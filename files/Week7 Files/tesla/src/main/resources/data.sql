@@ -11,5 +11,7 @@ INSERT INTO accounts (owner, balance)
 VALUES ('Alice', 2000);
 INSERT INTO accounts (owner, balance)
 VALUES ('Bob', 500);
+INSERT INTO accounts (owner, balance)
+VALUES ('Charlie', 3000);
 -- PREDICT: POST a fourth car and check /vehicles. Then stop the app and run it again.
 --          How many cars does /vehicles show now?

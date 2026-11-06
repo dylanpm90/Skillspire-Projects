@@ -9,14 +9,30 @@ public class Account {
     private String owner;
     private double balance;   // double to match the Week 7 Worksheet; real banks use BigDecimal
 
-    public Account() { }      // BeanPropertyRowMapper needs it
+    public Account() {
+    }      // BeanPropertyRowMapper needs it
 
-    public long getId() { return id; }
-    public void setId(long id) { this.id = id; }
+    public long getId() {
+        return id;
+    }
 
-    public String getOwner() { return owner; }
-    public void setOwner(String owner) { this.owner = owner; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public double getBalance() { return balance; }
-    public void setBalance(double balance) { this.balance = balance; }
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }

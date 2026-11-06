@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;   // for TODO 2
 public class BankService {
     private final JdbcTemplate jdbc;
     private final AuditService audit;
+
     // Same constructor injection as VehicleRepository (map step 3)
     public BankService(JdbcTemplate jdbc, AuditService audit) {
         this.jdbc = jdbc;
@@ -40,19 +41,19 @@ public class BankService {
     public void transfer(long from, long to, double amount) {
         String what = amount + " from " + from + " to " + to;
         try {
-        // UPDATE 1: take the money out of the first account
+            // UPDATE 1: take the money out of the first account
             jdbc.update("UPDATE accounts SET balance = balance - ? WHERE id = ?", amount, from);
 
-        // A simulated failure between the two UPDATEs (the worksheet's; it stands in for a crash)
-            if (amount > 1000) {
+            // A simulated failure between the two UPDATEs (the worksheet's; it stands in for a crash)
+            if (amount > 1500) {
                 throw new RuntimeException("Amount too large!");
             }
-        // * PREDICT (before TODO 2): send amount=1500. What do /accounts and /accounts/total show?
+            // * PREDICT (before TODO 2): send amount=1500. What do /accounts and /accounts/total show?
 
-        // TODO 1: UPDATE 2, put the money into the second account (copy UPDATE 1's pattern)
+            // TODO 1: UPDATE 2, put the money into the second account (copy UPDATE 1's pattern)
             jdbc.update("UPDATE accounts SET balance = balance + ? WHERE id = ?", amount, to);
             audit.log("OK " + what);
-        System.out.println("  transfer finished: " + amount + " from " + from + " to " + to);
+            System.out.println("  transfer finished: " + amount + " from " + from + " to " + to);
         } catch (RuntimeException e) {
             audit.log("FAILED " + what + ": " + e.getMessage());
             throw e;   // rethrow, or the transfer commits half-done
