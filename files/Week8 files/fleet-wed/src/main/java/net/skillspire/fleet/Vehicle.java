@@ -8,6 +8,7 @@ package net.skillspire.fleet;
 // Monday's entity, with two fields added: driver and stations.
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,8 @@ public class Vehicle {
     // TODO 2: replace @Transient with the many-to-many mapping. Copy the shape of LMS P4 (student_course):
     //         @ManyToMany(fetch = FetchType.LAZY), then a @JoinTable named vehicle_stations
     //         with join column vehicle_id and inverse join column station_id.
-    @ManyToMany(fetch = FetchType.LAZY)// until TODO 2: Hibernate ignores this field (no column, no table, nothing saved)
+    @ManyToMany(fetch = FetchType.LAZY)
+// until TODO 2: Hibernate ignores this field (no column, no table, nothing saved)
     @JoinTable(
             name = "vehicle_stations",
             joinColumns = @JoinColumn(name = "vehicle_id"),
@@ -56,19 +58,41 @@ public class Vehicle {
         stations.add(station);
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getModel() { return model; }
-    public void setModel(String model) { this.model = model; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
+    public String getModel() {
+        return model;
+    }
 
-    public Driver getDriver() { return driver; }
-    public void setDriver(Driver driver) { this.driver = driver; }
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-    public List<ChargingStation> getStations() { return stations; }
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public List<ChargingStation> getStations() {
+        return stations;
+    }
 
     @Override
     public String toString() {

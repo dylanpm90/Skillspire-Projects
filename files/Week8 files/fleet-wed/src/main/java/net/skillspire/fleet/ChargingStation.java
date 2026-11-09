@@ -25,8 +25,13 @@ public class ChargingStation {
         this.location = location;
     }
 
-    public Long getId() { return id; }
-    public String getLocation() { return location; }
+    public Long getId() {
+        return id;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 
     @Override
     public String toString() {
