@@ -1,0 +1,34 @@
+# Assignment 1: Implementing Repositories and Defining Queries
+
+**Topic:** Spring Data JPA — Repositories & Queries
+
+## Overview
+Build a small Spring Boot application backed by an in-memory (H2) or local database, and use Spring Data JPA repositories to perform CRUD operations and custom queries.
+
+## Instructions
+1. Create a Spring Boot project with `spring-boot-starter-data-jpa` and a database driver (H2 is fine for this assignment).
+2. Define a JPA entity called `Product` with fields: `id`, `name`, `category`, `price`, and `stockQuantity`.
+3. Create a `ProductRepository` interface that extends `JpaRepository<Product, Long>`.
+4. Implement the following using Spring Data JPA's query derivation and/or `@Query`:
+   - Find all products in a given category.
+   - Find all products with a price less than a given value.
+   - Find all products that are out of stock (`stockQuantity = 0`).
+   - A custom `@Query` (JPQL or native SQL) that returns the average price of products per category.
+5. Write a `CommandLineRunner` (or a simple test class) that saves at least 8 sample products and calls each of the methods above, printing the results to the console.
+
+## Requirements
+- Use method-name query derivation for at least 2 queries.
+- Use `@Query` for at least 1 custom query.
+- Include proper package structure: `entity`, `repository`, `runner`/`test`.
+
+## Submission
+Submit your project as a zipped folder or a link to a GitHub repository. Include a short `README.md` explaining what each query does.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| Entity correctly defined with JPA annotations | 20 |
+| Repository interface extends JpaRepository correctly | 15 |
+| Derived query methods work correctly | 25 |
+| Custom `@Query` works correctly | 25 |
+| Code runs without errors and output is clear | 15 |
