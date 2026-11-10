@@ -1,0 +1,35 @@
+# Assignment 2: Managing Entities and Relationships
+
+**Topic:** Spring Data JPA — Entity Relationships
+
+## Overview
+Extend your understanding of JPA by modeling relationships between entities and verifying that Hibernate persists and retrieves them correctly.
+
+## Instructions
+1. Using the same project (or a new one), create the following entities and relationships:
+   - `Customer` and `Order` — a **one-to-many** relationship (one customer has many orders).
+   - `Order` and `Product` — a **many-to-many** relationship (an order can contain many products, and a product can appear in many orders).
+   - `Customer` and `Address` — a **one-to-one** relationship.
+2. Correctly annotate each relationship with `@OneToMany`, `@ManyToOne`, `@ManyToMany`, and `@OneToOne`, choosing the appropriate owning side and `mappedBy` attributes.
+3. Configure at least one relationship with a `CascadeType` (e.g., cascading saves from `Customer` to `Address`).
+4. Set fetch types intentionally (e.g., `LAZY` for collections) and explain your choice in comments or the README.
+5. Write a runner/test that:
+   - Creates a customer with an address and at least 2 orders.
+   - Adds shared products across multiple orders.
+   - Retrieves the customer and prints their orders and each order's products, demonstrating that the relationships load correctly.
+
+## Requirements
+- All four relationship types (`@OneToMany`, `@ManyToOne`, `@ManyToMany`, `@OneToOne`) must be present and working.
+- Avoid infinite recursion in `toString()` or JSON serialization (use `@JsonManagedReference`/`@JsonBackReference` or DTOs if applicable).
+
+## Submission
+Submit your updated project (zip or GitHub link) with a README describing your entity relationship diagram (a simple text or hand-drawn diagram is fine).
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| One-to-many relationship correctly implemented | 20 |
+| Many-to-many relationship correctly implemented | 20 |
+| One-to-one relationship correctly implemented | 20 |
+| Correct use of cascade/fetch types with justification | 20 |
+| Demonstration code runs and prints correct related data | 20 |

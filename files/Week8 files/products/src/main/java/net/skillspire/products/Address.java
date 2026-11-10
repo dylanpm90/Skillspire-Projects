@@ -1,7 +1,9 @@
 package net.skillspire.products;
 
 import jakarta.persistence.*;
+
 // kinda acts like Profile from the wed code starter
+// one to one
 @Entity
 @Table(name = "addresses")
 public class Address {

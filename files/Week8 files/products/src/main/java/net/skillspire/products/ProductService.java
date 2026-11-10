@@ -1,13 +1,26 @@
 package net.skillspire.products;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
     private final ProductRepository repo;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "product_orders",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")
+    )
+    private List<Order> orders = new ArrayList<>();
 
     public ProductService(ProductRepository repo) {
         this.repo = repo;
@@ -37,6 +50,10 @@ public class ProductService {
         existing.setStockQuantity(changes.getStockQuantity());
 
         return repo.save(existing);
+    }
+
+    public List<Order> getOrders(){
+        return orders;
     }
 
     public boolean deleteProduct(Long id) {

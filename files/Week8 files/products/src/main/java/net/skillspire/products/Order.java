@@ -14,6 +14,10 @@ public class Order {
     private Long id;
     private String priority;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     @ManyToMany
     @JoinTable(
             name = "order_product",
@@ -36,8 +40,13 @@ public class Order {
         return priority;
     }
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
     @Override
     public String toString() {
-        return "Order Priority: " + priority;
+        return id + " | Customer: " + customer + "Order Priority: " + priority;
     }
 }

@@ -1,0 +1,4 @@
+09nov2026
+
+working on assignment 2 
+- get something to print with the runner class

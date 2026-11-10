@@ -24,15 +24,20 @@ public class Customer {
             fetch = FetchType.LAZY)
     List<Order> orders = new ArrayList<>();
 
-    public Customer(){
+    public Customer() {
     }
 
-    public Customer(String name, Address address){
+    public Customer(String name, Address address) {
         this.name = name;
         this.address = address;
     }
 
-    public Long getId(){
+    public void addOrder(Order order) {
+        orders.add(order);
+        order.setCustomer(this);
+    }
+
+    public Long getId() {
         return id;
     }
 
@@ -40,7 +45,7 @@ public class Customer {
         return name;
     }
 
-    public Address getAddress(){
+    public Address getAddress() {
         return address;
     }
 
@@ -49,7 +54,7 @@ public class Customer {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String newLine = System.getProperty("line.separator");
         return name + newLine +
                 "Address: " + newLine +
