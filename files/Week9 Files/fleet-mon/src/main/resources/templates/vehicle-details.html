@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- View for VehiclePageController.showVehicle(): the model holds "vehicle".
+     LMS MVC Design Pattern P6. The lesson's modelName and modelYear are model and year here. -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Details</title>
+</head>
+<body>
+    <p th:if="${message}" th:text="${message}"></p>
+
+    <h1 th:text="${vehicle.model}">Vehicle model</h1>
+    <p>Year: <span th:text="${vehicle.year}">2023</span></p>
+    <!-- TODO 1: show the vehicle's id, the same way as the year:  <p>Id: <span th:text="...">1</span></p> -->
+
+    <p><a th:href="@{/vehicles}">Back to the list</a></p>
+</body>
+</html>
