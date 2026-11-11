@@ -1,7 +1,8 @@
-findByCategory finds the product by category
+Customer to Address is a OneToOne relationship since a customer only has one address.
 
-findByPriceLessThan finds a product with a price less than a given price
+Customer to Order has a OneToMany relationship since customers can make multiple orders.
 
-findByStockQuantity finds a product by a product's quantity in stock.
+Order to Product has a ManyToMany relationship since many products can be on many orders and vice versa.
 
-findProductByName finds a product by the product's name.
+Order to Customer has a ManyToOne relationship because the customer can make multiple orders.
+

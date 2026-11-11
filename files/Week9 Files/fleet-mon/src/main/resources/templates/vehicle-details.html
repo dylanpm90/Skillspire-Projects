@@ -12,7 +12,7 @@
     <h1 th:text="${vehicle.model}">Vehicle model</h1>
     <p>Year: <span th:text="${vehicle.year}">2023</span></p>
     <!-- TODO 1: show the vehicle's id, the same way as the year:  <p>Id: <span th:text="...">1</span></p> -->
-
+    <p>Vehicle ID: <span th:text="${vehicle.id}">1</span></p>
     <p><a th:href="@{/vehicles}">Back to the list</a></p>
 </body>
 </html>

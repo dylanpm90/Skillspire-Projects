@@ -25,6 +25,10 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> products = new ArrayList<>();
 
+    public void addProduct(Product product){
+        products.add(product);
+    }
+
     public Order() {
     }
 
@@ -44,9 +48,12 @@ public class Order {
         this.customer = customer;
     }
 
-
     @Override
     public String toString() {
-        return id + " | Customer: " + customer + "Order Priority: " + priority;
+        String newLine = System.getProperty("line.separator");
+        return "ID: " + id + newLine +
+                "Order Priority: " + priority + newLine +
+                "Customer: " + customer + newLine +
+                "Products: " + products + newLine;
     }
 }

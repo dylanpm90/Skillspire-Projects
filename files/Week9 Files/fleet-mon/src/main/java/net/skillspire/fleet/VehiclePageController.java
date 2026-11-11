@@ -52,6 +52,16 @@ public class VehiclePageController {
     //         return "redirect:/vehicles";
     //         Then restart, add a Model X (2025), and refresh the list page.
 
+    @PostMapping
+    public String create(
+            @ModelAttribute("vehicle") Vehicle vehicle,
+            RedirectAttributes redirectAttributes) {
+
+        service.addVehicle(vehicle);
+        redirectAttributes.addFlashAttribute("message", "Vehicle added!");
+        return "redirect:/vehicles";
+    }
+
     // * SPOT THE BUG (after TODO 2): return "vehicle-list" instead of the redirect. Save a vehicle, then refresh the page.
 
     // ===== Section 4: a missing vehicle gets a friendly page, not a stack trace (Handling Requests P8) =====

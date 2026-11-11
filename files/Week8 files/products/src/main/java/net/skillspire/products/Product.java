@@ -74,11 +74,11 @@ public class Product {
     @Override
     public String toString() {
         String newLine = System.getProperty("line.separator");
-        return id + newLine +
+        return  newLine+
                 "| Name: " + name + newLine +
-                " | Category: " + category + newLine +
-                " | Price: " + price + newLine +
-                " | Qty: " + stockQuantity + newLine +
+                "| Category: " + category + newLine +
+                "| Price: " + price + newLine +
+                "| Qty: " + stockQuantity + newLine +
                 "________________________________" + newLine;
     }
 
