@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- View for VehiclePageController.showForm(): the model holds an empty "vehicle".
+     Submitting sends POST /vehicles with model=...&year=... (form fields, not JSON).
+     LMS Handling Requests and Responses P5. -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Vehicle</title>
+</head>
+<body>
+    <h1>Add Vehicle</h1>
+
+    <form th:action="@{/vehicles}" th:object="${vehicle}" method="post">
+        <!-- th:field="*{model}" sets name="model" and the current value: getModel() in, setModel() out -->
+        <label>Model:
+            <input th:field="*{model}" required>
+        </label>
+
+        <label>Year:
+            <input type="number" th:field="*{year}" required>
+        </label>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <p><a th:href="@{/vehicles}">Back to the list</a></p>
+</body>
+</html>
