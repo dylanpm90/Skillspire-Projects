@@ -1,0 +1,32 @@
+# Assignment 4: Handling Request Parameters and Path Variables
+
+**Topic:** Spring REST — Request Parameters & Path Variables
+
+## Overview
+Enhance your REST API to support flexible querying using path variables, query parameters, and request bodies together.
+
+## Instructions
+1. Extend your `ProductController` (or create a new `OrderController`) to add the following endpoints:
+   - `GET /api/products/{id}/category` — uses a **path variable** (`id`) to return just the category of a product.
+   - `GET /api/products/search?category={category}&maxPrice={maxPrice}` — uses **query/request parameters** (`@RequestParam`) to filter products, with `maxPrice` optional (provide a sensible default).
+   - `GET /api/customers/{customerId}/orders/{orderId}` — uses **multiple path variables** to fetch a specific order belonging to a specific customer, returning `404` if the order doesn't belong to that customer.
+   - `PATCH /api/products/{id}` — accepts a partial JSON body (`@RequestBody`) to update only the fields provided (e.g., only `price`).
+2. Validate incoming parameters (e.g., reject a negative `maxPrice` with a `400 Bad Request`).
+3. Use `@PathVariable` and `@RequestParam` explicitly and correctly, including optional parameters with `required = false` and `defaultValue`.
+
+## Requirements
+- At least one endpoint must combine a path variable and a query parameter in the same request.
+- Include input validation with an appropriate error response for at least one bad-input scenario.
+- Document each endpoint's parameters (name, type, required/optional) in your README.
+
+## Submission
+Submit your project (zip or GitHub link) with example requests (curl or Postman) demonstrating each endpoint, including at least one validation failure case.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| Path variable endpoint works correctly | 20 |
+| Query parameter endpoint (with optional param) works correctly | 25 |
+| Multi-path-variable endpoint works correctly, with correct 404 handling | 25 |
+| PATCH endpoint correctly updates partial data | 15 |
+| Input validation with appropriate error response | 15 |

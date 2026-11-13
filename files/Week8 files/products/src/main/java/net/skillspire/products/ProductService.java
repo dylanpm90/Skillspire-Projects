@@ -8,7 +8,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
 @Service
 public class ProductService {
@@ -63,4 +66,13 @@ public class ProductService {
         repo.deleteById(id);
         return true;
     }
+
+    public List<Product> search(String category){
+        if(category == null) {
+            throw new IllegalArgumentException("Cannot be null");
+        }
+        return repo.findByCategory(category);
+    }
+
+
 }

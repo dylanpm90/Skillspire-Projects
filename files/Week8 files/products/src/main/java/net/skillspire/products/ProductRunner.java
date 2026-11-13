@@ -28,52 +28,6 @@ public class ProductRunner implements CommandLineRunner {
     // create products
     @Override
     public void run(String... args) {
-        // orders
-
-        // products
-        productRepo.save(new Product(
-                "LoZ: Ocarina of Time",
-                "adventure",
-                69.99,
-                100));
-        productRepo.save(new Product(
-                "Elden Ring",
-                "adventure",
-                69.99,
-                50));
-        productRepo.save(new Product(
-                "The Last Spell",
-                "turn-based",
-                19.99,
-                20));
-        productRepo.save(new Product(
-                "Super Hot",
-                "first person shooter",
-                9.99,
-                5
-        ));
-        productRepo.save(new Product(
-                "Half Life 2",
-                "first person shooter",
-                9.99,
-                0));
-        productRepo.save(new Product(
-                "XCOM 2",
-                "turn-based",
-                15.99,
-                50));
-        productRepo.save(new Product(
-                "Disco Elysium",
-                "rpg",
-                4.99,
-                5));
-        productRepo.save(new Product(
-                "Skyrim",
-                "rpg",
-                24.99,
-                60
-        ));
-
         // customers
         Customer alice = new Customer(
                 "Alice",
@@ -101,5 +55,55 @@ public class ProductRunner implements CommandLineRunner {
                         "CA",
                         55555
                 ));
+        // products
+
+        Product legendOfZeldaOOT = productRepo.save(new Product(
+                "LoZ: Ocarina of Time",
+                "adventure",
+                69.99,
+                100));
+        Product eldenRing = productRepo.save(new Product(
+                "Elden Ring",
+                "adventure",
+                69.99,
+                50));
+        Product theLastSpell = productRepo.save(new Product(
+                "The Last Spell",
+                "turn-based",
+                19.99,
+                20));
+        Product superHot = productRepo.save(new Product(
+                "Super Hot",
+                "first person shooter",
+                9.99,
+                5
+        ));
+        Product halfLife2 = productRepo.save(new Product(
+                "Half Life 2",
+                "first person shooter",
+                9.99,
+                0));
+        Product xCom2 = productRepo.save(new Product(
+                "XCOM 2",
+                "turn-based",
+                15.99,
+                50));
+        Product discoElysium = productRepo.save(new Product(
+                "Disco Elysium",
+                "rpg",
+                4.99,
+                5));
+        Product skyrim = productRepo.save(new Product(
+                "Skyrim",
+                "rpg",
+                24.99,
+                60
+        ));
+        // orders
+        Order toAlice = new Order("High");
+        toAlice.setCustomer(alice);
+        toAlice.addProduct(legendOfZeldaOOT);
+        System.out.println(toAlice);
+
     }
 }
