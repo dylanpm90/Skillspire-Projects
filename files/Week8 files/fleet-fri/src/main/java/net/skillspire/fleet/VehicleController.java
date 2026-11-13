@@ -59,7 +59,14 @@ public class VehicleController {
     //         service.deleteVehicle(id) returns false -> 404 (notFound().build()),
     //                                          true  -> 204 (noContent().build()).
     //         Then restart, POST the Model X again (a restart wipes it), and DELETE /api/vehicles/4 twice.
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteVehicle(@PathVariable("id") Long id) {
+        if (service.deleteVehicle(id)){
+            return ResponseEntity.ok("Tesla vehicle " + id + " deleted.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     // ===== Section 3: an action, not CRUD (REST Controllers P8). Simulated: it changes nothing =====
     @PostMapping("/{id}/unlock")
     public ResponseEntity<String> unlock(@PathVariable("id") Long id) {
@@ -85,9 +92,10 @@ public class VehicleController {
     // TODO 2: make model optional:  @RequestParam(name = "model", required = false) String model
     //         add a second parameter:  @RequestParam(name = "minYear", defaultValue = "0") int minYear
     //         and return  service.search(model, minYear)  instead.
+
     @GetMapping("/search")
-    public List<Vehicle> search(@RequestParam("model") String model) {
-        return service.findByModel(model);
+    public List<Vehicle> search(@RequestParam(value = "model", required = false) String model, @RequestParam(value = "minYear", defaultValue = "0") int minYear){
+        return service.search(model, minYear);
     }
 
     // ===== Section 5: PATCH changes only what was sent (Params and Path Variables P6) =====

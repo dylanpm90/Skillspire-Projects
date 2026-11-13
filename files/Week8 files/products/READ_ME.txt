@@ -1,8 +1,10 @@
-Customer to Address is a OneToOne relationship since a customer only has one address.
+Mapped HTTP methods in the ProductController which delegates its work through ProductService.
 
-Customer to Order has a OneToMany relationship since customers can make multiple orders.
+Included in this file are methods for the following tasks:
+- get all products
+- get a product by its id
+- add/ post a new product
+- put/ update a product
+- delete a product by its id
 
-Order to Product has a ManyToMany relationship since many products can be on many orders and vice versa.
-
-Order to Customer has a ManyToOne relationship because the customer can make multiple orders.
-
+All methods have appropriate response codes and are separated from the service layer.

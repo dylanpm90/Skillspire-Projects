@@ -23,6 +23,7 @@ Extend your understanding of JPA by modeling relationships between entities and 
 - Avoid infinite recursion in `toString()` or JSON serialization (use `@JsonManagedReference`/`@JsonBackReference` or DTOs if applicable).
 
 ## Submission
+
 Submit your updated project (zip or GitHub link) with a README describing your entity relationship diagram (a simple text or hand-drawn diagram is fine).
 
 ## Grading Criteria (100 pts)
