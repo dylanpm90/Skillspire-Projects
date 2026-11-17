@@ -53,9 +53,24 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/search")
-    public List<Product> search(@RequestParam(value = "category", required = false) String category){
-        return service.search(category);
+    @GetMapping("/{id}/category")
+    public ResponseEntity<String> getProductCategory(@PathVariable("id") Long id){
+        String category = service.getProductCategory(id);
+
+        return ResponseEntity.ok(category);
     }
+
+
+    @GetMapping("/search")
+    public List<Product> search(@RequestParam(value = "category", required = false) String category, @RequestParam(name = "max price", defaultValue = "100") double maxPrice){
+        return service.search(category,maxPrice);
+    }
+
+    //`GET /api/products/search?category={category}&maxPrice={maxPrice}`
+    // — uses **query/request parameters**
+    // (`@RequestParam`) to filter products, with `maxPrice` optional
+    // (provide a sensible default).
+
+
 
 }

@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ProductService {
@@ -67,11 +68,27 @@ public class ProductService {
         return true;
     }
 
-    public List<Product> search(String category){
-        if(category == null) {
-            throw new IllegalArgumentException("Cannot be null");
+    public String getProductCategory(Long id) {
+        Product product = repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                "Product not found"
+        ));
+
+        return product.getCategory();
+    }
+
+
+    public List<Product> search(String category, double maxPrice){
+        checkMaxPrice(maxPrice);
+        if( category == null ) {
+            return repo.findByPriceLessThan(maxPrice);
         }
-        return repo.findByCategory(category);
+            return repo.findByCategoryAndPriceLessThan(category, maxPrice);
+    }
+
+    private void checkMaxPrice(double maxPrice){
+        if (maxPrice < 0){
+            throw new IllegalArgumentException("Max Price cannot be less than 0");
+        }
     }
 
 

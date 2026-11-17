@@ -42,6 +42,14 @@ class VehicleServiceTest {
     //         make repo.findById(99L) return Optional.empty(), then assertNull(service.getVehicle(99L)).
     // * PREDICT: delete the when(...) line. Does the test still pass? (What does an unstubbed mock return?)
 
+    @Test
+    void getVehicleReturnsNullWhenTheIdIsUnknown(){
+        when(repo.findById(99L)).thenReturn(Optional.empty());
+        assertNull(service.getVehicle(99L));
+        verify(repo).findById(99L);
+    }
+
+
     // ===== Section 2: Monday's teaser. PATCH keeps what wasn't sent =====
     @Test
     void patchKeepsTheModelWhenOnlyTheYearIsSent() {

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByCategory(String category);
+    List<Product> findByCategoryAndPriceLessThan(String category, double price);
 
     List<Product> findByPriceLessThan(double price);
 

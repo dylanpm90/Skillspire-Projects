@@ -103,7 +103,11 @@ public class ProductRunner implements CommandLineRunner {
         Order toAlice = new Order("High");
         toAlice.setCustomer(alice);
         toAlice.addProduct(legendOfZeldaOOT);
-        System.out.println(toAlice);
+        alice.addOrder(toAlice);
+        customerRepo.save(alice);
+        Long aliceID = toAlice.getId();
+        System.out.println(toAlice + " id:" + aliceID);
+
 
     }
 }
