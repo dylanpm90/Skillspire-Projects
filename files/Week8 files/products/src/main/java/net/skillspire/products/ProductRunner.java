@@ -4,6 +4,8 @@ package net.skillspire.products;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ProductRunner implements CommandLineRunner {
     private final ProductRepository productRepo;
@@ -29,32 +31,15 @@ public class ProductRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         // customers
-        Customer alice = new Customer(
-                "Alice",
-                new Address(
-                        "Alice",
-                        "123 Apple Blvd",
-                        "TX",
-                        78861
-                ));
+        Customer alice = new Customer("Alice");
 
         Customer bob = new Customer(
-                "Bob",
-                new Address(
-                        "Bob",
-                        "456 Baker St",
-                        "NY",
-                        10101
-                ));
+                "Bob"
+        );
 
         Customer charlie = new Customer(
-                "Charlie",
-                new Address(
-                        "Charlie",
-                        "789 Cobalt Ave",
-                        "CA",
-                        55555
-                ));
+                "Charlie"
+        );
         // products
 
         Product legendOfZeldaOOT = productRepo.save(new Product(
@@ -99,15 +84,19 @@ public class ProductRunner implements CommandLineRunner {
                 24.99,
                 60
         ));
-        // orders
-        Order toAlice = new Order("High");
-        toAlice.setCustomer(alice);
-        toAlice.addProduct(legendOfZeldaOOT);
+//         orders
+        Order toAlice = new Order();
+        toAlice.addProduct(skyrim);
+        customerService.addCustomer(alice);
         alice.addOrder(toAlice);
-        customerRepo.save(alice);
-        Long aliceID = toAlice.getId();
-        System.out.println(toAlice + " id:" + aliceID);
 
+        Order toBob = new Order();
+        Order toCharlie = new Order();
+
+
+
+        customerService.addCustomer(bob);
+        customerService.addCustomer(charlie);
 
     }
 }

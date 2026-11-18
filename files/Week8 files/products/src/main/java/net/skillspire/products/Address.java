@@ -11,7 +11,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
     private String streetAddress;
     private String stateResidence;
     private int zipCode;
@@ -20,11 +20,11 @@ public class Address {
     }
 
     public Address(
-            String name,
+
             String streetAddress,
             String stateResidence,
             int zipCode) {
-        this.name = name;
+
         this.streetAddress = streetAddress;
         this.stateResidence = stateResidence;
         this.zipCode = zipCode;
@@ -34,9 +34,9 @@ public class Address {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public String getStreetAddress() {
         return streetAddress;
@@ -53,8 +53,7 @@ public class Address {
     @Override
     public String toString() {
         String newLine = System.getProperty("line.separator");
-        return name + newLine +
-                streetAddress + newLine +
+        return  streetAddress + newLine +
                 stateResidence + newLine +
                 zipCode + newLine +
                 "________________________________" + newLine;

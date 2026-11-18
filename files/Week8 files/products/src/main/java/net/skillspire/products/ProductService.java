@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class ProductService {
     private final ProductRepository repo;
 
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "product_orders",
@@ -55,7 +56,6 @@ public class ProductService {
 
         return repo.save(existing);
     }
-
     public List<Order> getOrders(){
         return orders;
     }
@@ -90,6 +90,7 @@ public class ProductService {
             throw new IllegalArgumentException("Max Price cannot be less than 0");
         }
     }
+
 
 
 }

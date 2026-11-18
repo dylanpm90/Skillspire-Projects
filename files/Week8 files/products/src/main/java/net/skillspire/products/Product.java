@@ -75,11 +75,11 @@ public class Product {
     public String toString() {
         String newLine = System.getProperty("line.separator");
         return  newLine+
+                "| id: " + id + newLine +
                 "| Name: " + name + newLine +
                 "| Category: " + category + newLine +
                 "| Price: " + price + newLine +
                 "| Qty: " + stockQuantity + newLine +
-                "| id: " + id + newLine +
                 "________________________________" + newLine;
     }
 

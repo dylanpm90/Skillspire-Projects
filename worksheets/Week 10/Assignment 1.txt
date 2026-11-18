@@ -1,0 +1,46 @@
+# Assignment 1: Modeling Database Relationships with JPA
+
+**Topics Covered:** One-to-One, One-to-Many, and Many-to-Many Relationships · Mapping Relationships Using JPA Annotations
+
+## Overview
+Design a small relational data model for a **Library System** and implement it using Spring Data JPA, correctly applying each of the three major relationship types.
+
+## Instructions
+
+### Part 1: Understanding the Relationships
+1. Create a Spring Boot project with `spring-boot-starter-data-jpa` and H2 (or your preferred database).
+2. Design and diagram (in your README, text or image is fine) a schema with the following entities and relationships:
+   - `Author` ⟷ `Book`: **One-to-Many** (one author can write many books).
+   - `Book` ⟷ `Publisher`: **One-to-One** (each book has exactly one publisher record with details like `publisherName`, `contractDate`).
+   - `Book` ⟷ `Genre`: **Many-to-Many** (a book can belong to multiple genres, and a genre applies to multiple books).
+3. In your README, briefly explain (in your own words) why each relationship type was chosen for each pair of entities.
+
+### Part 2: Mapping with JPA Annotations
+4. Implement the entities using the correct annotations:
+   - `@OneToMany` / `@ManyToOne` for `Author`–`Book`, with the foreign key correctly owned by `Book`.
+   - `@OneToOne` for `Book`–`Publisher`, using `@JoinColumn` to control the foreign key placement.
+   - `@ManyToMany` for `Book`–`Genre`, using `@JoinTable` to explicitly name the join table and its columns.
+5. Set `mappedBy` correctly on the non-owning side of each relationship to avoid duplicate foreign keys or join tables.
+6. Choose and justify a `FetchType` (`LAZY` or `EAGER`) for each relationship in a code comment.
+7. Write a runner or test class that:
+   - Creates at least 2 authors, each with multiple books.
+   - Assigns a publisher to each book.
+   - Assigns overlapping genres across multiple books.
+   - Retrieves and prints an author's books, each book's publisher, and each book's genres.
+
+## Requirements
+- All three relationship types must be present, correctly annotated, and demonstrated working.
+- No duplicate join tables or foreign key columns caused by missing `mappedBy`.
+- Avoid infinite recursion when printing/serializing related entities.
+
+## Submission
+Submit your project (zip or GitHub link) with your README diagram and relationship justifications.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| One-to-many relationship correctly implemented and demonstrated | 25 |
+| One-to-one relationship correctly implemented and demonstrated | 25 |
+| Many-to-many relationship correctly implemented with `@JoinTable` | 25 |
+| Correct `mappedBy`/fetch type usage with justification | 15 |
+| README diagram and explanation of relationship choices | 10 |

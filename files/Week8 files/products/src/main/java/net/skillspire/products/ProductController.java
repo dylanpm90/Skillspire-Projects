@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/products")
 public class ProductController {
-    private final ProductService service;
+    private final ProductService productService;
 
-    public  ProductController(ProductService service){
-        this.service = service;
+    public  ProductController(ProductService productService){
+        this.productService = productService;
     }
 
     @GetMapping // get all products
     public List<Product>getAllProducts(){
-        return service.getAllProducts();
+        return productService.getAllProducts();
     }
 
     @GetMapping("/{id}") // get a product by its id
     public ResponseEntity<Product> getProductById(@PathVariable("id") Long id){
-        Product p = service.getProduct(id);
+        Product p = productService.getProduct(id);
         if (p == null){
             return ResponseEntity.notFound().build();
         }
@@ -32,13 +32,13 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<Product> addProduct(@RequestBody Product p){
-        Product saved = service.addProduct(p);
+        Product saved = productService.addProduct(p);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable("id") Long id, @RequestBody Product p){
-        Product updated = service.updateProduct(id, p);
+        Product updated = productService.updateProduct(id, p);
         if (updated == null){
             return ResponseEntity.notFound().build();
         }
@@ -47,7 +47,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable("id") Long id){
-        if(service.deleteProduct(id)){
+        if(productService.deleteProduct(id)){
             return ResponseEntity.ok("Product " + id + " deleted.");
         }
         return ResponseEntity.notFound().build();
@@ -55,22 +55,24 @@ public class ProductController {
 
     @GetMapping("/{id}/category")
     public ResponseEntity<String> getProductCategory(@PathVariable("id") Long id){
-        String category = service.getProductCategory(id);
+        String category = productService.getProductCategory(id);
 
         return ResponseEntity.ok(category);
-    }
-
-
-    @GetMapping("/search")
-    public List<Product> search(@RequestParam(value = "category", required = false) String category, @RequestParam(name = "max price", defaultValue = "100") double maxPrice){
-        return service.search(category,maxPrice);
     }
 
     //`GET /api/products/search?category={category}&maxPrice={maxPrice}`
     // — uses **query/request parameters**
     // (`@RequestParam`) to filter products, with `maxPrice` optional
     // (provide a sensible default).
+    @GetMapping("/search")
+    public List<Product> search(@RequestParam(value = "category", required = false) String category, @RequestParam(name = "max price", defaultValue = "100") double maxPrice){
+        return productService.search(category,maxPrice);
+    }
 
+//    @GetMapping("/customers/{customerId}")
+//    public ResponseEntity<Order>getOrder(@PathVariable("customer_id") Long customerId){
+//        return productService.getCustomer(customerId);
+//    }
 
 
 }

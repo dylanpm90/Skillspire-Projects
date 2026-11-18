@@ -19,6 +19,7 @@ public class Profile {
 
     // TODO 3: Mark this field as the other (inverse) side of the one-to-one.
     //         It adds no column: point it at the field name in Customer that owns the relationship.
+    @OneToOne(mappedBy = "profile")
     private Customer customer;
 
     protected Profile() {

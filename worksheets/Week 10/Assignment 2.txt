@@ -1,0 +1,41 @@
+# Assignment 2: Implementing Cross-Cutting Concerns with Spring AOP
+
+**Topics Covered:** Spring AOP Principles and Concepts · Implementing Cross-Cutting Concerns Using AOP
+
+## Overview
+Apply Aspect-Oriented Programming to a Spring application to handle logging, performance monitoring, and validation without cluttering business logic — demonstrating a real understanding of AOP concepts in practice.
+
+## Instructions
+
+### Part 1: AOP Principles and Concepts
+1. Add `spring-boot-starter-aop` to a Spring Boot project (you may reuse the Library System from Assignment 1, or your Task Manager app from Module 10).
+2. In your README, briefly define the following AOP concepts in your own words and identify one place in your own project where each applies:
+   - Aspect, Join Point, Advice, Pointcut, Weaving.
+   - The difference between `@Before`, `@After`, `@AfterReturning`, `@AfterThrowing`, and `@Around` advice.
+
+### Part 2: Implementing Cross-Cutting Concerns
+3. Create a `LoggingAspect` class annotated with `@Aspect` and `@Component` that:
+   - Uses `@Before` to log the method name and arguments every time a method in your service layer is called.
+   - Uses `@AfterReturning` to log the return value of service methods.
+   - Uses `@AfterThrowing` to log any exception thrown by a service method, including the exception message.
+4. Create a `PerformanceAspect` class that uses `@Around` advice to measure and log the execution time of each method in your repository layer.
+5. Create a `ValidationAspect` (or extend an existing one) that uses `@Before` advice to validate an incoming parameter before a method executes (e.g., reject a `null` or negative ID) and throws an `IllegalArgumentException` if invalid — without modifying the original service method's code.
+6. Define pointcut expressions using `@Pointcut` and reuse them across your advice methods rather than repeating the same expression string.
+
+## Requirements
+- At least 3 distinct aspects, each targeting a different concern (logging, performance, validation).
+- At least one use of each advice type: `@Before`, `@AfterReturning`, `@AfterThrowing`, `@Around`.
+- Reusable `@Pointcut` expressions (not copy-pasted execution strings in every advice).
+- Business logic in your service/repository classes must remain unchanged — all cross-cutting behavior lives in the aspects.
+
+## Submission
+Submit your project (zip or GitHub link) along with console output/logs showing the aspects firing during normal use and during a thrown exception.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| README explanation of AOP concepts, correctly applied to your project | 15 |
+| Logging aspect (`@Before`, `@AfterReturning`, `@AfterThrowing`) works correctly | 30 |
+| Performance aspect (`@Around`) correctly measures execution time | 25 |
+| Validation aspect correctly intercepts and rejects invalid input | 20 |
+| Reusable `@Pointcut` expressions used across advice | 10 |

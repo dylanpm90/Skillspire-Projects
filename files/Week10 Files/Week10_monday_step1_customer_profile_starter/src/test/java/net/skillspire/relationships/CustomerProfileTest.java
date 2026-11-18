@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -44,5 +46,22 @@ class CustomerProfileTest {
 
         assertThat(customers.findById(customerId)).isEmpty();
         assertThat(entityManager.find(Profile.class, profileId)).isNull();
+    }
+
+    @Test
+    void customerWithTwoOrdersReloadsBoth(){
+        Customer customer1 = new Customer(
+                "Grace", new Profile("456 Oak St", "555-0101"));
+        customer1.addOrder(new Order("keyboard", new BigDecimal(99.99)));
+        customer1.addOrder((new Order("mouse", new BigDecimal(28.99))));
+
+        Long id = customers.saveAndFlush(customer1).getId();
+        entityManager.clear();
+
+        Customer reloaded = customers.findById(id).orElseThrow();
+
+        assertThat(customer1.getOrders())
+                .extracting(Order::getProduct)
+                .containsExactlyInAnyOrder("keyboard", "mouse");
     }
 }

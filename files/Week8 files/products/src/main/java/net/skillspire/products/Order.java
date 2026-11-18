@@ -12,10 +12,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String priority;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Customer customer;
 
     @ManyToMany
@@ -25,25 +24,23 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> products = new ArrayList<>();
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         products.add(product);
     }
 
     public Order() {
     }
 
-    public Order(String priority) {
-        this.priority = priority;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    public void setId(Long id) { this.id = id; }
 
     public Long getId() {
         return id;
     }
 
-    public String getPriority() {
-        return priority;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void setCustomer(Customer customer) {
@@ -54,7 +51,6 @@ public class Order {
     public String toString() {
         String newLine = System.getProperty("line.separator");
         return "ID: " + id + newLine +
-                "Order Priority: " + priority + newLine +
                 "Customer: " + customer + newLine +
                 "Products: " + products + newLine;
     }
