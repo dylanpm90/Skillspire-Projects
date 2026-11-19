@@ -1,6 +1,7 @@
 package net.skillspire.products;
 
 
+import org.aspectj.weaver.ast.Or;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +28,7 @@ public class ProductRunner implements CommandLineRunner {
     }
 
 
-    // create products
+
     @Override
     public void run(String... args) {
         // customers
@@ -84,13 +85,33 @@ public class ProductRunner implements CommandLineRunner {
                 24.99,
                 60
         ));
-//         orders
+        // alice orders
         Order toAlice = new Order();
+        Order toAlice2 = new Order();
         toAlice.addProduct(skyrim);
+        toAlice2.addProduct(eldenRing);
         customerService.addCustomer(alice);
         alice.addOrder(toAlice);
+        alice.addOrder(toAlice2);
+        orderRepo.save(toAlice);
+        orderRepo.save(toAlice2);
 
+        // bob orders
         Order toBob = new Order();
+        Order toBob2 = new Order();
+        toBob.addProduct(superHot);
+        toBob.addProduct(theLastSpell);
+        toBob2.addProduct(skyrim);
+        toBob2.addProduct(discoElysium);
+        customerService.addCustomer(bob);
+        bob.addOrder(toBob);
+        bob.addOrder(toBob2);
+        orderRepo.save(toBob);
+        orderRepo.save(toBob2);
+        System.out.println(toAlice);
+
+
+
         Order toCharlie = new Order();
 
 

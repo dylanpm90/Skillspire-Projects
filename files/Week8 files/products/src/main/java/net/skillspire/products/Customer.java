@@ -19,9 +19,8 @@ public class Customer {
     @JoinColumn(name = "profile_id")
     private Address address;
 
-@OneToMany
-@JoinColumn(name = "order_id")
-List<Order> orders = new ArrayList<>();
+@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+private List<Order> orders = new ArrayList<>();
     public void addOrder(Order order) {
         orders.add(order);
     }
@@ -54,6 +53,11 @@ List<Order> orders = new ArrayList<>();
     public Address getAddress() {
         return address;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
 
     @Override
     public String toString() {

@@ -1,0 +1,5 @@
+# Created at 2026-11-18T15:53:44.182
+Boot Manifest-JAR contains absolute paths in classpath 'E:\Shared\Work\Skillspire\Courses\skillspire-prep\jcc\week10\Wednesday\code\JCC_Week10_Wednesday_demo\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

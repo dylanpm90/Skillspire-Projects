@@ -1,0 +1,12 @@
+net\skillspire\relationships\Course.class
+net\skillspire\relationships\RelationshipDemo.class
+net\skillspire\relationships\RelationshipsApplication.class
+net\skillspire\relationships\Student.class
+net\skillspire\relationships\Customer.class
+net\skillspire\relationships\StudentRepository.class
+net\skillspire\relationships\OrderProxyDemo.class
+net\skillspire\relationships\Profile.class
+net\skillspire\relationships\CourseRepository.class
+net\skillspire\relationships\CustomerRepository.class
+net\skillspire\relationships\OrderService.class
+net\skillspire\relationships\Order.class

@@ -56,9 +56,6 @@ public class ProductService {
 
         return repo.save(existing);
     }
-    public List<Order> getOrders(){
-        return orders;
-    }
 
     public boolean deleteProduct(Long id) {
         if (!repo.existsById(id)) {

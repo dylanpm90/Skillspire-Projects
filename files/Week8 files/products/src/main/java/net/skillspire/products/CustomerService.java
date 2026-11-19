@@ -3,7 +3,6 @@ package net.skillspire.products;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -25,22 +24,22 @@ public class CustomerService {
 
 
 
-//    @Transactional(readOnly = true)
-//    public void printCustomer(Long id) {
-//        Customer customer = customerRepo.findById(id).orElse(null);
-//        if (customer == null) {
-//            System.out.println("No customer " + id);
-//            return;
-//        }
-//        System.out.println(customer);
-//        if (customer.getOrders().isEmpty()) {
-//            System.out.println(" has no orders.");
-//        }
-//        for (Order o : customer.getOrders()) {
-//            System.out.println(" " + o + " | " + o.getPriority());
-//        }
-//
-//    }
+    @Transactional(readOnly = true)
+    public void printCustomer(Long id) {
+        Customer customer = customerRepo.findById(id).orElse(null);
+        if (customer == null) {
+            System.out.println("No customer " + id);
+            return;
+        }
+        System.out.println(customer);
+        if (customer.getOrders().isEmpty()) {
+            System.out.println(" has no orders.");
+        }
+        for (Order o : customer.getOrders()) {
+            System.out.println(" " + o + " | ");
+        }
+
+    }
 
     public List<Customer> getAllCustomers() {
         return customerRepo.findAll();
