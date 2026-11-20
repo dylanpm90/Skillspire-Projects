@@ -1,5 +1,6 @@
 package net.skillspire.products;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Profile {
     private String address;
     private String phone;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "profile")
     private Customer customer;
 

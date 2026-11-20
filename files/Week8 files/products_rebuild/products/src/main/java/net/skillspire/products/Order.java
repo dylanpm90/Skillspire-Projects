@@ -1,5 +1,6 @@
 package net.skillspire.products;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @ManyToMany
     @JoinTable(
@@ -22,6 +24,7 @@ public class Order {
         products.add(product);
     }
 
+    @JsonBackReference
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
@@ -49,11 +52,13 @@ public class Order {
         this.customer = customer;
     }
 
+    public Long getCustomerId() { return customer.getId(); }
+
     @Override
     public String toString() {
         String newLine = System.getProperty("line.separator");
         return "Order ID: " + id + newLine +
-                "Customer ID: " + customer.getId() + newLine +
+                "Customer ID: " + getCustomerId() + newLine +
                 "Customer Name: " + customer.getName() + newLine +
                 "Products: " + products + newLine;
     }

@@ -1,0 +1,44 @@
+Assignment 2
+
+**Topics Covered:** Introduction to Unit Testing Frameworks (JUnit and Mockito) · Testing Controllers, Services, and Repositories in Spring
+
+## Overview
+Write a thorough unit test suite for a Spring application using JUnit 5 and Mockito, covering the repository, service, and controller layers.
+
+## Instructions
+
+### Part 1: Unit Testing Fundamentals
+1. Using the Task Manager app from Assignment 1 (or a similar Spring project provided by your instructor), add `spring-boot-starter-test` to your dependencies if not already present.
+2. Write a plain JUnit 5 test class (no Spring context needed) for at least one utility or helper method (e.g., a method that checks if a task is overdue based on `dueDate`). Demonstrate:
+   - At least 3 `@Test` methods covering normal, edge, and invalid cases.
+   - Use of `assertEquals`, `assertTrue`/`assertFalse`, and `assertThrows`.
+   - Use of `@BeforeEach` to set up shared test data.
+
+### Part 2: Testing Controllers, Services, and Repositories
+3. **Repository layer:** Write a test using `@DataJpaTest` that verifies at least 2 custom repository query methods return the correct results.
+4. **Service layer:** Write a test for your `TaskService` using Mockito:
+   - Mock the repository dependency with `@Mock` and inject it with `@InjectMocks`.
+   - Use `when(...).thenReturn(...)` to stub repository behavior.
+   - Verify at least one interaction using `verify(...)`.
+   - Cover at least one "not found" scenario (e.g., updating a task that doesn't exist throws an exception).
+5. **Controller layer:** Write a test for `TaskController` using `@WebMvcTest` and `MockMvc`:
+   - Mock the service layer with `@MockitoBean`.
+   - Test a `GET` request returns the expected view/status and model attributes.
+   - Test a `POST` request (form submission) results in the correct redirect.
+
+## Requirements
+- At least 10 total test methods across all three layers.
+- Tests must be independent (no test depends on another test's execution order or side effects).
+- All tests must pass when run with `mvn test` (or your build tool's equivalent).
+
+## Submission
+Submit your project (zip or GitHub link) including all test classes, plus a short README summarizing what each test class covers and a screenshot of your test run results (all green).
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| Plain JUnit tests (assertions, edge cases, `@BeforeEach`) | 15 |
+| Repository layer test with `@DataJpaTest` | 20 |
+| Service layer test with Mockito mocking and verification | 25 |
+| Controller layer test with `MockMvc` and `@MockitoBean` | 25 |
+| All tests pass; tests are independent and well-organized | 15 |

@@ -1,0 +1,44 @@
+Assignment 1
+
+**Topics Covered:** MVC Design Pattern and Its Components · Handling Requests and Responses in Spring MVC
+
+## Overview
+Design and build a Spring MVC web application that demonstrates a clear separation of concerns across the Model, View, and Controller layers, and that correctly handles a variety of HTTP requests and responses.
+
+## Instructions
+
+### Part 1: MVC Architecture
+1. Create a Spring Boot project with `spring-boot-starter-web` and a template engine (Thymeleaf recommended).
+2. Build a simple **Task Manager** app with the following MVC components:
+   - **Model:** A `Task` class with fields `id`, `title`, `description`, `dueDate`, and `completed`.
+   - **View:** At least 3 views (e.g., a task list page, a task detail page, and an add/edit task form) using Thymeleaf templates.
+   - **Controller:** A `TaskController` that connects the model and views.
+3. In your README, briefly explain (3–5 sentences) how your project's folder structure and classes map to the Model, View, and Controller components of the MVC pattern.
+
+### Part 2: Handling Requests and Responses
+4. Implement the following request-handling behaviors in `TaskController`:
+   - Display a list of all tasks (`GET`).
+   - Display a form to add a new task (`GET`) and process its submission (`POST`), redirecting back to the list on success.
+   - Display a form to edit an existing task, pre-populated with its current data, and process the update.
+   - Delete a task and redirect back to the list.
+5. Use `@ModelAttribute` to bind form data to your `Task` object.
+6. Use `RedirectAttributes` to show a one-time success message (e.g., "Task added!") after a redirect.
+7. Handle at least one invalid request gracefully (e.g., editing a task ID that doesn't exist) by showing a friendly error view instead of a stack trace.
+
+## Requirements
+- Clear separation of Model, View, and Controller code (no business logic in the templates).
+- All four CRUD actions (create, read, update, delete) must work end-to-end through the browser.
+- At least one use of `@ModelAttribute`, `@RequestParam`, and `@PathVariable` each, used where appropriate.
+
+## Submission
+Submit your project as a zipped folder or a link to a GitHub repository, along with a short screen recording or screenshots showing each feature working in the browser.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| Correct MVC separation and README explanation | 15 |
+| List/view page correctly displays data | 15 |
+| Create (form + POST) works correctly | 20 |
+| Update (pre-filled form + POST) works correctly | 20 |
+| Delete works correctly with redirect | 15 |
+| Graceful handling of an invalid request | 15 |

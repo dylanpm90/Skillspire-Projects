@@ -24,6 +24,7 @@ public class ProductController {
         Product product = productService.getProduct(product_id);
         if (product == null) {
             return ResponseEntity.notFound().build();
+
         }
         return ResponseEntity.ok(product);
     }
@@ -46,14 +47,25 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable("id") Long product_id,
-                                                 @RequestBody Product product){
-        Product updated = productService.updateProduct(product_id, product);
-        if (updated == null){
+//    @PutMapping("{id}")
+//    public ResponseEntity<Product> updateProduct(@PathVariable("id") Long product_id,
+//                                                 @RequestBody Product product){
+//        Product updated = productService.updateProduct(product_id, product);
+//        if (updated == null){
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(updated);
+//    }
+
+    @PutMapping("{id}/price")
+    public ResponseEntity<Product> updateProductPrice(@PathVariable("id") Long product_id,
+                                                      @RequestBody Product product,
+                                                      @RequestParam(name = "new price", defaultValue = "4.99") double newPrice){
+        Product productUpdatePrice = productService.updateProductPrice(product_id, newPrice, product);
+        if (productUpdatePrice == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(updated);
+        return ResponseEntity.ok(productUpdatePrice);
     }
 
     @DeleteMapping("/{id}")

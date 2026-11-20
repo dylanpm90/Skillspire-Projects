@@ -37,12 +37,19 @@ public class CustomerController {
     }
 
     @GetMapping("/{customer_id}/orders/{order_id}")
-    public ResponseEntity<Order> getCustomerOrderById(@PathVariable("id") Long customer_id,
-                                                      @PathVariable("id") Long order_id){
+    public ResponseEntity<Order> getCustomerOrderById(@PathVariable("customer_id") Long customer_id,
+                                                      @PathVariable("order_id") Long order_id){
         Order order = customerService.getCustomerOrderById(order_id);
         if (order == null){
             return ResponseEntity.notFound().build();
         }
+
+        Long targetOrderCustomerId = order.getCustomerId();
+
+        if (targetOrderCustomerId != customer_id){
+            return ResponseEntity.notFound().build();
+        }
+
         return ResponseEntity.ok(order);
 
     }

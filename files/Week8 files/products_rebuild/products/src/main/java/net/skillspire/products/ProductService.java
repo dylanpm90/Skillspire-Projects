@@ -54,6 +54,19 @@ public class ProductService {
         return productRepo.save(existing);
     }
 
+    public Product updateProductPrice(Long id, double newPrice, Product changes){
+        Product existing = productRepo.findById(id).orElse(null);
+        checkNewPrice(newPrice);
+
+        if (existing == null){
+            return null;
+        }
+        existing.setPrice(newPrice);
+
+        return productRepo.save(existing);
+
+    }
+
     public boolean deleteProduct(Long id) {
         if (!productRepo.existsById(id)) {
             return false;
@@ -71,17 +84,17 @@ public class ProductService {
     }
 
 
-    public List<Product> search(String category, double maxPrice){
-        checkMaxPrice(maxPrice);
+    public List<Product> search(String category, double newPrice){
+        checkNewPrice(newPrice);
         if( category == null ) {
-            return productRepo.findByPriceLessThan(maxPrice);
+            return productRepo.findByPriceLessThan(newPrice);
         }
-        return productRepo.findByCategoryAndPriceLessThan(category, maxPrice);
+        return productRepo.findByCategoryAndPriceLessThan(category, newPrice);
     }
 
-    private void checkMaxPrice(double maxPrice){
-        if (maxPrice < 0){
-            throw new IllegalArgumentException("Max Price cannot be less than 0");
+    private void checkNewPrice(double newPrice){
+        if (newPrice < 0){
+            throw new IllegalArgumentException("Price cannot be less than 0");
         }
     }
 

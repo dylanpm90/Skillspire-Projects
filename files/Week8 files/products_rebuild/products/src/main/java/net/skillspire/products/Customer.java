@@ -1,5 +1,6 @@
 package net.skillspire.products;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Customer {
     @JoinColumn(name = "profile_id", nullable = false, unique = true)
     private Profile profile;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
@@ -34,6 +36,7 @@ public class Customer {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public Long getId() {
         return id;

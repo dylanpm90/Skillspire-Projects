@@ -1,0 +1,24 @@
+READ ME
+
+The products app has the following endpoints:
+
+Under the Product folder:
+GET - getAllProducts - this endpoint gets all the saved products in the product repo
+GET - getProductById - gets the product by the id saved in the repo
+GET - getProductCategory - gets the category of a product by its product id
+GET - search - searches for products by category and by max price
+
+POST - addProduct - allows the user to add a product to the product repo
+
+PUT - updateProductPrice - allows the user to update the price of a product but not below zero
+
+DELETE - deleteProduct - deletes a product from the product repo according to its id
+
+Customer:
+GET - getAllCustomers - lists all the recorded customers in the customer repo
+GET - getCustomerById - gets a customers by its Id
+GET - getCustomerOrderById - requests customer id and order id and fetches that order only if the customers id is associated with the order.
+
+Order:
+GET - getAllOrders - lists all the recorded orders in the order repo
+GET - getOrderById - gets an order by its id.
