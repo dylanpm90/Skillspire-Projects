@@ -27,7 +27,10 @@ public class LoggingAspect {
     // Print "Returned: " followed by the result. Keep this aspect a Spring bean.
 
     // TODO: Add @AfterThrowing with pointcut = "placeOrderCall()" and throwing = "ex".
-
+    @AfterThrowing(pointcut = "placeOrderCall()", throwing = "ex")
+    public void logAfterThrowing(IllegalArgumentException ex) {
+        System.out.println("Threw-up: " + ex.getMessage());
+    }
 
     // Accept IllegalArgumentException ex and print "Threw: " followed by ex.getMessage().
     // Observe the exception; do not catch it or change the service's return value.

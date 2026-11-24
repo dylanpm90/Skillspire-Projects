@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- View for VehiclePageController.list(): the model holds "vehicles" (and "message" after a redirect).
+     LMS Handling Requests and Responses P6. -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicles</title>
+</head>
+<body>
+    <h1>Vehicles</h1>
+
+    <!-- the flash message: shown once, right after a redirect -->
+    <p th:if="${message}" th:text="${message}"></p>
+
+    <ul>
+        <!-- one <li> per vehicle in the list (a loop, in HTML) -->
+        <li th:each="vehicle : ${vehicles}">
+            <a th:href="@{/vehicles/{id}(id=${vehicle.id})}"
+               th:text="${vehicle.model}">Vehicle</a>
+            (<span th:text="${vehicle.year}">2023</span>)
+        </li>
+    </ul>
+
+    <a th:href="@{/vehicles/new}">Add vehicle</a>
+</body>
+</html>

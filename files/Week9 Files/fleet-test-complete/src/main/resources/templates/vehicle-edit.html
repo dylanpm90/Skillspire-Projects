@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- LAB REFERENCE (Assignment 1's update). View for VehiclePageController.showEditForm():
+     the same form, pre-filled with the vehicle's current values, posting to /vehicles/{id}/edit. -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Vehicle</title>
+</head>
+<body>
+    <h1>Edit Vehicle</h1>
+
+    <form th:action="@{/vehicles/{id}/edit(id=${vehicle.id})}" th:object="${vehicle}" method="post">
+        <label>Model:
+            <input th:field="*{model}" required>
+        </label>
+
+        <label>Year:
+            <input type="number" th:field="*{year}" required>
+        </label>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <p><a th:href="@{/vehicles/{id}(id=${vehicle.id})}">Cancel</a></p>
+</body>
+</html>
