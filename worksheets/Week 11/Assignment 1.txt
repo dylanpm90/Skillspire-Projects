@@ -1,0 +1,43 @@
+Assignment 1
+
+**Topic Covered:** Writing Parameterized Tests and Testing Exceptions
+
+## Overview
+Extend your unit testing skills by writing parameterized tests that run the same logic across multiple inputs, and by rigorously testing how your application handles error conditions.
+
+## Instructions
+
+### Part 1: Parameterized Tests
+1. Using an existing Spring project (e.g., your Task Manager or Library System from a previous module), add `org.junit.jupiter:junit-jupiter-params` if it isn't already included with `spring-boot-starter-test`.
+2. Choose a method with input-dependent branching logic (e.g., a method that categorizes a task as "overdue," "due soon," or "on track" based on its due date, or a method that validates a price/stock value).
+3. Write parameterized tests using:
+   - `@ParameterizedTest` with `@ValueSource` to test a single-parameter method against multiple simple inputs.
+   - `@ParameterizedTest` with `@CsvSource` to test a multi-parameter method against several input/expected-output pairs.
+   - `@ParameterizedTest` with `@MethodSource` for at least one case where the test data is too complex for `@CsvSource` (e.g., objects, not just primitives).
+4. Include at least 5 total input cases across your parameterized tests, covering normal, boundary, and edge values.
+
+### Part 2: Testing Exceptions
+5. Identify (or add) at least 2 methods in your service layer that should throw exceptions under invalid conditions (e.g., updating a non-existent record throws a `NoSuchElementException`, or creating a task with a `null` title throws an `IllegalArgumentException`).
+6. Write tests using `assertThrows` to verify:
+   - The correct exception type is thrown.
+   - The exception message matches what you expect.
+7. Write at least one test using `assertDoesNotThrow` to confirm that valid input does **not** trigger an exception.
+8. If your project uses a custom exception class, write a dedicated test class for it verifying its constructors and message behavior.
+
+## Requirements
+- At least 3 parameterized test methods using at least two different source annotations (`@ValueSource`, `@CsvSource`, `@MethodSource`).
+- At least 2 exception-focused tests using `assertThrows`, and 1 using `assertDoesNotThrow`.
+- All tests must have clear, descriptive names (e.g., using `@DisplayName` or descriptive method names) explaining what each test verifies.
+
+## Submission
+Submit your project (zip or GitHub link) including all test classes, plus a screenshot of your test run results (all green) and a short README summarizing which methods you tested and why you chose those input cases.
+
+## Grading Criteria (100 pts)
+| Criteria | Points |
+|---|---|
+| `@ValueSource` parameterized test correctly implemented | 15 |
+| `@CsvSource` parameterized test correctly implemented | 20 |
+| `@MethodSource` parameterized test correctly implemented | 20 |
+| Exception tests with `assertThrows` (type + message verified) | 25 |
+| `assertDoesNotThrow` test for valid input | 10 |
+| Clear test naming/documentation and all tests pass | 10 |
