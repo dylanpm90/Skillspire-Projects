@@ -8,19 +8,21 @@ Write a thorough unit test suite for a Spring application using JUnit 5 and Mock
 ## Instructions
 
 ### Part 1: Unit Testing Fundamentals
-1. Using the Task Manager app from Assignment 1 (or a similar Spring project provided by your instructor), add `spring-boot-starter-test` to your dependencies if not already present.
-2. Write a plain JUnit 5 test class (no Spring context needed) for at least one utility or helper method (e.g., a method that checks if a task is overdue based on `dueDate`). Demonstrate:
+GOOD - 1. Using the Task Manager app from Assignment 1 (or a similar Spring project provided by your instructor), add `spring-boot-starter-test` to your dependencies if not already present.
+GOOD - 2. Write a plain JUnit 5 test class (no Spring context needed) for at least one utility or helper method (e.g., a method that checks if a task is overdue based on `dueDate`). Demonstrate:
    - At least 3 `@Test` methods covering normal, edge, and invalid cases.
    - Use of `assertEquals`, `assertTrue`/`assertFalse`, and `assertThrows`.
    - Use of `@BeforeEach` to set up shared test data.
 
 ### Part 2: Testing Controllers, Services, and Repositories
-3. **Repository layer:** Write a test using `@DataJpaTest` that verifies at least 2 custom repository query methods return the correct results.
-4. **Service layer:** Write a test for your `TaskService` using Mockito:
+GOOD - 3. **Repository layer:** Write a test using `@DataJpaTest` that verifies at least 2 custom repository query methods return the correct results.
+CONTINUE HERE - 4. **Service layer:** Write a test for your `TaskService` using Mockito:
    - Mock the repository dependency with `@Mock` and inject it with `@InjectMocks`.
    - Use `when(...).thenReturn(...)` to stub repository behavior.
    - Verify at least one interaction using `verify(...)`.
    - Cover at least one "not found" scenario (e.g., updating a task that doesn't exist throws an exception).
+
+******** ISSUES WITH POST TEST **********
 5. **Controller layer:** Write a test for `TaskController` using `@WebMvcTest` and `MockMvc`:
    - Mock the service layer with `@MockitoBean`.
    - Test a `GET` request returns the expected view/status and model attributes.
