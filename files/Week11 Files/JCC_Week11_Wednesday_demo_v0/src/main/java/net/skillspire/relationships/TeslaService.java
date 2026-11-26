@@ -27,7 +27,7 @@ public class TeslaService {
         // TODO 4: Write rejectsNegativeEnergy and rejectsNonpositiveRate, run red,
         // then reject kwh < 0 and centsPerKwh <= 0 before returning the product.
         // Messages: "Energy must not be negative" and "Rate must be positive".
-        
+
 
         return 0; // Intentional starting behavior, not the completed calculation.
     }
